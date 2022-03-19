@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 10.3</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Crea una página que consiga mostrar la siguiente figura.</h1>
+
+	<canvas id="lienzo" width="400" height="400"></canvas>
+
+	<script type="text/javascript">
+		const lienzo = document.getElementById("lienzo");
+		const contexto = lienzo.getContext("2d");
+		contexto.fillStyle = "black";
+		contexto.fillRect(100, 100, 200, 200);
+		contexto.fillStyle = "white";
+		contexto.fillRect(130, 130, 140, 140);
+		contexto.lineWidth = 2;
+		contexto.strokeStyle = "black";
+		contexto.strokeRect(140, 140, 120, 120);
+
+		/*
+		Otra forma:
+		contexto.fillRect(100, 100, 200, 200);
+    	contexto.clearRect(130, 130, 140, 140);
+    	contexto.strokeRect(140, 140, 120, 120);
+		*/
+	</script>
+</body>
+</html>

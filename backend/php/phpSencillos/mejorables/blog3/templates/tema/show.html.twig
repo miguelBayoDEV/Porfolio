@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tema{% endblock %}
+
+{% block body %}
+    
+    <h1>{{tema.foro.titulo}}|{{ tema.titulo }}</h1>
+    <p>{{ tema.descripcion }}</p>
+
+    <button><a href="/hilo/new/{{ tema.id }}">Crear respuesta</a></button>
+
+    {% for hilo in tema.hilos %}
+        {% if hilo.user.banear == false or is_granted("ROLE_ADMIN") %}
+            <div id="padre">
+                <div id="user">
+                    {% if is_granted("ROLE_ADMIN") %}
+                        {% if hilo.user.banear == true %}
+                            <button><a href="{{ path('banear', {'tema': tema.id, 'id': hilo.user.id}) }}">No banear user</a></button>
+                        {% else %}
+                            <button><a href="{{ path('banear', {'tema': tema.id, 'id': hilo.user.id}) }}">Banear user</a></button>
+                        {% endif %}
+                    {% endif %}
+                    <img src="/avatar/{{ hilo.user.avatar }}" width="100px" height="50px">
+                    <h5>{{ hilo.user.nick }}</h5>
+                </div>
+                {% if hilo.status == true %}
+                    <div id="hilo">
+                        <h3>{{ hilo.titulo }}</h3>
+                        <p>{{ hilo.descripcion }}</p>
+                        <p>{{ hilo.fecha|date("Y-m-d") }}</p>
+                    </div>
+                {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    {% if hilo.status == true %}
+                        <button><a href="{{ path('habilitarHilo', {'tema': tema.id, 'id': hilo.id}) }}">Deshabilitar</a></button>
+                    {% else %}
+                        <button><a href="{{ path('habilitarHilo', {'tema': tema.id, 'id': hilo.id}) }}">Habilitar</a></button>
+                    {% endif %}
+                {% endif %}
+                <div id="clear"></div>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <script>
+
+        $("div#padre").css({
+            "border-width":"2px",
+            "border-style":"solid",
+            "border-color":"black"
+        });
+
+        $("div#user").css({
+            "float": "left",
+            "margin-right": "20%"
+        });
+
+        $("div#clear").css({
+            "clear": "both"
+        });
+
+    </script>
+
+{% endblock %}

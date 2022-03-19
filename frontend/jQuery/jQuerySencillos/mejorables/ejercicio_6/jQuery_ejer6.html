@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>6 - Generar y modificar código</title>
+		<meta charset="utf-8">
+
+		<style type="text/css">
+			table {
+				border:2px solid black;
+			}
+		</style>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<table id="uno">
+			<tbody>
+				<tr>
+					<td>Uno</td>
+					<td>Dos</td>
+					<td>Tres</td>
+				</tr>
+				<tr>
+					<td>Uno</td>
+					<td>Dos</td>
+					<td>Tres</td>
+				</tr>
+				<tr>
+					<td>Uno</td>
+					<td>Dos</td>
+					<td>Tres</td>
+				</tr>
+			</tbody>
+		</table>
+		<br/>
+		<hr/>
+		<br/>
+		<table id="dos">
+			<tbody>
+				<tr>
+					<td>Cuatro</td>
+					<td>Cinco</td>
+					<td>Seis</td>
+				</tr>
+				<tr>
+					<td>Cuatro</td>
+					<td>Cinco</td>
+					<td>Seis</td>
+				</tr>
+				<tr>
+					<td>Cuatro</td>
+					<td>Cinco</td>
+					<td>Seis</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<script type="text/javascript">
+
+			// Cambiar el color de fondo de las filas pares de la primera tabla y de la primera y última fila de la segunda (impares). Sería al revés los conceptos debido a que se empieza por 0 en vez de 1.
+			$("#uno tr:odd").attr("style", "background-color:green");
+			$("#dos tr:even").attr("style", "background-color:yellow");
+
+		</script>
+	</body>
+</html>

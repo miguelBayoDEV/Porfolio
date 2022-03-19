@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Las cajas flotantes</title>
+	<meta charset="UTF-8" />
+	<style>
+		.caja {
+		  padding: 10px;
+		  float: left;
+		  height: 100px;
+		  width: 200px;
+		  border: thin solid #000000;
+		}
+		.clearI {
+		  padding: 10px;
+		  float: left;
+		  clear: both;
+		  height: 100px;
+		  width: 200px;
+		  border: thin solid #000000;
+		}
+	</style>
+</head>
+<body>
+<div class="caja">Caja 1 flotante a la izquierda</div>
+<div class="clearI">Caja 2 flotante a la izquierda,<br />
+  con <code>clear</code> a <code>left</code>.<br/>
+  No autoriza el estado de flotante sobre<br />
+  su lado izquierdo
+</div>
+<div class="caja">Caja 3 flotante a la izquierda</div>
+</body>
+</html>

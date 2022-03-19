@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Selectores Dificultad Baja: 9 - Selectores básicos</title>
+
+        <!-- Enlace a CDN JQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <p>Primero</p>
+        <ul>
+            <li><a href="#">Programación</a></li>
+            <li><a href="#">Base de Datos</a></li>
+            <li><a href="#">Sistemas Informáticos</a></li>
+            <li><a href="#">Lenguajes de Marcas</a></li>
+            <li><a>Formación y Orientación Laboral</a></li>
+            <li></li>
+        </ul>
+
+        <p>Segundo</p>
+        <ul>
+            <li>DWESE
+                <ul>
+                    <li>Desarrollo Web en Entorno Servidor</li>
+                    <li>6 horas</li>
+                </ul>
+            </li>
+            <li>DWECL
+                <ul>
+                    <li>Desarrollo Web en Entorno Cliente</li>
+                    <li>6 horas</li>
+                </ul>
+            </li>
+            <li>DAW
+                <ul>
+                    <li>Despliegue de Aplicaciones Web</li>
+                    <li>3 horas</li>
+                </ul>
+            </li>
+            <li>DIWEB
+                <ul>
+                    <li>Diseño de Interfaces Web</li>
+                    <li>6 horas</li>
+                </ul>
+            </li>
+            <li>EIE
+                <ul>
+                    <li>Entorno e Iniciativa Empresarial</li>
+                    <li>4 horas</li>
+                </ul>
+            </li>
+        </ul>
+
+        <script type="text/javascript">
+            
+            // a) Selecciona todos los módulos de primero.
+            console.log($("ul:first a"));
+            // Otra forma:
+            //console.log($("ul:first > li > a"));
+
+            // b) Selecciona el módulo Sistemas Informáticos.
+            console.log($("ul:first li").eq(2).find("a"));
+            // Otra forma:
+            //console.log($("ul:first > li").eq(2).find("a"));
+
+            // c) Selecciona el módulo que va detrás de Sistemas Informáticos.
+            console.log($("ul:first > li").eq(2).next().find("a"));
+            // Otra forma:
+            //console.log($('ul:first li').eq(2).next().find('a'));
+
+            // d) Selecciona los módulos que van detrás de Sistemas Informáticos.
+            console.log($("ul:first > li").eq(2).nextAll().find("a"));
+            // Otra forma:
+            //console.log($("ul:first > li").eq(2).nextAll().find("a"));
+
+            // e) Selecciona los módulos que tengan el atributo href.
+            console.log($("ul:first > li > a[href]"));
+            // Otra forma:
+            //console.log($("ul:first a[href]"));
+
+            // f) Selecciona los módulos que no tengan el atributo href.
+            console.log($("ul:first > li > a").not("a[href]"));
+            // Otra forma:
+            //console.log($("ul:first a").not("a[href]"));
+            
+            // g) Selecciona aquellos módulos que contengan la cadena 'mod'.
+            console.log($("ul:first > li > a[href*='mod']"));
+            // Otra forma:
+            //console.log($("ul:first a[href*='mod']"));
+
+            // h) Selecciona aquellos módulos que empiecen por la cadena 'mod'.
+            console.log($("ul:first > li > a[href^='mod']"));
+            // Otra forma:
+            //console.log($("ul:first a[href^='mod']"));
+
+            // i) Selecciona aquellos módulos que terminen con la cadena '.html'.
+            console.log($("ul:first > li > a[href$='.html']"));
+            // Otra forma:
+            //console.log($("ul:first a[href$='.html']"));
+
+            // j) Selecciona todas las horas de los módulos de segundo.
+            console.log($("ul > li > ul").find("li:contains(horas)"));
+            // Otra forma:
+            //console.log($("ul ul").find("li:contains(horas)"));
+
+            // k) Selecciona los ítems vacíos y añade el contenido 'Nodo vacío'.
+            $("*:empty").text("Nodo Vacío");
+
+            // l) Selecciona los módulos DWESE, DAW y EIE.
+            //console.log($("ul li:contains(DWESE)"));
+            //console.log($("ul li:contains(DAW)"));
+            //console.log($("ul li:contains(EIE)"));
+            // Otra forma:
+            console.log($("ul li:contains('DWESE'), ul li:contains('DAW'), ul li:contains('EIE')"));
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 5.1.2</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa para extraer las palabras “Banana, Kiwi” de la cadena de texto "Manzana, Banana, Kiwi".</h1>
+	<h3 id="origen"></h3>
+	<h3 id="extraer"></h3>
+
+	<script type="text/javascript">
+		var cadena = "Manzana, Banana, Kiwi";
+		document.getElementById("origen").innerHTML = cadena;
+		var p = cadena.indexOf("B");
+		var e = cadena.substr(p);
+		document.getElementById("extraer").innerHTML = e;
+	</script>
+</body>
+</html>

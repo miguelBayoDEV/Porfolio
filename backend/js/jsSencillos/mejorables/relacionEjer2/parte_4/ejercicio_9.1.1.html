@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 9.1.1</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// Realiza un programa que cree un objeto llamado coche con las siguientes propiedades: Marca, Color, Año, tipo de combustible y matrícula. Este objeto tendrá un método llamado código que devolverá la concatenación del valor de la propiedad matricula y de la propiedad año.
+		var coche = {
+			marca: "Ford",
+			color: "Rojo",
+			año: 1997,
+			tipo_combustible: "Gasolina",
+			matricula:"1357DCR",
+			codigo:function() {
+				return "Matrícula: " + this.matricula + " - Año: " + this.año;
+			}
+		}
+		document.write(coche.codigo());
+	</script>
+</body>
+</html>

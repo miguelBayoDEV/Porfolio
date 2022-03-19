@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 5 eventos: Modelo de registro en línea</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<section id="section1">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</section>
+		<br/>
+		<a href="#section1" onclick="ocultarMostrar(this);">Ocultar contenidos</a>
+		<br/>
+		<br/>
+		<section id="section2">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</section>
+		<br/>
+		<a href="#section2" onclick="ocultarMostrar(this);">Ocultar contenidos</a>
+		<br/>
+		<br/>
+		<section id="section3">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</section>
+		<br/>
+		<a href="#section3" onclick="ocultarMostrar(this);">Ocultar contenidos</a>
+		<br/>
+		<br/>
+
+		<script type="text/javascript">
+			
+			function ocultarMostrar(e) {
+
+				var href = e.getAttribute("href").substring(1);
+
+				if(e.childNodes[0].nodeValue == "Ocultar contenidos") {
+					// Cuando pinchemos sobre cualquier enlace se ocultará la sección relacionada y el mensaje del enlace se cambiará por “Mostrar contenidos”.
+					document.getElementById(href).setAttribute("style", "visibility:hidden");
+					e.childNodes[0].nodeValue = "Mostrar contenidos";
+				}else {
+					// Cuando volvamos a pinchar sobre el enlace la sección se mostrará y el mensaje del enlace volverá a ser el inicial.
+					document.getElementById(href).setAttribute("style", "visibility:visible");
+					e.childNodes[0].nodeValue = "Ocultar contenidos";
+				}
+			}
+
+		</script>
+	</body>
+</html>

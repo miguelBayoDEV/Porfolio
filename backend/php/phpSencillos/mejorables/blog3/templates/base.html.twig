@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+        <!-- Enlace a CDN JQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body class="d-flex flex-column h-100">
+        <nav class="nav nav-masthead justify-content-center float-md-end bg-dark">
+            <a class="nav-link active" aria-current="page" href="/main">Main</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </nav>
+        {% block body %}{% endblock %}
+        <footer class="footer mt-auto text-center text-white-50 bg-dark">
+            <p>By: MigBYo.</p>
+        </footer>
+
+    </body>
+</html>

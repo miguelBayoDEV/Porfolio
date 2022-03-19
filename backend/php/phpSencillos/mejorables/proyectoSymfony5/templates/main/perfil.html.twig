@@ -1,0 +1,354 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block body %}
+
+<link rel="stylesheet" href="/css/perfil.css">
+
+<h1 class="titulos">Perfil</h1>
+
+<hr>
+
+<div id="email">
+    <h3 style="color:black; padding:10px">Email: </h3>
+    <p style="color:black; padding:10px">{{app.user.email}}</p>
+</div>
+
+<div id="nombre">
+    <h3 style="color:black; padding:10px">Nombre: </h3>
+    {% if app.user.nombre != null %}
+        <p style="color:black; padding:10px">{{app.user.nombre}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su nombre</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar nombre</a>
+    <div class="mostrar">
+        <input type="text" name="nombre" placeholder="Introduzca su nombre">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="apellido1">
+    <h3 style="color:black; padding:10px">Primer apellido: </h3>
+    {% if app.user.apellido1 != null %}
+        <p style="color:black; padding:10px">{{app.user.apellido1}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su primer apellido</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar primer apellido</a>
+    <div class="mostrar">
+        <input type="text" name="apellido1" placeholder="Introduzca su primer apellido">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="apellido2">
+    <h3 style="color:black; padding:10px">Segundo apellido: </h3>
+    {% if app.user.apellido2 != null %}
+        <p style="color:black; padding:10px">{{app.user.apellido2}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su segundo apellido</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar segundo apellido</a>
+    <div class="mostrar">
+        <input type="text" name="apellido2" placeholder="Introduzca su segundo apellido">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="dni">
+    <h3 style="color:black; padding:10px">DNI: </h3>
+    {% if app.user.dni != null %}
+        <p style="color:black; padding:10px">{{app.user.dni}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su DNI</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar DNI</a>
+    <div class="mostrar">
+        <input type="text" name="dni" placeholder="Introduzca su DNI">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="fechaNacimiento">
+    <h3 style="color:black; padding:10px">Fecha de nacimiento: </h3>
+    {% if app.user.fechaNacimiento != null %}
+        <p style="color:black; padding:10px">{{app.user.fechaNacimiento|date("Y-m-d")}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su fecha de nacimiento</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar fecha de nacimiento</a>
+    <div class="mostrar">
+        <input type="date" name="fechaNacimiento">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="genero">
+    <h3 style="color:black; padding:10px">Género: </h3>
+    {% if app.user.genero != null %}
+        <p style="color:black; padding:10px">{{app.user.genero}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su género</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar género</a>
+    <div class="mostrar">
+        <p style="color:black; padding:10px">Seleccione su género</p>
+        <input type="radio" name="genero" value="Hombre"> Hombre<br>
+        <input type="radio" name="genero" value="Mujer"> Mujer<br>
+        <input type="radio" name="genero" value="Otro"> Otro<br>
+        <input type="radio" name="genero" value="Prefiero no responder"> Prefiero no responder<br>
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="calle">
+    <h3 style="color:black; padding:10px">Calle: </h3>
+    {% if app.user.calle != null %}
+        <p style="color:black; padding:10px">{{app.user.calle}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su calle</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar calle</a>
+    <div class="mostrar">
+        <input type="text" name="calle" placeholder="Introduzca su calle">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="numeroDireccion">
+    <h3 style="color:black; padding:10px">Número domicilio: </h3>
+    {% if app.user.numeroDireccion != null %}
+        <p style="color:black; padding:10px">{{app.user.numeroDireccion}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su número de domicilio</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar número de domicilio</a>
+    <div class="mostrar">
+        <input type="text" name="numeroDireccion" placeholder="Introduzca su número de domicilio">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="escaleraPiso">
+    <h3 style="color:black; padding:10px">Escalera/Piso/Etc: </h3>
+    {% if app.user.escaleraPiso != null %}
+        <p style="color:black; padding:10px">{{app.user.escaleraPiso}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su escalera/piso/etc.</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar escalera/piso/etc.</a>
+    <div class="mostrar">
+        <input type="text" name="escaleraPiso" placeholder="Introduzca su escalera/piso/etc.">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="municipio">
+    <h3 style="color:black; padding:10px">Municipio: </h3>
+    {% if app.user.municipio != null %}
+        <p style="color:black; padding:10px">{{app.user.municipio}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su municipio</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar municipio</a>
+    <div class="mostrar">
+        <input type="text" name="municipio" placeholder="Introduzca su municipio">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="provincia">
+    <h3 style="color:black; padding:10px">Provincia: </h3>
+    {% if app.user.provincia != null %}
+        <p style="color:black; padding:10px">{{app.user.provincia}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su municipio</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar provincia</a>
+    <div class="mostrar">
+        <input type="text" name="provincia" placeholder="Introduzca su provincia">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="codigoPostal">
+    <h3 style="color:black; padding:10px">Código Postal: </h3>
+    {% if app.user.codigoPostal != null %}
+        <p style="color:black; padding:10px">{{app.user.codigoPostal}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su codigo postal</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar codigo postal</a>
+    <div class="mostrar">
+        <input type="number" name="codigoPostal" min="10000" max="99999">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="movil">
+    <h3 style="color:black; padding:10px">Teléfono móvil: </h3>
+    {% if app.user.telefonoMovil != null %}
+        <p style="color:black; padding:10px">{{app.user.telefonoMovil}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su telefono móvil</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar telefono móvil</a>
+    <div class="mostrar">
+        <input type="number" name="movil" min="600000000" max="799999999">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="fijo">
+    <h3 style="color:black; padding:10px">Teléfono Fijo: </h3>
+    {% if app.user.telefonoFijo != null %}
+        <p style="color:black; padding:10px">{{app.user.telefonoFijo}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su telefono fijo</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar telefono fijo</a>
+    <div class="mostrar">
+        <input type="number" name="fijo" min="800000000" max="999999999">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="webPersonal">
+    <h3 style="color:black; padding:10px">Web personal: </h3>
+    {% if app.user.webPersonal != null %}
+        <p style="color:black; padding:10px">{{app.user.webPersonal}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su web personal</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar web personal</a>
+    <div class="mostrar">
+        <input type="text" name="webPersonal" placeholder="Introduzca su web personal">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="plataformas">
+    <h3 style="color:black; padding:10px">Plataformas de juego: </h3>
+    <a style="color:black; padding:10px">Editar plataformas de juego</a>
+    <div class="mostrar">
+        <p style="color:black; padding:10px">Seleccione sus plataformas de juego</p>
+        {% if app.user.plataformasJuego != null %}
+            <input type="checkbox" name="consolaSobremesa" value="consolaSobremesa" {% if app.user.plataformasJuego[0] %} checked {% endif %}> Consola sobremesa<br>
+            <input type="checkbox" name="consolaPortatil" value="consolaPortatil" {% if app.user.plataformasJuego[1] %} checked {% endif %}> Consola portatil<br>
+            <input type="checkbox" name="movil" value="movil" {% if app.user.plataformasJuego[2] %} checked {% endif %}> Móvil<br>
+            <input type="checkbox" name="pcGaming" value="pcGaming" {% if app.user.plataformasJuego[3] %} checked {% endif %}> PC Gaming<br>
+            <input type="checkbox" name="simulador" value="simulador" {% if app.user.plataformasJuego[4] %} checked {% endif %}> Simuladores<br>
+            <input type="checkbox" name="arcade" value="arcade" {% if app.user.plataformasJuego[5] %} checked {% endif %}> Máquinas arcade<br>
+            <input type="checkbox" name="vr" value="vr" {% if app.user.plataformasJuego[6] %} checked {% endif %}> VR/AR<br>
+            <input type="checkbox" name="icloud" value="icloud" {% if app.user.plataformasJuego[7] %} checked {% endif %}> iCloud<br>
+            <input type="checkbox" name="otros" value="otros" {% if app.user.plataformasJuego[8] %} checked {% endif %}> Otros<br>
+        {% else %}
+            <input type="checkbox" name="consolaSobremesa" value="consolaSobremesa"> Consola sobremesa<br>
+            <input type="checkbox" name="consolaPortatil" value="consolaPortatil"}> Consola portatil<br>
+            <input type="checkbox" name="movil" value="movil"> Móvil<br>
+            <input type="checkbox" name="pcGaming" value="pcGaming"> PC Gaming<br>
+            <input type="checkbox" name="simulador" value="simulador"> Simuladores<br>
+            <input type="checkbox" name="arcade" value="arcade"}> Máquinas arcade<br>
+            <input type="checkbox" name="vr" value="vr"> VR/AR<br>
+            <input type="checkbox" name="icloud" value="icloud"> iCloud<br>
+            <input type="checkbox" name="otros" value="otros"> Otros<br>
+        {% endif %}
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="tiposJuego">
+    <h3 style="color:black; padding:10px">Tipos de juego: </h3>
+    <a style="color:black; padding:10px">Editar tipos de juego</a>
+    <div class="mostrar">
+        <p style="color:black; padding:10px">Seleccione sus tipos de juego</p>
+        {% if app.user.tiposJuego != null %}
+            <input type="checkbox" name="moba" value="moba" {% if app.user.tiposJuego[0] %} checked {% endif %}> MOBA<br>
+            <input type="checkbox" name="shooter" value="shooter" {% if app.user.tiposJuego[1] %} checked {% endif %}> Shooter<br>
+            <input type="checkbox" name="deportivo" value="deportivo" {% if app.user.tiposJuego[2] %} checked {% endif %}> Deportivo<br>
+            <input type="checkbox" name="accion" value="accion" {% if app.user.tiposJuego[3] %} checked {% endif %}> Acción<br>
+            <input type="checkbox" name="aventuras" value="aventuras" {% if app.user.tiposJuego[4] %} checked {% endif %}> Aventuras<br>
+            <input type="checkbox" name="lucha" value="lucha" {% if app.user.tiposJuego[5] %} checked {% endif %}> Lucha<br>
+            <input type="checkbox" name="simulacion" value="simulacion" {% if app.user.tiposJuego[6] %} checked {% endif %}> Simulación<br>
+            <input type="checkbox" name="plataformas" value="plataformas" {% if app.user.tiposJuego[7] %} checked {% endif %}> Plataformas<br>
+            <input type="checkbox" name="rpg" value="rpg" {% if app.user.tiposJuego[8] %} checked {% endif %}> RPG<br>
+            <input type="checkbox" name="estrategia" value="estrategia" {% if app.user.tiposJuego[9] %} checked {% endif %}> Estrategia<br>
+        {% else %}
+            <input type="checkbox" name="moba" value="moba"> MOBA<br>
+            <input type="checkbox" name="shooter" value="shooter"> Shooter<br>
+            <input type="checkbox" name="deportivo" value="deportivo"> Deportivo<br>
+            <input type="checkbox" name="accion" value="accion"> Acción<br>
+            <input type="checkbox" name="aventuras" value="aventuras"> Aventuras<br>
+            <input type="checkbox" name="lucha" value="lucha"> Lucha<br>
+            <input type="checkbox" name="simulacion" value="simulacion" > Simulación<br>
+            <input type="checkbox" name="plataformas" value="plataformas"> Plataformas<br>
+            <input type="checkbox" name="rpg" value="rpg"> RPG<br>
+            <input type="checkbox" name="estrategia" value="estrategia"> Estrategia<br>
+        {% endif %}
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="socialMedia">
+    <h3 style="color:black; padding:10px">Cuentas sociales: </h3>
+    <a style="color:black; padding:10px">Editar cuentas sociales</a>
+    <div class="mostrar">
+        <p style="color:black; padding:10px">Seleccione sus cuentas sociales</p>
+        {% if app.user.cuentasSociales != null %}
+            <input type="text" name="twitter" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[0] %}{{app.user.cuentasSociales[0]}}{% endif %}"> Twitter [<i>{% if app.user.cuentasSociales[0] %} {{app.user.cuentasSociales[0]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="facebook" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[1] %}{{app.user.cuentasSociales[1]}}{% endif %}"> Facebook [<i>{% if app.user.cuentasSociales[1] %} {{app.user.cuentasSociales[1]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="instagram" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[2] %}{{app.user.cuentasSociales[2]}}{% endif %}"> Instagram [<i>{% if app.user.cuentasSociales[2] %} {{app.user.cuentasSociales[2]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="youtube" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[3] %}{{app.user.cuentasSociales[3]}}{% endif %}"> YouTube [<i>{% if app.user.cuentasSociales[3] %} {{app.user.cuentasSociales[3]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="twitch" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[4] %}{{app.user.cuentasSociales[4]}}{% endif %}"> Twitch [<i>{% if app.user.cuentasSociales[4] %} {{app.user.cuentasSociales[4]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="psn" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[5] %}{{app.user.cuentasSociales[5]}}{% endif %}"> PlayStationNetwork [<i>{% if app.user.cuentasSociales[5] %} {{app.user.cuentasSociales[5]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="steam" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[6] %}{{app.user.cuentasSociales[6]}}{% endif %}"> Steam [<i>{% if app.user.cuentasSociales[6] %} {{app.user.cuentasSociales[6]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="nintendo" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[7] %}{{app.user.cuentasSociales[7]}}{% endif %}"> Nintendo Network [<i>{% if app.user.cuentasSociales[7] %} {{app.user.cuentasSociales[7]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+            <input type="text" name="epicgames" placeholder="Pon tu nombre de usuario" value="{% if app.user.cuentasSociales[8] %}{{app.user.cuentasSociales[8]}}{% endif %}"> Epic Games [<i>{% if app.user.cuentasSociales[8] %} {{app.user.cuentasSociales[8]}} {% else %} No has introducido tu nombre de usuario {% endif %}</i>]<br>
+        {% else %}
+            <input type="text" name="twitter" placeholder="Pon tu nombre de usuario"> Twitter [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="facebook" placeholder="Pon tu nombre de usuario"> Facebook [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="instagram" placeholder="Pon tu nombre de usuario"> Instagram [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="youtube" placeholder="Pon tu nombre de usuario"> YouTube [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="twitch" placeholder="Pon tu nombre de usuario"> Twitch [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="psn" placeholder="Pon tu nombre de usuario"> PlayStationNetwork [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="steam" placeholder="Pon tu nombre de usuario"> Steam [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="nintendo" placeholder="Pon tu nombre de usuario"> Nintendo Network [<i>No has introducido tu nombre de usuario</i>]<br>
+            <input type="text" name="epicgames" placeholder="Pon tu nombre de usuario"> Epic Games [<i>No has introducido tu nombre de usuario</i>]<br>
+        {% endif %}
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="playerName">
+    <h3 style="color:black; padding:10px">Nombre jugador: </h3>
+    {% if app.user.nombreJugador != null %}
+        <p style="color:black; padding:10px">{{app.user.nombreJugador}}</p>
+    {% else %}
+        <p style="color:black; padding:10px">No ha introducido su nombre de jugador</p>
+    {% endif %}
+    <a style="color:black; padding:10px">Editar nombre de jugador</a>
+    <div class="mostrar">
+        <input type="text" name="nombreJugador" placeholder="Introduzca su nombre de jugador">
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<div id="booleans">
+    <h3 style="color:black; padding:10px">Aceptaciones: </h3>
+    <a style="color:black; padding:10px">Editar aceptaciones</a>
+    <div class="mostrar">
+        <p style="color:black; padding:10px">Acepte las siguientes condiciones</p>
+        <input type="checkbox" name="privacidad" value="privacidad" checked> Política de privacidad.<br>
+        <input type="checkbox" name="almacenarDatos" value="almacenarDatos" {% if app.user.permisoAlmacenarDatos == true %} checked {% endif %}> Permiso para almacenar datos.<br>
+        <input type="checkbox" name="comunicaciones" value="comunicaciones" {% if app.user.recibirComunicacionesComerciales == true %} checked {% endif %}> Aceptar recibir comunicaciones comerciales.<br>
+        <input type="checkbox" name="salud" value="salud" {% if app.user.recomendacionesHabitosSaludables == true %} checked {% endif %}> Conozco las recomedaciones sobre hábitos saludables y me comprometo a seguir los valores éticos en el juego y competiciones en los que participe.<br>
+        <button>Enviar</button><br>
+    </div>
+</div>
+
+<script src="/js/perfil.js"></script>
+   
+
+{% endblock %}

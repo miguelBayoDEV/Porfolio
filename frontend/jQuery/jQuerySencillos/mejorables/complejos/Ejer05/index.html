@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Práctica 3 Audio</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="row justify-content-center align-items-center minh-100">
+        <div class="col-lg-10 col-md-10 col-sm-10 border border-dark bg-warning">
+
+        	<!-- Botones del vídeo -->
+            <button onclick="playVideo();" class="btn btn-success">Play<i class="glyphicon glyphicon-play"></i></button>
+            
+            <button onclick="stopVideo();" class="btn btn-danger">Stop<i class="glyphicon glyphicon-stop"></i></button>
+            
+            <button onclick="pauseVideo();" class="btn btn-primary">Pause<i class="glyphicon glyphicon-primary"></i></button>
+            
+            <button onclick="previous();" class="btn btn-success">Previous<i class="glyphicon glyphicon-previous"></i></button>
+
+            <button onclick="next();" class="btn btn-danger">Next<i class="glyphicon glyphicon-next"></i></button>
+            
+            <!-- Te lo he comentado estos botones porque no los preguntas en este examen:
+            <button onclick="adelantar5seg();" class="btn btn-success">adelantar5seg<i class="glyphicon glyphicon-adelantar5seg"></i></button>
+
+            <button onclick="retrasar5seg();" class="btn btn-danger">retrasar5seg<i class="glyphicon glyphicon-retrasar5seg"></i></button>
+            -->
+
+            <button onclick="subirVolumen();" class="btn btn-success">subirVolumen<i class="glyphicon glyphicon-subirVolumen"></i></button>
+
+            <button onclick="bajarVolumen();" class="btn btn-danger">bajarVolumen<i class="glyphicon glyphicon-bajarVolumen"></i></button>
+
+            <button onclick="muted();" id="muted" class="btn btn-success">Muted<i class="glyphicon glyphicon-muted"></i></button>
+
+            <!-- Input del segundo dónde quieres ir y un botón para accionar el método -->
+            <input type="number" name="seg" id="seg" />
+            <button onclick="ir();">Ir a</button>
+
+            <!-- Checkbox para saber si es aleatorio o no -->
+            <input type="checkbox" name="aleatoria" id="aleatoria" />
+            <label for="aleatoria">Reproducción aleatoria</label>
+            
+            <!-- Div con el vídeo con un respectivo tamaño, su nombre y su tiempo actual y duración total en segundos. Finalmente en el formulario, un input file con un botón para buscar el vídeo y cargarlo con el método cargar() -->
+            <div>
+                <video id="video" width="350" height="240"></video>
+                
+                <h3 id="nombre"></h3>
+                
+                <h3 id="tiempo"></h3>
+
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fichero" id="fichero">
+                    <input type="button" onclick="cargar()" value="Cargar">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+
+    	// Variables:
+        var video = document.querySelector("#video");
+        var videos = [];
+        var nombre = [];
+        var base = [];
+        // Saber la posición actual del vídeo:
+        var actual = 0;
+        // Saber volumen después de mutear el vídeo para después recuperarlo:
+        var volumenMuted = 0;
+        // Variable para saber el tiempo del vídeo al pulsar pause y recupeararlo.
+        var tiempoRecuperado = 0;
+        // Variable para saber el tiempo de parada:
+        var tiempoStop = 0;
+
+        // Método para cargar los vídeos en el array videos[] y los nombres en el array nombre[] para después mostrarlos respectivamente:
+        function cargar() {
+            nombre[videos.length] = document.getElementById("fichero").files[0].name;
+            base = nombre[videos.length].split('.');
+            videos[videos.length] = base[0];
+            alert("Video subido " + base[0]);
+        }
+        
+        // Método para play el vídeo de forma aleatoria o continua circular:
+        function playVideo() {
+
+            // Reproducción aleatoria:
+            if(document.getElementById("aleatoria").checked == true) {
+            	var aleatorio = Math.random() * ((videos.length-1) - 0) + 0;
+            	console.log(aleatorio.toFixed(0));
+	            video.innerHTML = "";
+	            video.innerHTML = '<source src="fuentes/'+videos[aleatorio.toFixed(0)]+'.ogg" type="video/ogg" />';
+	            video.innerHTML = '<source src="fuentes/'+videos[aleatorio.toFixed(0)]+'.mp4" type="video/mp4" />';
+            }else {	
+
+            	// Reproducción continua:
+	            video.innerHTML = "";
+	            video.innerHTML = '<source src="fuentes/'+videos[actual]+'.ogg" type="video/ogg" />';
+	            video.innerHTML = '<source src="fuentes/'+videos[actual]+'.mp4" type="video/mp4" />';
+            }
+
+            // Comprobar si está en pausa entonces se recupera el tiempo antes de pausarlo y le das a play de nuevo (pulsar botón pause). Si el tiempo actual es cero entonces el video se para y se pone el tiempo del vídeo actual a cero (pulsar botón pause). Al pulsar el botón play se carga el vídeo y se reproduce.
+            if(video.paused) {
+                video.currentTime = tiempoRecuperado;
+                video.play();
+            }else if(video.currentTime == 0) {
+                video.currentTime = tiempoStop;
+                video.play();
+            }else {
+                video.load();
+                video.play();
+            }
+
+        }
+        
+        // Método para parar la reproducción actual:
+        function stopVideo() {
+            tiempoStop = 0;
+            video.pause();
+        }
+
+        // Método para parar la reproducción actual pausándolo:
+        function pauseVideo() {
+            tiempoRecuperado = video.currentTime;
+            video.pause();
+        }
+
+        // Método para que te lleve al segundo exacto seleccionado:
+        function ir() {
+            var seg = document.getElementById("seg").value;
+            video.currentTime = parseInt(seg);
+        }
+        
+        // Te lo he comentado porque no lo preguntas en este examen.
+        /*
+        // Método adelantar 5 segundos:
+        function adelantar5seg() {
+            video.currentTime += 5;
+        }
+        
+        // Método retrasar 5 segundos:
+        function retrasar5seg() {
+            video.currentTime -= 5;
+        }
+        */
+        
+        // Método subir volumen:
+        function subirVolumen() {
+            video.volume += 0.1;
+        }
+        
+        // Método bajar volumen:
+        function bajarVolumen() {
+            video.volume -= 0.1;
+        }
+
+        // Método para mutear o desmutear el vídeo, recuperar su volumen antes de ser muteado y cambiar su valor del botón:
+        function muted() {
+            if(video.muted == true) {
+                video.muted = false;
+                video.volume = volumenMuted;
+                document.getElementById("muted").firstChild.nodeValue = "Muted";
+            }else {
+                video.muted = true;
+                document.getElementById("muted").firstChild.nodeValue = "Poner volumen";
+                volumenMuted = video.volume;
+            }
+        }
+        
+        // Método pasar al anterior vídeo del array videos[] sino es menor que cero significa que se pasa al último vídeo del array:
+        function previous() {
+            if (actual > 0) {
+                actual--;
+            }else {
+                actual = videos.length-1;
+            }
+            playVideo();
+        }
+
+        // Método pasar al siguiente vídeo del array videos[] sino es mayor que el último significa que se pasa al primero vídeo del array:
+        function next() {
+            if (actual < videos.length-1) {
+                actual++;
+            }else {
+                actual = 0;
+            }
+            playVideo();
+        }
+
+        // Evento tiempo actualizado para que se actualice el nombre y el tiempo actual con su duración:
+        video.addEventListener("timeupdate",function(ev){
+            document.getElementById("tiempo").innerHTML = "Tiempo reproducción actual: " + video.currentTime.toFixed(0) + "/" + video.duration.toFixed(0) + " seg.";
+            document.getElementById("nombre").innerHTML = "Nombre fichero audio actual: " + nombre[actual];
+
+            // Para que se reproduzca de forma automática al terminar el siguiente de la lista:
+            if(video.currentTime.toFixed(0) == video.duration.toFixed(0)) {
+            	next();
+            }else if(document.getElementById("aleatoria").checked == true && video.currentTime.toFixed(0) == video.duration.toFixed(0)) {
+                playVideo();
+            }
+         },false);
+
+        // Debería ser con ended pero no me sale de esa forma:
+        //video.addEventListener("ended",next,false);
+        
+    </script>
+</body>
+</html>

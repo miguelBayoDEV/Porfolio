@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="_css/site.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="_js/micodigoget.js"></script>
+</head>
+
+<body>
+    //Necesitamos usar Xampp para que funcione el ejercicio.
+    <div class="wrapper">
+        <header>
+            JAVASCRIPT <span class="amp">&amp;</span> jQUERY: USO DE AJAX
+        </header>
+        <div class="content">
+            <div class="main">
+                <h1>Login</h1>
+                <div id="formwrapper">
+                    <div id='fallo'></div>
+                    <form method="get" action="login.php" id="login">
+                        <p>
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" id="username">
+                        </p>
+                        <p>
+                            <label for="password">Password: </label>
+                            <input type="password" name="password" id="password">
+                        </p>
+                        <p>
+                            <input type="submit" name="button" id="button" value="Submit">
+                        </p>
+                    </form>
+                    <div id='respuesta'></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Unidad 5. Utilizaci&oacute;n de mecanismos de comunicaci&oacute;n as&iacute;ncrona</p>
+        </footer>
+    </div>
+</body>
+
+</html>

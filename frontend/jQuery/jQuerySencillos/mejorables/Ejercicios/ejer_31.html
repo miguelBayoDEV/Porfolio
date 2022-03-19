@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 31: efectos jQuery</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<!-- Enlace a CDN JQueryUI -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<div id="capa1">Capa 1</div>
+		<div id="capa2"></div>
+
+		<script type="text/javascript">
+
+			// Formato de las capas
+			$("div#capa1").css({
+				"background-color":"green",
+				"width":"200px",
+				"height":"200px",
+				"float":"left"
+			});
+			$("div#capa2").css({
+				"background-color":"orange",
+				"width":"200px",
+				"height":"200px"
+			});
+			
+			// Crea un documento con dos capas, tal que al clickar sobre la primera fija se despliegue hacia arriba o abajo el segundo. Utiliza el método slideToggle().
+			$("div#capa1").click(function() {
+				$("div#capa2").slideToggle();
+			});
+
+		</script>
+	</body>
+</html>

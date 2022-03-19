@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejercicio 3x02</title>
+</head>
+
+
+<body>
+    <div id="lista">
+        <h3>Lista dinámica</h3>
+        <ul></ul>
+        <hr/>
+    </div>
+    <span>Nuevo Texto</span>
+    <input type="text" id="nuevoelemento">
+    <button id="actualizar"> Añadir </button>
+</body>
+<Script>
+    document.getElementById("actualizar").addEventListener("click", addItemLista, false);
+    document.getElementById("nuevoelemento").addEventListener("keypress", comprobarIntro, false);
+    document.getElementById("lista").children[1].setAttribute("id", "listNoOrdenada");
+
+    function addItemLista() {
+        
+        let textoItem = document.createTextNode(document.getElementById("nuevoelemento").value)
+        let nuevoItem = document.createElement("li");
+        let icono = document.createElement("img");
+        
+
+        icono.setAttribute("src", "./img/delete_40623.png");
+        icono.setAttribute("style", "width:11px;height:11px;margin-right:2px");
+        
+        icono.addEventListener("click", borrar, false);
+        nuevoItem.appendChild(icono);
+       
+        nuevoItem.appendChild(textoItem);
+        document.getElementById("listNoOrdenada").appendChild(nuevoItem);
+        document.getElementById("nuevoelemento").value = ""; /* Borra el campo de texto tras añadir el elemento*/
+    }
+
+    function comprobarIntro(evt) {
+        if (evt.keyCode == 13) //Tecla enter
+        {
+            addItemLista();
+            document.getElementById("nuevoelemento").value = "";
+        }
+
+    }
+
+    function borrar() {
+        if (confirm("¿Realmente desea eliminar el elemento?"))
+            this.parentNode.remove();
+    }
+</Script>
+
+</html>

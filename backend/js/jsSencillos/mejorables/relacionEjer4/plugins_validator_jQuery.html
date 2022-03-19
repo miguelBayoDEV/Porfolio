@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio validation jQuery plugin</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<!-- Enlace a CDN JQuery Validation Plugin -->
+		<script src="plugins_validator_jQuery.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#form").validate();
+				
+				// Otra forma de hacer lo mismo, pero se deberán quitar las clases de los elementos de HTML5:
+				/*
+				$("#form").validate({
+					nombre:"required",
+					apellidos:"required",
+					nacimiento: {
+						date:true,
+						required:true
+					},
+					edad:"number",
+					cp:"number",
+					email:"email",
+					web:"url"
+				});
+				*/
+			});
+		</script>
+	</head>
+	<body>
+
+		<form action="" method="get" id="form">
+			<h2><b>Envío datos</b></h2>
+			<br/>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" class="required" title="Obligatorio" />
+			<br/>
+			<br/>
+			<label for="apellidos">Apellidos</label>
+			<input type="text" name="apellidos" class="required" title="Obligatorio" />
+			<br/>
+			<br/>
+			<label for="nacimiento">Fecha de Nacimiento</label>
+			<input type="text" name="nacimiento" class="date" title="MM/DD/YYYY en número" />
+			<br/>
+			<br/>
+			<label for="edad">Edad</label>
+			<input type="text" name="edad" class="number" title="Introduzca un número válido" />
+			<br/>
+			<br/>
+			<label for="cp">Código Postal</label>
+			<input type="text" name="cp" class="number" title="Introduzca un número válido" />
+			<br/>
+			<br/>
+			<label for="email">Email</label>
+			<input type="email" name="email" class="email required" title="Introduzca un email válido obligatorio" />
+			<br/>
+			<br/>
+			<label for="web">Página web</label>
+			<input type="text" name="web" class="url" title="http://...." />
+			<br/>
+			<br/>
+			<label for="pais">Paises</label>
+			<select name="pais">
+				<option value="english">Inglaterra</option>
+				<option value="spain" selected>España</option>
+				<option value="france">Francia</option>
+				<option value="italy">Italia</option>
+			</select>
+			<br/>
+			<br/>
+			<input type="submit" name="enviar" value="Enviar"/>
+		</form>
+	</body>
+</html>

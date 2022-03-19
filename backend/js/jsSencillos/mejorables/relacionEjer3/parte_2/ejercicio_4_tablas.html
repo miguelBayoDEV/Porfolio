@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 4 eventos tablas</title>
+	</head>
+	<body>
+
+		<!-- Diseña una página web que, mediante métodos del DOM, dibuje un tablero de 8 x 8. Las celdas tendrán, por defecto, color blanco. Cuando se haga click sobre una celda, está pasará a tener color negro y viceversa (si tiene color negro pasa a tener color blanco). -->
+		<script type="text/javascript">
+
+		    // Función de cambio de color
+		    function switchColor() {
+		    	
+		    	// Condicional ternario
+		    	this.style.backgroundColor == "white" ? this.style.backgroundColor = "black" : this.style.backgroundColor = "white";
+		    }
+
+		    // Crear tabla
+			var table = document.createElement("table");
+		    var row, cell;
+		    table.style.width = "1500px";
+		    table.style.height = "700px";
+		    table.style.borderCollapse = "collapse";
+		    
+		    for (var i=0; i<8; i++) {
+
+		        row = document.createElement('tr');
+
+		        for (var j=0; j<8; j++) {  
+		            cell=document.createElement('td');
+		            cell.style.border="2px solid black";
+		            cell.style.backgroundColor="white";
+		            row.appendChild(cell);
+
+		            // Asociar a evento
+		            cell.addEventListener("click",switchColor,false);
+		        }
+		        table.appendChild(row); 
+		    }
+		    document.body.appendChild(table);
+
+		</script>
+	</body>
+</html>

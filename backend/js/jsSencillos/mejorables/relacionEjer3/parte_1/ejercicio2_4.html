@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Página sencilla</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<a href="http://www.google.com"> Ir a Google </a>
+		<p>Esta página es<strong> muy sencilla </strong></p>
+		<hr>
+		<script type="text/javascript">
+			window.onload = function() {
+				var br = "<br>";
+				var html = document.documentElement;
+				var head = document.head;
+				var body = document.body;
+				document.write("El documento tiene un nodo de tipo " + html.nodeName + br);
+				document.write("La raíz tiene " + html.children.length + " hijos" +br);
+				document.write("La raíz tiene un nodo de tipo " + head.nodeName + br);
+				document.write("La raíz tiene un nodo de tipo " + body.nodeName + br);
+				document.write("La cabecera tiene " + head.children.length + " hijos" + br);
+				document.write("La cabecera tiene un nodo de tipo " + head.children[0].nodeName + br);
+				document.write("La cabecera tiene un nodo de tipo " + head.children[1].nodeName + br);
+				document.write("El Title tiene un hijo con la propiedad NodeName: " + head.children[0].childNodes[0].nodeName + br);
+				document.write("El Title tiene un hijo con la propiedad NodeType: " + head.children[0].childNodes[0].nodeType + br);
+				document.write("El Title tiene un hijo con la propiedad NodeValue: " + head.children[0].firstChild.nodeValue + br);
+				document.write("El body tiene " + body.children.length + " hijos que son: " + br + body.children[0].nodeName + br + body.children[1].nodeName + br + body.children[2].nodeName + br + body.children[3].nodeName + br);
+				document.write("El nodo A tiene " + body.children[0].childNodes.length + " hijo" + br);
+				document.write("El hijo de A es de tipo: " + body.children[0].firstChild.nodeName + br);
+				document.write("El valor del nodo de texto de A es: " + body.children[0].firstChild.nodeValue + br);
+				document.write("El nodo P tiene " + body.children[1].childNodes.length + " hijos" + br);
+				document.write("El primer hijo de P es: " + body.children[1].firstChild.nodeName + br);
+				document.write("El valor del nodo de texto es: " + body.children[1].firstChild.nodeValue + br);
+				document.write("El segundo hijo de P es: " + body.children[1].children[0].nodeName + br);
+				document.write("La etiqueta STRONG tiene un hijo de tipo: " + body.children[1].children[0].firstChild.nodeName + br);
+				document.write("El valor del texto hijo de STRONG es: " + body.children[1].children[0].firstChild.nodeValue);
+			}
+		</script>
+	</body>
+</html>

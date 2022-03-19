@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 5.3.3</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre en pantalla el año actual.</h1>
+	<h3 id="date"></h3>
+
+	<script type="text/javascript">
+		var año_actual = new Date();
+		document.getElementById("date").innerHTML = "Año actual: " + año_actual.getFullYear() + " - UTC: " + año_actual.getUTCFullYear();
+	</script>
+</body>
+</html>

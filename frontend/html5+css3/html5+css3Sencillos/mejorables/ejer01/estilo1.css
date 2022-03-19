@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+/*Tamaño de fuente del párrafo de la ficha*/
+div.ficha {
+	border: 2px solid black;
+	width: 250px;
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	float: left;
+	margin-right: 5vw;
+}
+
+p.fruta {
+	margin: 0px;
+	padding: 20px;
+	font-size: 400%;
+	flex: 140;
+	text-align: center;
+}
+
+p.texto {
+	text-align: justify;
+	padding: 7px;
+}
+
+p.nombre {
+	margin: 0px;
+	padding: 0px;
+	flex: 40;
+	font-weight: bolder;
+	background-color: lightgray;
+	text-align: center;
+	font-size: 20px;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width">
+  
+  <title>Ejercicio 1</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	body{
+		background-color: #E3F2FD:
+	}
+	
+	main{
+		margin: 10px auto;
+		width: 900px;
+		background-color: #ccc;
+	}
+	
+	#banner{
+		margin: 0 auto;
+		width: 500px;
+		height: 500px;
+		background-color: #FAFAFA;
+	}
+	
+	.circulo{
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		text-align: center;
+		line-height: 100px;
+		position: relative;
+		left: 200px;
+	}
+	
+    /* Propiedad transition en cada circulo según su clase específica para todas las propiedad que se cambian a hacer hover sobre #banner su duración, menos el primero todas son constantes su ritmo y en el primero con retraso de 3 segundos que es lo que duran las otras bolas en llegar a su posición */
+	.uno{
+		background-color: #E57373;
+		top: 200px;
+        
+        transition: all 2s ease-in 3s;
+	}
+	.dos{
+		background-color: #9575CD;
+		top: 100px;
+        
+        transition: all 3s linear;
+	}
+	.tres{
+		background-color: #4DB6AC;
+		top: 0px;
+        
+        transition: all 3s linear;
+	}
+	.cuatro{
+		background-color: #FFEE58;
+		top: -100px;
+        
+        transition: all 3s linear;
+	}
+	.cinco{
+		background-color: #FF7043;
+		top: -200px;
+        
+        transition: all 3s linear;
+	}
+	
+    /* Propiedades que se cambian en la transición al pisicionar sobre el elemento banner de cada círculo */
+    div#banner:hover div#circulo5 {
+        left: 0px;
+        top: -400px;
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+    
+    div#banner:hover div#circulo4 {
+        left: 0px;
+        top: 100px;
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+	
+    div#banner:hover div#circulo3 {
+        left: 400px;
+        top: -200px;
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+    
+    div#banner:hover div#circulo2 {
+        left: 400px;
+        top: 300px;
+        transform: rotate(360deg);
+        opacity: 0.3;
+    }
+    
+    div#banner:hover div#circulo1 {
+        transform: scale(2);
+        background-color: #01579B;
+    }
+
+</style>
+</head>
+<body>
+<main>
+	<div id="banner">
+		<div id="circulo1" class="circulo uno">A</div>
+		<div id="circulo2" class="circulo dos">B</div>
+		<div id="circulo3" class="circulo tres">C</div>
+		<div id="circulo4" class="circulo cuatro">D</div>
+		<div id="circulo5" class="circulo cinco">E</div>
+	</div>
+</main>
+</body>
+
+</html>

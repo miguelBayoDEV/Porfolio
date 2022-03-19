@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulario</title>
+</head>
+<body>
+<h2>Ficha personal.</h2>
+<form action="action_page.php">
+	Nombre:<br>
+	<input type="text" name="nombre">
+	<br>
+	Apellidos:<br>
+	<input type="text" name="apellidos">
+	<br>
+	D.N.I.:<br>
+	<input type="text" name="D.N.I.">
+	<br>
+	Género:<br>
+	<input type="radio" name="género" value="Masculino" checked>Masculino<br>
+	<input type="radio" name="género" value="Feminino">Femenino<br>
+	<input type="radio" name="género" value="Otro">Otro<br>
+	Teléfono:<br>
+	<input type="tel" name="móvil" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+	<br>
+	Fecha de nacimiento:<br>
+	<input type="data" name="bday">
+	<br>
+	Ciudad de residencia:<br>
+	<select name="ciudad">
+		<option value="Cádiz" selected>Cádiz</option>
+		<option value="Huelva">Huelva</option>
+		<option value="Sevilla">Sevilla</option>
+		<option value="Málaga">Málaga</option>
+		<option value="Almería">Almería</option>
+		<option value="Jaén">Jaén</option>
+		<option value="Córdoba">Córdoba</option>
+		<option value="Granada">Granada</option>
+	</select>
+	<br>
+	Aficiones:<br>
+	<input type="checkbox" name="afición1" value="Informática">Informática
+	<br>
+	<input type="checkbox" name="afición2" value="Deporte">Deporte
+	<br>
+	<input type="checkbox" name="afición3" value="Música">Música
+	<br>
+	<input type="checkbox" name="afición4" value="Cine">Cine
+	<br>
+	<input type="submit" value="Enviar">
+	<input type="reset" value="Restablecer">
+</form>
+</body>
+</html>

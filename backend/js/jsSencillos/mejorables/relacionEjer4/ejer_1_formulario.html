@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 1: formulario</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<!-- Mostrar los mensajes de avisos oportunos en caso de campo en blanco o con datos erróneos lo hace por defecto al poner el atributo type correspondiente -->
+		<form action="" method="post">
+			<h2><b>Formulario de registro</b></h2>
+			<br/>
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" required />
+			<br/>
+			<br/>
+			<label for="apellidos">Apellidos</label>
+			<input type="text" name="apellidos" required />
+			<br/>
+			<br/>
+			<label for="email">Email</label>
+			<input type="email" name="email" required />
+			<br/>
+			<br/>
+			<label for="direccion">Dirección</label>
+			<input type="text" name="direccion" required />
+			<br/>
+			<br/>
+			<label for="nacimiento">Fecha de Nacimiento</label>
+			<input type="date" name="nacimiento" required />
+			<br/>
+			<br/>
+			<label for="hora">Hora Actual</label>
+			<input type="time" name="hora" required />
+			<br/>
+			<br/>
+			<label for="cp">Código Postal</label>
+			<input type="text" name="cp" value="04006" readonly />
+			<br/>
+			<br/>
+			<label for="ciudad">Ciudad</label>
+			<input type="text" name="ciudad" required />
+			<br/>
+			<br/>
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" required />
+			<br/>
+			<br/>
+			<label for="pais">País</label>
+			<select name="pais" required>
+				<option value="english">Inglaterra</option>
+				<option value="spain" selected>España</option>
+				<option value="france">Francia</option>
+				<option value="italy">Italia</option>
+			</select>
+			<br/>
+			<br/>
+			<label for="observaciones">Observaciones</label>
+			<textarea name="observaciones" rows="3" cols="40" required></textarea>
+			<br/>
+			<br/>
+			<label for="condiciones">Acepta las condiciones de uso</label>
+			<input type="checkbox" name="condiciones" required checked />
+			<br/>
+			<br/>
+			<input type="reset" name="reset" value="Restablecer"/>
+			<input type="submit" name="enviar" value="Enviar"/>
+		</form>
+	</body>
+</html>

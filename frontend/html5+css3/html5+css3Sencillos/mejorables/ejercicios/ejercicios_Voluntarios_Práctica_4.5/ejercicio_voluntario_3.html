@@ -1,0 +1,68 @@
+<!-- Mostrar una tabla html y pintar de color rojo a partir de la segunda fila y luego dejar dos sin pintar y pintar la siguiente, repetir esta actividad hasta el final de la tabla (es decir seguir la secuencia: dos sin pintar y una pintada). -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio voluntario 3</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		#tabla {
+			border-collapse: collapse;
+		}
+
+		#tabla th, #tabla td {
+			border: 1px solid black;
+			text-align: center;
+		}
+
+		#tabla tr:nth-child(3n+2) {
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<table id="tabla">
+		<tr>
+			<th>Lunes</th>
+			<th>Martes</th>
+			<th>Miércoles</th>
+			<th>Jueves</th>
+			<th>Viernes</th>
+		</tr>
+		<tr>
+			<td>HLC</td>
+			<td>DWEC</td>
+			<td>DIW</td>
+			<td>DAWEB</td>
+			<td>DWES</td>
+		</tr>
+		<tr>
+			<td>HLC</td>
+			<td>DWEC</td>
+			<td>DIW</td>
+			<td>DAWEB</td>
+			<td>DWES</td>
+		</tr>
+		<tr>
+			<td>HLC</td>
+			<td>DWEC</td>
+			<td>DIW</td>
+			<td>DAWEB</td>
+			<td>DWES</td>
+		</tr>
+		<tr>
+			<td>HLC</td>
+			<td>DWEC</td>
+			<td>DIW</td>
+			<td>DAWEB</td>
+			<td>DWES</td>
+		</tr>
+		<tr>
+			<td>HLC</td>
+			<td>DWEC</td>
+			<td>DIW</td>
+			<td>DAWEB</td>
+			<td>DWES</td>
+		</tr>
+	</table>
+</body>
+</html>

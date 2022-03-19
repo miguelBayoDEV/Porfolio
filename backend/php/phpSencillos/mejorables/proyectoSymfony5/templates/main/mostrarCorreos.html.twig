@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+Correos:
+{% for user in users %}
+    <li>{{ user.email }}</li>
+{% endfor %}
+<button class="btn btn-primary" onClick="exportarCorreos();">Exportar correos</button>
+
+<script>
+    function exportarCorreos() {
+
+        function fail(data) {
+            alert("Exportar correos fallido.");
+        }
+
+        $.ajax({
+            type: "GET",
+            url: "/exportar",
+            success: function(data)  { 
+                var blob = new Blob([data]); 
+                var link = document.createElement('a'); 
+                link.href = window.URL.createObjectURL(blob); 
+                link.download = "correos.csv"; 
+                link.click(); 
+            },
+            error: fail
+        });
+    }
+</script>
+{% endblock %}

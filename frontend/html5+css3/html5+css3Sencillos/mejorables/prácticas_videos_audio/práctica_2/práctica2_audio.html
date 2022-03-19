@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Práctica 2 Audio</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+        .hidden {
+            visibility: hidden;
+        }
+        
+        .visible {
+            visibility: visible;
+        }
+        
+        #tiempoReproduccion {
+            color: aquamarine;
+        }
+        
+        #nombreAudio {
+            color:rebeccapurple;
+        }
+        
+	</style>
+</head>
+<body>
+	<h1> Realiza un reproductor de audio HTML 5 + CSS + JavaScript. Las características del control de audio deben ser las siguientes:
+
+    1-Botón de Pausa/Reproducción.
+    2-Visualizar el tiempo de reproducción actual.
+    3-Visualizar el nombre del fichero de audio que se está reproduciendo actualmente.
+    4-Al pausar el audio desaparecen todos los elementos del visualizador excepto el botón de reproducción.
+    5-Debe funcionar como mínimo en dos de los siguientes navegadores: Google Chrome, Internet Explorer, Firefox y Opera
+    6-Aplicar hojas de estilo para dar formato al reproductor.
+    7-Como ampliación añadir un formulario que permita seleccionar un archivo del disco duro y reproducirlo.</h1>
+
+    <div class="row justify-content-center align-items-center minh-100">
+        <div class="col-lg-5 col-md-6 col-sm-7 border border-primary bg-info">
+            <button onclick="playAudio();" class="btn btn-success">Play <i class="glyphicon glyphicon-play"></i></button>
+
+            <button onclick="pauseAudio();" class="btn btn-warning visible">Pause <i class="glyphicon glyphicon-pause"></i></button>
+            
+            <h3 id="tiempoReproduccion" class="visible"></h3>
+            
+            <h3 id="nombreAudio" class="visible"></h3>
+            
+            <audio id="audio" class="visible" controls></audio>
+
+            <form action="" method="post" enctype="multipart/form-data" class="visible">
+                <input type="file" name="fichero" id="fichero">
+                <input type="button" onclick="cargarAudio()" value="Cargar">
+            </form>
+        </div>
+    </div>
+	
+	<script>
+        
+        var audio1 = document.querySelector("#audio");
+        var audios = [];
+        var carga = 0;
+        var nombre;
+        var b = document.getElementsByTagName("button");
+        var h = document.getElementsByTagName("h3");
+        var a = document.getElementsByTagName("audio");
+        var f = document.getElementsByTagName("form");
+        
+        function playAudio() {
+            audio1.play();
+            visible();
+        }
+        
+        function visible() {
+            for(var i=0; i<10; i++)
+            {
+                if(b[i].getAttribute("class") == "hidden" || b[i].getAttribute("class") == "btn btn-warning hidden")
+                {
+                    b[i].setAttribute("class", "btn btn-warning visible");
+                }
+                
+                if(h[i].getAttribute("class") == "hidden")
+                {
+                    h[i].setAttribute("class", "visible");
+                }
+                
+                if(a[i].getAttribute("class") == "hidden")
+                {
+                    a[i].setAttribute("class", "visible");
+                }
+                
+                if(f[i].getAttribute("class") == "hidden")
+                {
+                    f[i].setAttribute("class", "visible");
+                }
+            }
+        }
+        
+        function hidden() {
+            for(var i=0; i<10; i++)
+            {
+                if(b[i].getAttribute("class") == "visible"  || b[i].getAttribute("class") == "btn btn-warning visible")
+                {
+                    b[i].setAttribute("class", "btn btn-warning hidden");
+                }
+                
+                if(h[i].getAttribute("class") == "visible")
+                {
+                    h[i].setAttribute("class", "hidden");
+                }
+                
+                if(a[i].getAttribute("class") == "visible")
+                {
+                    a[i].setAttribute("class", "hidden");
+                }
+                
+                if(f[i].getAttribute("class") == "visible")
+                {
+                    f[i].setAttribute("class", "hidden");
+                }
+            }
+        }
+        
+        function pauseAudio() {
+            audio1.pause();
+            hidden();
+        }
+        
+        function cargarAudio() {
+            nombre = document.getElementById("fichero").files[0].name;
+            audios[carga] = nombre;
+            var base = nombre.split('.');
+			carga++;
+			alert("Video subido " + base[0]);
+            //document.getElementById("audio").innerHTML = '<source src="audio/'+base[0]+'.wav" type="audio/wav" />';
+            document.getElementById("audio").innerHTML = '<source src="audio/'+base[0]+'.ogg" type="audio/ogg" />';
+            document.getElementById("audio").innerHTML = '<source src="audio/'+base[0]+'.mp3" type="audio/mp3" />';
+        }
+        
+        // Evento tiempo actualizado
+        audio1.addEventListener("timeupdate",function(ev){
+            document.getElementById("tiempoReproduccion").innerHTML = "Tiempo reproducción actual: " + audio1.currentTime.toFixed(0) + " seg.";
+            document.getElementById("nombreAudio").innerHTML = "Nombre fichero audio actual: " + nombre;
+         },true);
+        
+    </script>
+</body>
+</html>

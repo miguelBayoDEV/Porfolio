@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Foro{% endblock %}
+
+{% block body %}
+    <h1>{{ foro.titulo }}</h1>
+    <br/>
+    <button><a href="/tema/new/{{ foro.id }}">Crear Tema</a></button>
+
+    {% for tema in foro.temas %}
+        {% if is_granted("ROLE_ADMIN") %}
+            <li>{{ tema.titulo }} - {{ tema.fecha|date("Y-m-d") }}
+            {% if tema.status == true %}
+                <button><a href="{{ path('habilitarTema', {'foro': foro.id, 'id': tema.id}) }}">Deshabilitar</a></button>
+            {% else %}
+                <button><a href="{{ path('habilitarTema', {'foro': foro.id, 'id': tema.id}) }}">Habilitar</a></button>
+            {% endif %}
+            </li>
+            <button><a href="/tema/{{ tema.id }}">Ver</a></button>
+        {% else %}
+            {% if tema.status == true %}
+                <li>{{ tema.titulo }} - {{ tema.fecha|date("Y-m-d") }}</li>
+                <button><a href="/tema/{{ tema.id }}">Ver</a></button>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    
+{% endblock %}

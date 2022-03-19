@@ -1,0 +1,31 @@
+body {
+    background-color: #fff9ef;
+    font-family: Arial,sans-serif;
+    color: #585858;
+}
+
+h1 {
+    background-color: #ffdb8f;
+    font-size: 140%;
+    padding-left: 5px;
+}
+
+h2 {
+    font-style: italic;
+    font-family: Verdana,Geneva,sans-serif;
+    color: #6f9dbe;
+}
+
+.info {
+    font-style: italic;
+    color: #678090;
+}
+
+.instrucciones {
+    font-weight: bold;
+    color: #678090;
+}
+
+.listado {
+    margin-left: 30px;
+}

@@ -1,0 +1,8 @@
+Notas de curso: ArrayList<>();
+Parking: Array[numeroPlazas];
+Parking Japo: LinkedHashMap<>();
+Biblioteca pública: TreeMap<>();
+Librería: ArrayList<>();
+Mi biblioteca: ArrayList<>();
+
+// Depende de como quieras implementar el caso.

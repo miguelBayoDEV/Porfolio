@@ -1,0 +1,90 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Ejercicio 4 - Animacion CSS</title>
+        <style type="text/css" media="screen">
+            body {
+                margin: 0px;
+            }
+            #container{
+                background: #666 url(ej04_tree.jpg) no-repeat -60px 0;
+                width: 420px;
+                height: 480px;
+                position: relative;
+            }
+            @keyframes nieve {
+                0% {
+                    top: -10px;
+                    opacity: 90%;
+                }
+                95% {
+                    top: 450px;
+                    opacity: 90%;
+                }
+                100% {
+                    top: 480px;
+                    opacity: 0%;
+                }
+            }
+                  
+            @keyframes copos {
+                0% {
+                    transform: rotate(-180deg) translate(0px, 0px);
+                }
+                50% {
+                    transform: rotate(-180deg) translate(0px, 0px);
+                }
+                97% {
+                    transform: rotate(-180deg) translate(0px, 0px);
+                }
+                100% {
+                    transform: rotate(0deg) translate(0px, 0px);
+                }
+            } 
+            #snow div {
+               position: absolute;
+               top: -40px;
+               animation-name: nieve, copos;
+               animation-iteration-count: infinite;
+               animation-direction: normal;
+               animation-timing-function: ease-in;
+            }
+            .snowflake {
+                color: #fff;
+                font-size: 2em;
+                position: absolute;
+            }
+            .snowflake.f1 {
+                left: 40px;
+                animation-duration: 12s;
+            }
+            .snowflake.f2 {
+                font-size: 1.8em;
+                left: 120px;
+                animation-duration: 9s;
+            }
+            .snowflake.f3 {
+                left: 200px;
+                animation-duration: 11.2s;
+            }
+            .snowflake.f4 {
+                font-size: 1.5em;
+                left: 280px;
+                animation-duration: 7.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="snow" class="snow">
+                <div class="snowflake f1">&#10053;</div>
+                <div class="snowflake f2">&#10052;</div>
+                <div class="snowflake f3">&#10053;</div>
+                <div class="snowflake f4">&#10052;</div>
+            </div>
+        </div>
+    </body>
+</html>

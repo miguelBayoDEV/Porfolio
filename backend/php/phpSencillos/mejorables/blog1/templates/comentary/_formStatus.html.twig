@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <form action="../../src/Controller/MainController" method="post">
+        <input type="hidden" name="swamp" value="{{comentary.id}}">
+    </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+    {% if is_granted("ROLE_ADMIN") %}
+        <button><a href="/foro/new">Crear foro</a></button>
+    {% endif %}
+
+    {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_USER") %}
+        <h2>Lista de foros:</h2>
+        <ul>
+        {% for foro in foros %}
+            {% set private = "Privado" %}
+            {% set public = "Público" %}
+            <li>{{ foro.titulo }} - ({{ foro.status == 0 ? private : public }})</li>
+            <button><a href="/foro/{{ foro.id }}">Ir</a></button>
+        {% endfor %}
+        </ul>
+    {% else %}
+        {% for foro in foros %}
+            {% if foro.status == 1 %}
+                <li>{{ foro.titulo }} - (Publico)</li>
+                <button><a href="/foro/{{ foro.id }}">Ir</a></button>
+            {% endif %}
+        {% endfor %}
+        <button><a href="/register">Registrarse</a></button>
+    {% endif %}
+
+    {# Dar poder de admin a otros usuarios #}
+    {% if is_granted("ROLE_ADMIN") %}
+        <button><a href="/users">Ver usuarios</a></button>
+    {% endif %}
+
+{% endblock %}

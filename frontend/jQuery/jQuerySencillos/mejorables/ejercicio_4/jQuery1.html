@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html>
+	<head>
+		<title>4 - Acceso básico</title>
+		<meta charset="utf-8">
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+			/*$(function () {
+				var saludo = "Hola mundo!";
+
+				$("#boton").click(function () {
+					$("#salida").append(saludo);
+				});
+			});*/ // fin $()
+			
+			$(function () {
+				var saludo = "Hola mundo!";
+
+				// a) Cambiar el id de la <div> "salida" por otro nombre y hacer que funcione el programa (cambiar también otra instrucción).
+				$("#salida").attr("id", "Output");
+				$("#boton").attr("id", "Button");
+				$("div:first").addClass("NuevaClase");
+
+				// b) Añadir otra <div> y hacer que salga también en ella el saludo.
+				$("div#Output").after("<div id='NuevaId'></div>");
+
+				$("#Button").click(function () {
+					$("#Output").append(saludo);
+					$("#NuevaId").append(saludo);
+				});
+			});
+		</script>
+		
+		<style type="text/css">
+			#NuevaId {
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="boton"> Pulsa aquí </div>
+		<div id="salida"></div>
+	</body>
+</html>

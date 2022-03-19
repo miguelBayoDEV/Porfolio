@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 13</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<form action="" method="post">
+			<label for="texto1">Cuadro de texto 1:</label>
+			<input type="text" name="texto1"/>
+			<label for="texto2">Cuadro de texto 2:</label>
+			<input type="text" name="texto2"/>
+		</form>
+
+		<!-- Ejercicio 13 -->
+		<script type="text/javascript">
+
+			// Utiliza los eventos focus() y blur() para cambiar el color de dos cuadros de texto cuando posicionamos el foco y cuando lo retiramos.
+			$("form input").focus(function() {
+				$(this).css("background-color", "red");
+			});
+
+			$("form input").blur(function() {
+				$(this).css("background-color", "green");
+			});
+			
+		</script>
+	</body>
+</html>

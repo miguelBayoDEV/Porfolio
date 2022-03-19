@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 21</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<a href="#">Enlace</a>
+		<p>Párrafo</p>
+
+		<!-- Ejercicio 21 -->
+		<script type="text/javascript">
+
+			// Crea una página web que tenga un enlace y un párrafo tal que al hacer clic sobre el párrafo o pasar el ratón por encima del enlace se llame a la misma función que muestre un mensaje indicando si se ha llamado desde el párrafo o desde el enlace. Utiliza la llamada a eventos con información asociada.
+			function call(e) {
+				alert("Se ha llamado desde el " + e.data.tipo);
+			}
+
+			$("p").on("click", {tipo: "párrafo"}, call);
+
+			$("a").on("mouseenter", {tipo: "enlace"}, call);
+			
+		</script>
+	</body>
+</html>

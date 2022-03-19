@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 5.1.3</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa para sustituir la palabra “Mundo” por la palabra “Universo” en la cadena de texto “Hola Mundo”.</h1>
+	<h3 id="origen"></h3>
+	<h3 id="sustituir"></h3>
+
+	<script type="text/javascript">
+		var cadena = "Hola Mundo";
+		document.getElementById("origen").innerHTML = cadena;
+		var s = cadena.replace("Mundo","Universo");
+		document.getElementById("sustituir").innerHTML = s;
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 7 eventos</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h3 id="screen"></h3>
+	<h3 id="browser"></h3>
+	<h3 id="page"></h3>
+
+	<script type="text/javascript">
+		
+		// Crear un programa que nos muestre las coordenadas del ratón dentro de la pantalla, dentro del navegador y dentro de la página en la que estamos.
+		function showCoordinates(e) {
+			document.getElementById("screen").innerHTML = "Coordenadas pantalla: " + e.screenX + ":" + e.screenY;
+			document.getElementById("browser").innerHTML = "Coordenadas navegador: " + e.clientX + ":" + e.clientY;
+			document.getElementById("page").innerHTML = "Coordenadas página: " + e.pageX + ":" + e.pageY;
+		}
+
+		document.addEventListener("mousemove", showCoordinates, false);
+
+	</script>
+</body>
+</html>

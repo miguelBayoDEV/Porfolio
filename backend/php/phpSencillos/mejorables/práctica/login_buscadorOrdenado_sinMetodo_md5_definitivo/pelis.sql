@@ -1,0 +1,14 @@
+CREATE DATABASE pelis;
+
+CREATE TABLE usuarios (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(50),
+	password VARCHAR(20)
+);
+
+CREATE TABLE peliculas (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	titulo VARCHAR(30),
+	año DATE,
+	cartel VARCHAR(1000)
+);

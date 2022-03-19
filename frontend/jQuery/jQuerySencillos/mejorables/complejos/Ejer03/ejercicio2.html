@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ejercicio 2</title>
+</head>
+<style type="text/css">
+    body { background-color:#d8d8d8;}
+    .container {
+        width:960px;
+        margin:0 auto;	
+    }
+    h1 { 
+        text-align:center; 
+        font-family:Helvetica, Arial, sans-serif; 
+        color:#333;
+        text-shadow:1px 1px 0 #eee;
+        -o-text-shadow:1px 1px 0 #eee;
+        -ms-text-shadow:1px 1px 0 #eee;
+        -moz-text-shadow:1px 1px 0 #eee;
+        -webkit-text-shadow:1px 1px 0 #eee;
+    }
+    .animacion {
+        width: 92px;
+        margin:50px auto 0;
+        text-align:center;
+        height: 250px;
+        position:relative;
+    }
+    
+    /* En cada elemento se pone su correspondiente @keframes con sus propiedades */
+    .sombra {
+        background-image:url(img/shadow.png);
+        background-repeat:no-repeat;
+        background-position:center bottom;
+        width: 92px;
+        height:32px;
+        opacity:1;
+        position:absolute;
+        bottom:0;
+        z-index:1;
+
+        animation-name: sombra;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+        animation-duration: 1s;
+    }
+    .pelota {
+        background-color:#d82371;
+        border: 3px solid #5d0028;
+        width:85px;
+        height:85px;
+        border-radius: 45px;
+        -o-border-radius: 45px;
+        -ms-border-radius: 45px;
+        -moz-border-radius: 45px;
+        -webkit-border-radius: 45px;
+        position:absolute;
+        transform-origin: center bottom;
+        top:0;
+        z-index:2;
+
+        animation-name: bote;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-duration: 1s;
+    }
+    
+    /* Aquí se especifican los cambios según la duración de la animación */
+    @keyframes bote {
+        0% {
+            top: 0px;
+        }  
+
+        50%{
+            height: 70px;
+            top: 170px;      
+        }
+
+        100% {
+            top: 0px;
+        }
+    }
+
+    @keyframes sombra {
+        0% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.7;
+            transform: scale(0.5);
+        }
+
+        100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+    }
+
+</style>
+<body>
+<div class="container">
+	<h1>Animación de una pelota</h1>
+</div>
+<div class="container">
+    <div class="animacion">
+		<div class="pelota"></div>    
+        <div class="sombra"></div>
+    </div>	
+</div>
+
+</body>
+</html>

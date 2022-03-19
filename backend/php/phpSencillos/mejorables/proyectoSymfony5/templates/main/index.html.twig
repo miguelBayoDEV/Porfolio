@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+{% if is_granted("ROLE_USER") or is_granted("ROLE_ADMIN") %}
+    Últimas tres noticias:
+    {% for noticia in noticias %}
+        <div>
+            Título: {{ noticia.titulo }}
+            <br>
+            Texto noticia: {{ noticia.textoNoticia }}
+            <br>
+            Autor noticia: {{ noticia.autorNoticia }}
+            <br>
+            Fecha de publicación: {{ noticia.fechaPublicacion|date('Y-m-d') }}
+            <br>
+            Imagen: <img src="/img/{{ noticia.titulo }}" width="300px" height="300px"/>
+            <br>
+        </div>
+    {% endfor %}
+
+    {% if is_granted("ROLE_ADMIN") %}
+
+    {% endif %}
+{% endif %}
+
+{% endblock %}

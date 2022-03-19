@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 3: formulario</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<form action="envio.php" method="post" onsubmit="return validar(this);" id="form">
+			<input type="text" name="usuario" id="username" />
+			<label for="usuario">Usuario</label>
+			<br/>
+			<br/>
+			<input type="password" name="password" id="password" />
+			<label for="password">Contraseña</label>
+			<br/>
+			<br/>
+			<label for="afiliado">AFILIADO</label>
+			<br/>
+			<input type="radio" name="afiliado" />SI
+			<br/>
+			<input type="radio" name="afiliado" />NO
+			<br/>
+			<br/>
+			<select name="valor" id="checkbox">
+				<option value="" selected>-Selecciona un valor-</option>
+				<option value="muy_bajo">5 euros</option>
+				<option value="bajo">10 euros</option>
+				<option value="medio">15 euros</option>
+				<option value="alto">20 euros</option>
+				<option value="muy_alto">25 euros</option>
+			</select>
+			<br/>
+			<br/>
+			<label for="opciones">Marca al menos dos opciones</label>
+			<br/>
+			<input type="checkbox" name="opcion1" />OP1
+			<br/>
+			<input type="checkbox" name="opcion2" />OP2
+			<br/>
+			<input type="checkbox" name="opcion3" />OP3
+			<br/>
+			<br/>
+			<input type="submit" name="enviar" id="enviar" value="enviar"/>
+		</form>
+
+		<script type="text/javascript">
+
+			function validar(e) {
+
+				var comprobar = true;
+
+				// Usuario
+				var user = document.getElementById("username").value;
+				if(user.length == 0 && !(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(user)) || user == null) {
+					alert("No has escrito nada en el campo Usuario.");
+					comprobar = false;
+				}
+
+				// Contraseña
+				var password = document.getElementById("password").value;
+
+				if(password.length == 0 || password == null) {
+					alert("No has escrito nada en el campo Contraseña.");
+					comprobar = false;
+				}
+
+				if(password.length < 8) {
+					alert("Contraseña demasiado corta.");
+					comprobar = false;
+				}
+
+				if(password.length > 32) {
+					alert("Contraseña demasiado larga.");
+					comprobar = false;
+				}
+
+				// Radio
+				var form = document.getElementById("form");
+				var selected_radio = false;
+				for(var i=0; i < form.length; i++) {
+					if(form[i].checked && form[i].type == "radio") {
+						selected_radio = true;
+						break;
+					}
+				}
+
+				if(!selected_radio) {
+					alert("No has seleccionado ninguna opción del campo afiliado.");
+					comprobar = false;
+				}
+
+				// Select
+				var checkbox = document.getElementById("checkbox").selectedIndex;
+
+				if(checkbox == null || checkbox == 0 ) {
+					alert("No has seleccionado ninguna opción del campo país.");
+					comprobar = false;
+				}
+
+				// Checkbox
+				var checkboxs = document.getElementById("form");
+				var contador = 0;
+				for(var i=0; i<checkboxs.elements.length; i++) {
+					var elemento = checkboxs.elements[i];
+					if(elemento.type == "checkbox") {
+						if(elemento.checked) {
+							contador++;
+						}
+					}
+				}
+
+				if(contador == 0) {
+					alert("No has seleccionado ninguna opción del campo checkbox.");
+					comprobar = false;
+				}else if(contador < 2) {
+					alert("Debes seleccionar otra opción porque solo has seleccionado una del campo checkbox.");
+					comprobar = false;
+				}
+
+				return comprobar;
+			}
+
+		</script>
+	</body>
+</html>

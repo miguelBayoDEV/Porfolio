@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Empresa{% endblock %}
+
+{% block body %}
+    <h1>Empresa</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ empresa.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Cif</th>
+                <td>{{ empresa.cif }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ empresa.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ empresa.cp }}</td>
+            </tr>
+            <tr>
+                <th>Localidad</th>
+                <td>{{ empresa.localidad }}</td>
+            </tr>
+            <tr>
+                <th>Provincia</th>
+                <td>{{ empresa.provincia }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td><img src="/img/{{empresa.logo}}"/></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Ver cuadrante horas de sus trabajadores</h2>
+    {% for fecha in fechas %}
+        <button><a href="{{ path('cuadranteEmpresa', {'id': empresa.id, 'fecha': fecha, 'nombre': empresa.nombre}) }}">{{ fecha }}</a></button>
+    {% endfor %}
+
+    {% for empleado in empresa.empleados %}
+        <li>Nombre empleado: {{ empleado.nombre }}</li>
+        <button><a href="/cuadrante/{{ empleado.id }}">Ver cuadrante</a></button>
+    {% endfor %}
+
+    <a href="{{ path('empresa_index') }}">back to list</a>
+
+    <a href="{{ path('empresa_edit', {'id': empresa.id}) }}">edit</a>
+
+    {{ include('empresa/_delete_form.html.twig') }}
+{% endblock %}

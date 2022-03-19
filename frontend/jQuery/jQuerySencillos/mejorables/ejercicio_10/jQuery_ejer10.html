@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Selectores Dificultad Media: 10 - Selectores, clases, atributos, añadir y eliminar</title>
+
+        <style type="text/css">
+            .verde {color:green;}
+            .azul {color:blue;}
+            .borde {border:2px solid;}
+        </style>
+
+        <!-- Enlace a CDN JQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <p>Primero</p>
+        <ul>
+            <li>Base de Datos</li>
+            <li>Lenguajes de Marcas</li>
+            <li></li>
+        </ul>
+
+        <p>Segundo</p>
+        <ul>
+            <li>DWESE
+                <ul data-hours="10">
+                    <li class="azul" >Desarrollo Web en Entorno Servidor</li>
+                </ul>
+            </li>
+            <li>DWECL
+                <ul data-hours="7">
+                    <li class="azul">Desarrollo Web en Entorno Cliente</li>
+                </ul>
+            </li>
+            <li>DAW
+                <ul data-hours="3">
+                    <li class="azul">Despliegue de Aplicaciones Web</li>
+                </ul>
+            </li>
+            <li>DIWEB
+                <ul data-hours="6">
+                    <li class="azul">Diseño de Interfaces Web</li>
+                </ul>
+            </li>
+            <li>EIE
+                <ul data-hours="4">
+                    <li class="azul">Entorno e Iniciativa Empresarial</li>
+                </ul>
+            </li>
+        </ul>
+
+        <script type="text/javascript">
+            
+            // a) Asigna la clase borde a Primero y Segundo.
+            $("p:contains(Primero), p:contains(Segundo)").addClass("borde");
+
+            // b) Asigna la clase verde a las abreviaturas de cada módulo de segundo.
+            $("ul > li").has("ul").addClass("verde");
+            // Otra forma:
+            //$("li").has("ul").addClass("verde")
+
+            // c) Borra la clase borde.
+            $("p:contains(Primero), p:contains(Segundo)").removeClass("borde");
+            // Otra forma:
+            //$("p.borde").removeClass("borde");
+
+            // d) La clase borde se debe asignar o quitar según hagamos click sobre primero o segundo.
+            $("p:contains(Primero), p:contains(Segundo)").click(
+                function(){
+                // this es para saber cuando hago click en el elemento del DOM si tiene la clase borde para qutarlo o añadirlo.
+                if($(this).hasClass("borde")) {
+                    $(this).removeClass("borde");
+                } else {
+                    $(this).addClass("borde");
+                }
+            });
+            // Otra forma:
+            /*$("p:contains(Primero), p:contains(Segundo)").click(function() {
+                // toggleClass es para añadir si no existe y quitar si existe la clase border
+                $(this).hasClass("border") ? $(this).toggleClass("borde"):$(this).toggleClass("borde");
+            });*/
+
+            // e) Modifica ‘Primero’ por ‘Módulos de primero’.
+            $("p:contains(Primero)").text("Módulos de Primero");
+
+            // f) Modifica ‘Segundo’ por ‘Módulos de segundo’.
+            $("p:contains(Segundo)").text("Módulos de Segundo");
+
+            // g) Elimina los elementos de las listas que estén vacíos.
+            $("li:empty").remove();
+
+            // h) Añade el módulo de fol al final de la lista de primero. Realizar en ambos sentidos.
+            $("ul:first").append("<li>Fol</li>");
+            //$("ul:first").prepend("<li>Fol</li>");
+
+            // i) Añade el módulo de programación al principio de la lista de primero. Realizar en ambos sentidos.
+            $("ul:first").prepend("<li>Programación</li>");
+            //$("ul:first").append("<li>Programación</li>");
+
+            // j) Añade el módulo de sistemas informáticos detrás de base de datos.
+            $("ul > li:contains(Base de Datos)").append("<li>Sistemas Informáticos</li>");
+            // Otra forma:
+            //$("li:contains(Base de Datos)").append("<li>Sistemas Informáticos</li>");
+
+            // k) En la lista de los módulos de segundo, añade al final de cada uno de ellos la cantidad de horas semanales que tienen cuando se haga click sobre ellos. Parte del nombre de cada módulo y añade la información desde ul.
+            $("ul > li").click(function() {
+                var horas = $(this).find("ul").data("hours");
+                var texto = $(this).find("ul li").text();
+                $(this).find("ul li").text(texto + " → " + horas + " horas");
+            });
+            // Otra forma:
+            /*$("li").has("ul").click(function() {
+                var horas = $(this).find("ul").data("hours");
+                var texto = $(this).find("ul li").text();
+                $(this).find("ul li").text(texto + " → " + horas + " horas");
+            });*/
+
+            // l) Vacía la lista que contiene los módulos de segundo (empty).
+            $("ul > li > ul").empty();
+            // Otra forma:
+            //$("ul > li").children("ul").empty();
+
+            // m) Elimina la lista que contiene los módulos de primero.
+            $("ul:first").remove();
+            // Otra forma:
+            //$("ul").eq(0).remove();
+
+        </script>
+    </body>
+</html>

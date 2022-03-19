@@ -1,0 +1,134 @@
+body {
+    font-family: Comic Sans MS, sans-serif;
+}
+
+div#contenedor{
+	width: 950px;
+	margin: 0 auto;
+	
+}
+
+h2{
+	text-align: center;
+	
+}
+
+/* Hacer el @keyframes */
+@keyframes nube {
+    0% {
+        left: 950px;
+    }
+
+    25% {
+        left: 375px;
+    }
+
+    75% {
+        left: 375px;
+    }
+
+    100% {
+        left: -200px;
+    }
+}
+
+@keyframes lluvia {
+    0% {
+        top: -400px;
+    }
+
+    100% {
+        top: 500px;
+    }
+}
+
+@keyframes sol {
+    25% {
+        opacity: 25%;
+    }
+
+    75% {
+        opacity: 25%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes flor {
+    0% {
+        top: 500px;
+    }
+
+    100% {
+        top: 370px;
+    }
+}
+
+div#animation {
+    width: 950px;
+    height: 500px;
+    background: url("../img/background.png") no-repeat left top;
+    position: absolute;
+    box-shadow: 0 0 15px #000;
+}
+
+div#cloud {
+    width: 200px;
+    height: 75px;
+    background-image: url("../img/cloud.png");
+    background-repeat:  no-repeat;
+	position: absolute;
+	left: 950px;
+    animation-name: nube;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-duration: 20s;
+}
+
+
+
+
+div#rain {
+    width: 200px;
+    height: 400px;
+    background-image: url("../img/rain-background.png");
+    background-repeat: no-repeat;
+    margin:65px 0 0 0;
+	position: absolute;
+    top: -400px;
+    animation-name: lluvia;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-duration: 10s;
+    animation-delay: 5s;
+}
+
+div#sun {
+    background: url("../img/sun.png") no-repeat top left;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top:20px;
+    left: 700px;
+    animation-name: sol;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-duration: 20s;
+}
+
+div#flower {
+    width: 90px;
+    height: 130px;
+    background-image: url("../img/flower.png");
+    background-repeat:no-repeat;
+    position: absolute;
+	top: 500px;
+	left: 430px;
+    animation-name: flor;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-duration: 5s;
+    animation-delay: 20s;
+}

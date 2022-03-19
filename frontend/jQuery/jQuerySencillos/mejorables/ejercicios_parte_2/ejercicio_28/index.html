@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 28</title>
+		<meta charset="utf-8"/>
+		<link href="_css/site.css" rel="stylesheet">
+		<style type="text/css">
+			h2 {
+				background: url(_images/open.png) no-repeat 0 11px;
+				padding: 10px 0 0 25px;
+				cursor: pointer;
+			}
+			h2.close {
+				background-image: url(_images/close.png);
+			}
+			.faq {
+				border-radius: 10px;
+				background-color:  rgba(0,0,0,.05);
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			.answer {
+				margin-left: 25px;	
+			}
+		</style>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<div class="wrapper">
+			<div class="content">
+			<div class="main">
+			<h1>A One Page FAQ</h1>
+			<div class="faq">
+			<h2>I've heard that JavaScript is the long-lost fountain of youth. Is this true?</h2>
+			    <div class="answer">
+			        <p>Why, yes it is! Studies prove that learning JavaScript freshens the mind and extends life span by several hundred years. (Note: some scientists disagree with these claims.)</p>
+			      </div>
+			</div>
+			<div class="faq">
+			      <h2>Can JavaScript really solve all of my problems?</h2>
+			      <div class="answer">
+			        <p>Why, yes it can! It's the most versatile programming language ever created and is trained to provide financial management advice, life-saving CPR, and even to take care of household pets.</p>
+			      </div>
+			</div>
+			<div class="faq">
+			      <h2>Is there nothing JavaScript <em>can&#8217;t</em> do?</h2>
+			      <div class="answer">
+			        <p>Why, no there isn&#8217;t! It&#8217;s even able to write its own public relations-oriented Frequently Asked Questions pages. Now that&#8217;s one smart programming language!</p>
+		      	</div>
+			</div>
+			</div>
+			</div>
+		</div>
+
+		<!-- Ejercicio 28 -->
+		<script type="text/javascript">
+
+			// 28. Crear una página de FAQ. En ella aparecerán varias preguntas y respuestas que deberán ser modificadas mediante css para que, en un principio aparezcan solo las preguntas, las respuestas estarán ocultas, si se hace click sobre una pregunta se desplegará la respuesta. Desplegar una respuesta no afecta al resto de preguntas. Puedes usar el filtro :hidden para consultar si la respuesta está oculta con el método is(). En principio utiliza los métodos show() y hide() para ocultar y mostrar las capas con las respuestas. Investiga y utiliza otros métodos que permitan mostrar y ocultar una capa con efectos.
+			$("div.answer").hide();
+
+			$("div.faq").click(function() {
+				if($(this).children("div.answer").is(":hidden")) {
+					$(this).children("div.answer").slideDown();
+					$(this).children("h2").addClass("close");
+				}else {
+					$(this).children("div.answer").fadeOut();
+					$(this).children("h2").removeClass("close");
+				}
+			});
+
+			//Otra forma:
+			/*$("div.faq").click(function() {
+				if($(this).children("div.answer").is(":hidden")) {
+					$(this).children("div.answer").show();
+					$(this).children("h2").addClass("close");
+				}else {
+					$(this).children("div.answer").hide();
+					$(this).children("h2").removeClass("close");
+				}
+			});*/
+
+			// Otra forma:
+			/*$("div.faq").click(function() {
+				if($(this).children("div.answer").is(":hidden")) {
+					$(this).children("h2").addClass("close");
+				}else {
+					$(this).children("h2").removeClass("close");
+				}
+				$(this).children("div.answer").slideToggle("slow");
+			});*/
+			
+		</script>
+	</body>
+</html>

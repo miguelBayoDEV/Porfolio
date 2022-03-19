@@ -1,0 +1,19 @@
+* {
+	margin: auto;
+	padding: auto;
+}
+
+body {
+	width: 100%;
+	border: 5px solid red;
+}
+
+h1 {
+	width: 80%;
+	border: 2px solid blue;
+}
+
+h2 {
+	width: 60%;
+	border: 2px solid lightgreen;
+}

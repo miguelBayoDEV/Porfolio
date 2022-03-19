@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>La anchura de las cajas</title>
+	<meta charset="UTF-8" />
+	<style>
+		.ancho-fijo {
+			height: 100px;
+			width: 200px;
+			background-color: lightblue;
+			float: left;
+		}
+		.padre {
+			height: 150px;
+			width: 250px;
+			float: left;
+			background-color: lightgreen;
+			margin: 0 0 0 20px;
+		}
+		.hijo {
+			height: 50px;
+			width: 50%;
+			background-color: white;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	</style>
+</head>
+<body>
+<div class="ancho-fijo">Caja de 200 px de ancho<br />y 100 px de alto</div>
+<div class="padre">Padre: 250 px por 150 px<br />&nbsp;
+	<div class="hijo">Hijo al 50 %</div>
+</div>
+</body>
+</html>

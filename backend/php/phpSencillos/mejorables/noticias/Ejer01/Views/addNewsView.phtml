@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <title>Añadir noticia</title>
+    </head>
+    <body>
+    <h1>Tus noticias</h1>
+    <nav>
+    <?php if($_SESSION['user']->isLogged()){ ?>
+        <a href="index.php?logout">Logout</a>    
+        <?php     }else {        ?>
+        <a href="index.php?userlogin">Login</a>
+        <a href="index.php?register">Registrarse</a>
+        <?php    } ?>
+    <a href="index.php?addNews">Subir noticia</a>
+    </nav>
+
+    <br><br>
+    <h2>Añade tu noticia</h2>
+    <form action="index.php" method="post">
+    <input type="text" name="title" placeholder="Titulo de la noticia"><br>
+    <input type="url" name="url" placeholder="URL de la noticia"><br>
+    <input type="submit" name="newNews" value="Añadir">
+    </form>
+    </body>
+</html>

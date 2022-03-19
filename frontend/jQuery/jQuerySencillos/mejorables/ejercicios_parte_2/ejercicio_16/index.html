@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 16</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<button>SetText</button>
+		<p></p>
+		<button>SetHTML</button>
+		<br/>
+		<br/>
+		<a href="#"></a>
+		<br/>
+		<br/>
+		<button>SetValue</button>
+		<form action="" method="post">
+			<label for="texto">Cuadro de texto</label>
+			<input type="text" name="texto"/>
+		</form>
+
+		<!-- Ejercicio 16 -->
+		<script type="text/javascript">
+
+			// Mediante tres eventos asociados a tres botones, “SetText”, “SetHTML” y “SetValue” establecer el texto de un primer párrafo a “Hola Mundo”, establecer el texto de un segundo párrafo a “Hola Mundo” en negrita y establecer el valor de un cuadro de texto a “Hola Mundo”.
+			$("button:first").click(function() {
+				$("p").text("Hola Mundo");
+			});
+
+			$("button").eq(1).click(function() {
+				$("a[href]").css({
+					"text-decoration":"none",
+					"color":"black"
+				});
+				$("a").html("<b>Hola Mundo</b>");
+			});
+
+			$("button:last").click(function() {
+				$("form input[name='texto']").val("Hola Mundo");
+			});
+			
+		</script>
+	</body>
+</html>

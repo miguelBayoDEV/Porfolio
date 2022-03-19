@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 7.1.5</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>¿Qué resultado muestra el siguiente código? Razona tu respuesta:
+		function g(x) {
+		    x = 19;
+		}
+		g(8);
+		console.log(x);
+	</h1>
+
+	<script type="text/javascript">
+		/*
+		function g(x) {
+		    return x = 19;
+		}
+		var x = g(8);
+		console.log(x);
+		*/
+
+		function g(x) {
+		    x = 19;
+		}
+		g(8);
+		console.log(x);
+
+		// El resultado es undefined (Uncaught ReferenceError: x is not defined). La variable x no está definida debido a que la función g(x) no devuelve ningún valor; por lo tanto, da error. Si no se pone return en la función da undefined de resultado. Finalmente si se pone return y var x = g(8); da 19 porque es lo que devuelve la función.
+	</script>
+</body>
+</html>

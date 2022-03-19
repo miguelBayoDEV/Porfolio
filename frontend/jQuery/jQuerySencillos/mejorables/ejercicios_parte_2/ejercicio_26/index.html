@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 26</title>
+		<meta charset="utf-8"/>
+		<style type="text/css">
+			.products {
+				float: left;
+				margin-right: 20px;
+				border: 5px solid black;
+				text-align: center;
+				width: 200px;
+				height: 500px;
+			}
+
+			h1 {
+				clear: both;
+			}
+		</style>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<div id="no">
+			<div class="products">
+				<h2>Ritz</h2>
+				<img src="img/product1.png" width="100px" height="300px"/>
+				<h4>Precio: 1.50 euros</h4>
+				<button>Buy</button>
+			</div>
+			<div class="products">
+				<h2>Oreo</h2>
+				<img src="img/product2.png" width="100px" height="300px"/>
+				<h4>Precio: 2.25 euros</h4>
+				<button>Buy</button>
+			</div>
+			<div class="products">
+				<h2>Fanta naranja</h2>
+				<img src="img/product3.png" width="100px" height="300px"/>
+				<h4>Precio: 1 euro</h4>
+				<button>Buy</button>
+			</div>
+			<div class="products">
+				<h2>Coca Cola</h2>
+				<img src="img/product4.png" width="100px" height="300px"/>
+				<h4>Precio: 1 euro</h4>
+				<button>Buy</button>
+			</div>
+			<div class="products">
+				<h2>Froot Loops</h2>
+				<img src="img/product5.png" width="100px" height="300px"/>
+				<h4>Precio: 3.75 euros</h4>
+				<button>Buy</button>
+			</div>
+			<div class="products">
+				<h2>Heinz Spaguettis</h2>
+				<img src="img/product6.png" width="100px" height="300px"/>
+				<h4>Precio: 2.15 euro</h4>
+				<button>Buy</button>
+			</div>
+			<div class="products">
+				<h2>Gillete</h2>
+				<img src="img/product7.png" width="100px" height="300px"/>
+				<h4>Precio: 0.75 euro</h4>
+				<button>Buy</button>
+			</div>
+		</div>
+		<h1>Wish list:</h1>
+		<div id="si">
+			
+		</div>
+
+		<!-- Ejercicio 26 -->
+		<script type="text/javascript">
+
+			// Crea una página para hacer una “Wish list”. Para ello genera varios productos que podemos comprar (puedes darle el formato que quieras), cada producto irá acompañado de un botón de añadir a la lista de deseos. Incluye una zona en la que crearás la lista de deseos, al ir pulsado los botones de añadir a la lista de deseos se añadirá el producto a la zona de la lista de deseos, copiando la imagen e información del producto y añadiendo por cada uno un botón de quitar de la lista. Implementa la funcionalidad de estos botones usando delegación de eventos.
+			$("div.products").on('click', 'button', function() {
+				$padre = $(this).parent();
+				$("div#si").append("<div class='products'><h2>" + $padre.children("h2").text() + "</h2><img src='" + $padre.children("img").attr("src") +"' width='100px' height='300px'/><h4>" + $padre.children("h4").text() + "</h4><button>Quit</button></div>");
+			});
+
+			$("div#si").on('click', 'button', function() {
+				$(this).parent().remove();
+			});
+			
+		</script>
+	</body>
+</html>

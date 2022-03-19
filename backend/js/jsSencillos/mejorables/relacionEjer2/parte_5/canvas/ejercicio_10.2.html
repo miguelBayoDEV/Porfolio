@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 10.2</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Crea una página que consiga mostrar dos rectángulos que se intersectan, uno de los cuales tiene alpha transparencia.</h1>
+
+	<canvas id="lienzo" width="1000" height="1000"></canvas>
+
+	<script type="text/javascript">
+		const lienzo = document.getElementById("lienzo");
+		const contexto = lienzo.getContext("2d");
+		contexto.fillStyle = "rgb(250, 0, 0)";
+		contexto.fillRect(50, 50, 300, 150);
+		contexto.fillStyle = "rgba(0, 250, 0, 0.5)";
+		contexto.fillRect(150, 100, 300, 150);
+	</script>
+</body>
+</html>

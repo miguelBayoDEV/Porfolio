@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Crear comentarios de post</title>
+		<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>Creación comentarios: </h1>
+		<form action="index.php?comentarios" method="post">
+			<label for="texto">Texto: </label>
+			<textarea name="texto" rows="10" cols="50" placeholder="Escriba el texto aquí:"></textarea>
+			<br>
+			<label for="id_usuario">Id usuario: </label>
+			<input type="number" name="id_usuario" placeholder="Id usuario" required>
+			<br>
+			<label for="id_post">Id post: </label>
+			<input type="number" name="id_post" placeholder="Id post" required>
+			<br>
+			<label for="fecha">Fecha: </label>
+			<input type="date" name="fecha">
+			<br>
+			<input type="submit" value="Crear" name="comentario">
+		</form>
+	</body>
+</html>

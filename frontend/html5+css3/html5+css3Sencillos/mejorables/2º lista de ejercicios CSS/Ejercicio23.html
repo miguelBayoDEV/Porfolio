@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 23</title>
+		<style>
+			#recuadro {
+				position:relative;
+				height:100px;
+				width:300px;
+				text-align:center;
+				font-size:10px;
+				border-width:5px;
+				border-style:solid;
+				border-color:#000;
+			}
+			#recuadro:hover {
+				border-width:5px;
+				border-style:solid;
+				border-color:#000;
+				-webkit-animation-name:animacion;
+				-webkit-animation-duration:3s;
+				-webkit-animation-iteration-count:7;
+				-webkit-animation-direction:alternate;
+				-webkit-animation-timing-function:linear;
+				-webkit-animation-delay:2s;
+			}
+			@-webkit-keyframes animacion {
+				0%{
+					color:#ffff32;
+				}
+				20%{
+					color:#956875;
+				}
+				40%{
+					color:#d44;
+				}
+				60%{
+					color:#aaa;
+				}
+				80%{
+					color:#346;
+				}
+				100%{
+					color:#9f2;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<article id="recuadro">
+			<h2>Cambiar color de las letras.</h2>
+		</article>
+	</body>
+</html>

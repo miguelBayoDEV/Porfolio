@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 11</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<p>Párrafo alerta al presionar botón izquierdo ratón</p>
+
+		<!-- Ejercicio 11 -->
+		<script type="text/javascript">
+
+			// Crear un documento con un párrafo tal que aparezca un aviso alert() cuando se presiona el botón izquierdo del ratón, no es necesario soltarlo.
+			$("p").mousedown(function(e) {
+				if(e.which == 1) {
+					alert("Pulsado con botón izquierdo.");
+				}
+			});
+			
+		</script>
+	</body>
+</html>

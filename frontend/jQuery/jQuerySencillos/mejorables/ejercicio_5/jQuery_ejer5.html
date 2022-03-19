@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>5 - Usar selectores y funciones de altura</title>
+		<meta charset="utf-8">
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+			// En la versión 3 no haría falta usar está función.
+			$(document).ready(function() {
+				alert("Altura header: " + $("header").height() + " px");
+				alert("Altura h1: " + $("header h1").height() + " px");
+				alert("Altura section: " + $("section#centro").height() + " px");
+				alert("Altura p: " + $("section#centro p").height() + " px");
+				console.log("Altura header: " + $("header").height() + " px");
+				console.log("Altura h1: " + $("header h1").height() + " px");
+				console.log("Altura section: " + $("section#centro").height() + " px");
+				console.log("Altura p: " + $("section#centro p").height() + " px");
+			});
+		</script>
+
+		<style type="text/css">
+			header h1 {
+				color: red;
+				background-color: black;
+			}
+			#centro {
+				background-color: orange;
+				color: olive;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Título</h1>
+			<section id="centro">
+				<p>
+					Crea una página que contenga un header con un título en h1 y una seción con el id “centro” y dales un poco de estilo (especialmente color de fondo). Añade un párrafo de texto dentro de la sección #centro. Una vez hecho eso enlaza en el head con el archivo de jQuery. También dentro del head crea las etiquetas de script y dentro de ellas introduce la instrucción para que el script se ejecute una vez la página esté cargada. Una vez hecho esto tienes que detectar la altura de los diferentes elementos. Para ello tendrás que utilizar los selectores necesarios y la función .height de jQuery (Ayuda: http://api.jquery.com/height/) Finalmente visualiza los valores localizados con un alert, también puedes usar la consola con console.log(“texto”).
+				</p>
+			</section>
+		</header>
+	</body>
+</html>

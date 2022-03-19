@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 20</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<p>Párrafo 1</p>
+		<p>Párrafo 2</p>
+		<br/>
+		<button>Botón</button>
+
+		<!-- Ejercicio 20 -->
+		<script type="text/javascript">
+
+			// Crear un documento con un par de párrafos y un botón. Al clicar en los párrafos se debe aumentar el tamaño de la letra y el espacio entre caracteres. Al clicar en el botón se debe destruir el anterior evento clicar y su función asociada de aumentar el tamaño de la letra.
+			$("p").on({
+				'click': function() {
+					$(this).css({
+						"font-size":"+=1",
+						"letter-spacing":"+=1"
+					});
+				}
+			});
+
+			$("button").click(function() {
+				$("p:first").off("click");
+				$("p:last").off("click");
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,283 @@
+/* Fuentes de letras */
+* {
+	font-family: 'Goldman', cursive;
+	box-sizing: border-box;
+}
+
+h1, h2, h3 {
+	font-family: 'Xanh Mono', monospace;
+}
+
+/* Cabecera */
+header#cabecera h1 {
+	color: #FCFAF9;
+	padding-right: 2vw;
+}
+
+header#cabecera, main {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	background-color: #221411;
+}
+
+header img {
+	padding: 1%;
+	width: 5%;
+	height: 5%;
+}
+
+/* Barra de nagegación */
+nav {
+	background-color: #FF5733;
+	color: #FCFAF9;
+	padding-top: 0.5vh;
+	padding-bottom: 0.5vh;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+nav ul {
+	list-style-type: none;
+}
+
+nav li {
+	display: inline-flex;
+	padding-right: 1vw;
+}
+
+nav button {
+	background-color: #221411;
+	color: white;
+	text-align: center;
+	width: 7vw;
+	height: 3vw;
+	border-radius: 0.7vw;
+}
+
+/* Efectos al posicionar el ratón encima de los botones */
+nav button:hover {
+	color: olive;
+	background-color: lightyellow;
+}
+
+/* Contenido principal */
+main {
+	padding: 3%;
+}
+
+main section, main aside {
+	float: left;
+	background-color: #FF5733;
+}
+
+/* Sección de artículos */
+main section {
+	width: 75%;
+	margin-right: 4%;
+	padding-left: 2%;
+}
+
+main section h2 {
+	font-weight: bolder;
+	font-size: 2vw;
+}
+
+main section article {
+	background: linear-gradient(180deg, #F1B7AB, #FCFAF9);
+	margin-bottom: 5%;
+	margin-right: 3%;
+	padding: 2%;
+	height: 500px;
+}
+
+/* Componentes de artículos: header, contenido con div y footer; */
+main section article > header {
+	font-weight: bolder;
+	font-size: 1vw;
+}
+
+div.contenido img {
+	float: left;
+	margin: 2%;
+	width: 7%;
+	height: 12vh;
+}
+
+/* Todos los hijos directos footer de los artículos */
+main section article > footer {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	background-color: #FF5733;
+	margin-top: 8%;
+	padding-top: 2%;
+}
+
+/* Barra de navegación para artículos */
+main aside {
+	width: 25%;
+	height: 50vh;
+	float: left;
+}
+
+main aside h3 {
+	padding-left: 1.5vw;
+	font-weight: bolder;
+	font-size: 2vw;
+}
+
+main aside ul {
+	color: #FCFAF9;
+}
+
+main aside li {
+	margin-bottom: 2vh;
+}
+
+main aside a {
+	color: #FCFAF9;
+}
+
+/* Bordes de los enlaces de la barra de navegación del aside */
+main aside li:first-child {
+	border-top: 2px solid blue;
+}
+
+main aside li:last-of-type {
+	border-bottom: 2px solid blue;
+	padding-bottom: 2px;
+}
+
+main aside li {
+	border-bottom: 2px solid blue;
+	padding-bottom: 2vh;
+}
+
+/* Efecto subrayado header artículo */
+main section article:target header > h3 {
+	border-bottom: 7px solid black;
+}
+
+/* Pie de página */
+footer {
+	clear: both;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	margin-top: 1%;
+	background-color: #FF5733;
+}
+
+/* Redondear un poco los bordes de las cajas principales */
+header:first-of-type, nav, main, footer:last-of-type {
+	border-radius: 3px;	
+}
+
+/* Efectos para modificar los contenidos del artículo 
+que clickeas en la barra de navegación de artículos del aside*/
+main section article:target .contenido img {
+	border: 3px dotted orange;
+}
+
+main section article:target .contenido {
+	color: purple;
+}
+
+main section article:target footer {
+	background-color: lightblue;
+	color: brown;
+}
+
+/* Efecto de fondo del artículo con linear-gradient */
+main section article:target {
+	background: linear-gradient(77deg, green, orange);
+}
+
+/* Media queries @media */
+@media screen and (max-width: 699px) {
+	main {
+		display: flex;
+		flex-flow: column-reverse wrap;
+		align-content: space-between;
+	}
+	main section, main aside {
+		width: 100%;
+		margin-bottom: 5vh;	
+	}
+
+	header#cabecera h1 {
+		font-size: 4vw;
+	}
+
+	header#cabecera img {
+		width: 10vw;
+		height: 8vh;
+	}
+
+	nav button {
+		font-size: 1.5vw;
+		width: 10vw;
+	}
+
+	main aside h3 {
+		padding-left: 4vw;
+		font-size: 3vw;
+	}
+
+	main section h2 {
+		font-size: 3vw;
+	}
+
+	main section article {
+		overflow-y: auto;
+	}
+
+	main section article h3 {
+		font-size: 3vw;
+	}
+
+	main section article footer {
+		margin-bottom: 3vh;
+	}
+}
+
+@media screen and (max-width: 399px) {
+	nav ul {
+		display: flex;
+		flex-flow: column-reverse wrap;
+		margin-bottom: 2vw;
+	}
+
+	nav button {
+		font-size: 3vw;
+		width: 20vw;
+		height: 5vh;
+		padding: 1vh;
+		margin-bottom: 1vh;
+	}
+
+	
+	nav li:nth-of-type(1) {
+		order: 3;
+	}
+	 
+	nav li:nth-of-type(2) {
+		order: 4;
+	}
+	 
+	nav li:nth-of-type(3) {
+		order: 1;
+	}
+	 
+	nav li:nth-of-type(4) {
+		order: 2;
+	}
+	
+
+	footer {
+		display: flex;
+		flex-flow: column wrap;
+		width: 100%;
+	}
+}

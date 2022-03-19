@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.4.4</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre un botón para retroceder 3 páginas en el historial.</h1>
+	<button id="btn" onclick="history.go(-3)">BTN</button>
+
+	<script type="text/javascript">
+		var urls = history.length;
+		document.write("URLs del historial: " + urls);
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.1.7</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa una página web al pulsar el botón la ventana realizará un desplazamiento vertical de 10px. Ahora al pulsar el botón se desplazará horizontalmente a la posición (x,y) = (0,100px)</h1>
+	<form>
+	 	<input type="button" value="Desplazar 10px eje Y" onclick="desplazar()"/>
+	 	<br/>
+	 	<input type="button" value="Desplazar 100px eje Y" onclick="desplazar1()"/>
+	 	<br/>
+	</form>
+
+	<script type="text/javascript">
+		var ventana = window.self;
+		for(var i=0;i<100;i++) {
+			document.write(i + "<br/>");
+		}
+		function desplazar(){
+			// ventana.scrollBy(0, 10); para que al pulsar se desplace 10px hacía eje y con scroll() solo lo hará una vez siendo fijo
+			ventana.scroll(0, 10);
+		}
+		function desplazar1(){
+			// ventana.scrollBy(0, 100); para que al pulsar se desplace 100px hacía eje y con scroll() solo lo hará una vez siendo fijo
+			ventana.scroll(0, 100);
+		}
+	</script>
+</body>
+</html>

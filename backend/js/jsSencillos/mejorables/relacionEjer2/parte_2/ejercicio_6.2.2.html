@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.2.2</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre por pantalla la URL completa de la página que lo contenga.</h1>
+	<h3 id="localizacion"></h3>
+
+	<script type="text/javascript">
+		var url_servidor = location.href;
+		document.getElementById("localizacion").innerHTML = "URL completa de la página: " + url_servidor;
+	</script>
+</body>
+</html>

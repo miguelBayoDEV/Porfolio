@@ -1,0 +1,13 @@
+// Programa que visualice del 1 al 10 y del 10 al 1 a la vez.
+for(var i = 1, j = 10; i <= 10 && j > 0; i++, j--) {
+	document.write("Cuenta adelante: " + i + " - Cuenta atras: " + j + "<br/>");
+}
+
+var i = 1;
+var j = 10;
+
+while(i <= 10 && j > 0) {
+	document.write("Cuenta adelante: " + i + " - Cuenta atras: " + j + "<br/>");
+	i++;
+	j--;
+}

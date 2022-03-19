@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 9</title>
+		<meta charset="utf-8"/>
+		<style type="text/css">
+			table {
+				border: 2px solid black;
+			}
+		</style>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<table>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+			<tr>
+				<td>Celda</td>
+				<td>Celda</td>
+				<td>Celda</td>
+			</tr>
+		</table>
+
+		<!-- Ejercicio 9 -->
+		<script type="text/javascript">
+
+			// Crear un documento con una tabla. Al pasar el ratón por encima de la tabla se deben poner el fondo de las filas pares en rojo (usar el método .css("background-color","red") y el fondo de las filas impares en verde ..css("background-color","green").
+			$("table").hover(function() {
+				$("table tr:odd").css("background-color", "red");
+				$("table tr:even").css("background-color", "green");
+			});
+			
+		</script>
+	</body>
+</html>

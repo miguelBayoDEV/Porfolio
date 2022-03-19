@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Recuperación jQuery - 11 noviembre 2019</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+        <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header><h1>Recuperación jQuery</h1></header>
+    <div id="contenedor">             
+        
+        <div id="notas">
+            <h1>Notas</h1>
+            <form id="formulario" action="#" method="get">
+                <div class="bloque">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+                <div class="bloque">
+                    <label for="htmlcss">Nota de HTMLCSS:</label>
+                    <input type="number"  min="1" max="10" name="notaHTMLCSS" id="notaHTMLCSS">
+                </div>
+                <div class="bloque">
+                    <label for="animaciones">Nota de Animaciones:</label>
+                    <input type="number"  min="1" max="10" name="notaAnimaciones" id="notaAnimaciones">
+                </div>
+                <div class="bloque">
+                    <label for="audiovideo">Nota de Audio y Vídeo:</label>
+                    <input type="number"  min="1" max="10" name="notaAudiovideo" id="notaAudiovideo">
+                </div>
+                <div class="bloque">
+                    <label for="jquery">Nota de jQuery:</label>
+                    <input type="number"  min="1" max="10" name="notaJQuery" id="notaJQuery" >
+                </div>
+
+                <div id="pesos">
+                    <p id="title">Pesos</p>
+                    <div class="content">
+                        <div class="bloque">
+                            <label for="pesoHTMLCSS">HTMLCSS:</label>
+                            <input type="number" min="0" max="1"  step="0.1" name="pesoHTMLCSS" id="pesoHTMLCSS" value="0.3">
+                        </div>
+                        <div class="bloque">
+                            <label for="pesoAnimaciones">Animaciones:</label>
+                            <input type="number" min="0" max="1" step="0.1" name="pesoAnimaciones" id="pesoAnimaciones" value="0.2">
+                        </div>
+                        <div class="bloque">
+                            <label for="pesoAudiovideo">Audio y Vídeo:</label>
+                            <input type="number" min="0" max="1"  step="0.1" name="pesoAudiovideo" id="pesoAudiovideo" value="0.2">
+                        </div>
+                        <div class="bloque">
+                            <label for="pesoJQuery">jQuery:</label>
+                            <input type="number" min="0" max="1"  step="0.1" name="pesoJQuery" id="pesoJQuery" value="0.3">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" id="btnCalcular" value="Calcular nota" >
+                <button id="colorear">Colorear</button>
+            </form>
+        </div>
+            
+        
+
+        <div id="resultados"> 
+            <h1>Resultados</h1> 
+            <!--<div class="alumno">
+                <span>Alumno: Pepe Jiménez</span>
+                <span>Nota: 8.6</span>
+                <div class="botones">
+                    <button>Borrar</button>
+                    <button>Cerrar</button>
+                </div>
+            </div>-->
+
+        </div>
+
+    </div>
+</body>
+</html>

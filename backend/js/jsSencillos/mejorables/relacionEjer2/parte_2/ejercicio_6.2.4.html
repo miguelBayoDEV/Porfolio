@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.2.4</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre por pantalla el protocolo utilizado.</h1>
+	<h3 id="localizacion"></h3>
+
+	<script type="text/javascript">
+		// Su protocolo es file: en este caso.
+		var protocolo_servidor = location.protocol;
+		document.getElementById("localizacion").innerHTML = "Protocolo URL: " + protocolo_servidor;
+		// document.write("Protocolo URL: " + location.protocol);
+	</script>
+</body>
+</html>

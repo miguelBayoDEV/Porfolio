@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 5.3.6</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre el día de la semana con un número (del 0 al 6) por pantalla.</h1>
+	<h3 id="date"></h3>
+
+	<script type="text/javascript">
+		var dia_semana = new Date();
+		// Empieza desde el domingo
+		document.getElementById("date").innerHTML = "Día de la semana (0-6): " + dia_semana.getDay();
+	</script>
+</body>
+</html>

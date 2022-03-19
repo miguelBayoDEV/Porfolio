@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    
+    {% if is_granted("ROLE_ADMIN") %}
+        Empresas:
+        {% for empresa in empresas %}
+            {% if empresa.status %}
+                <li>{{ empresa.nombre }}</li> <button><a href="/habilitar/{{ empresa.id }}">Deshabilitar</a></button>
+            {% else %}
+                <li>{{ empresa.nombre }}</li> <button><a href="/habilitar/{{ empresa.id }}">Habilitar</a></button>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+    {% if is_granted("ROLE_OWNER") %}
+        <button><a href="/empresa/new">Crear empresa</a></button>
+        <br/>
+
+        Empresas:
+        {% for empresa in empresas %}
+            {% if empresa.status %}
+                <li>{{ empresa.nombre }}</li>
+                <button><a href="/registerEmpleado/{{ empresa.id }}">Crear usuario</a></button>
+                <button><a href="/empresa/{{ empresa.id }}">Ver datos empresa</a></button>
+            {% endif %}
+        {% endfor %}
+
+        <br/>
+        <br/>
+
+    {% endif %}
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category{% endblock %}
+
+{% block body %}
+    <button><a href="/article/new/{{ category.id }}">Crear artículo solo administrador</a></button>
+    Articles:
+    {% for article in category.getArticles() %}
+        {% if is_granted("ROLE_ADMIN") %}
+            <li><a href="/article/{{article.id}}">{{article.title}} - {% if article.img != null %}<img src="/img/{{article.img}}"/>{% endif %}</a></li>
+            {% if article.status == true %}
+                <button><a href="/publicar/{{ article.id }}">Borrador</a></button>
+            {% else %}
+                <button><a href="/publicar/{{ article.id }}">Publicar</a></button>
+            {% endif %}
+        {% else %}
+            {% if article.status == true %}
+                <li><a href="/article/{{article.id}}">{{article.title}} - {% if article.img != null %}<img src="/img/{{article.img}}"/>{% endif %}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

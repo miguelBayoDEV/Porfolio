@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 6 eventos: Modelo de registro W3C</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<section id="section1">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</section>
+		<br/>
+		<a href="#section1">Ocultar contenidos</a>
+		<br/>
+		<br/>
+		<section id="section2">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</section>
+		<br/>
+		<a href="#section2">Ocultar contenidos</a>
+		<br/>
+		<br/>
+		<section id="section3">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.
+		</section>
+		<br/>
+		<a href="#section3">Ocultar contenidos</a>
+		<br/>
+		<br/>
+
+		<script type="text/javascript">
+			
+			function ocultarMostrar() {
+
+				var href = this.getAttribute("href").substring(1);
+				
+				if(this.childNodes[0].nodeValue == "Ocultar contenidos") {
+					// Cuando pinchemos sobre cualquier enlace se ocultará la sección relacionada y el mensaje del enlace se cambiará por “Mostrar contenidos”.
+					document.getElementById(href).setAttribute("style", "visibility:hidden");
+					this.childNodes[0].nodeValue = "Mostrar contenidos";
+				}else {
+					// Cuando volvamos a pinchar sobre el enlace la sección se mostrará y el mensaje del enlace volverá a ser el inicial.
+					document.getElementById(href).setAttribute("style", "visibility:visible");
+					this.childNodes[0].nodeValue = "Ocultar contenidos";
+				}
+			}
+
+			// Modelo de registro de eventos de W3C:
+			document.getElementsByTagName("a")[0].addEventListener("click", ocultarMostrar, false);
+			document.getElementsByTagName("a")[1].addEventListener("click", ocultarMostrar, false);
+			document.getElementsByTagName("a")[2].addEventListener("click", ocultarMostrar, false);
+
+		</script>
+	</body>
+</html>

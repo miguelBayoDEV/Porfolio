@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <title>Main</title>
+    </head>
+    <body>
+    <h1>Tus noticias</h1>
+    <nav>
+    <?php if($_SESSION['user']->isLogged()){ ?>
+        <a href="index.php?logout">Logout</a>    
+        <?php     }else {        ?>
+        <a href="index.php?userlogin">Login</a>
+        <a href="index.php?register">Registrarse</a>
+        <?php    } ?>
+    <a href="index.php?addNews">Subir noticia</a>
+    </nav>
+
+    <br><br>
+    <h2>Listado</h2>
+    <?php
+    foreach($news as $item){
+        echo $item;
+        //seccion administracion
+        if($_SESSION['user']->isAdmin())
+         {echo ' <span><a href="index.php?del='.$item->id.'"> X </a></span>';
+         }
+        echo '<br>';
+        if($_SESSION['user']->isLogged()) echo '
+        <a href="index.php?id='.$item->id.'&valoration=1">^</a>'.$item->positives.
+        '<a href="index.php?id='.$item->id.'&valoration=-1">v</a>'.$item->negatives.'<br><br>';
+        else echo $item->positives." - ".$item->negatives.'<br><br>';
+    
+    }
+
+?>
+    
+    </body>
+</html>

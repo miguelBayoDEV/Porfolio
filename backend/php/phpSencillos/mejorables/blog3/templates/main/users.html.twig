@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+    {% for user in users %}
+        {% if user.email != "root@gmail.com" %}
+            <li>{{ user.nick }} - ({{ user.roles[0] }}) <button id="{{ user.id }}" onClick="cambioAdmin({{ user.id }});">Admin</button></li>
+        {% endif %}
+    {% endfor %}
+
+    <script>
+        function cambioAdmin(id) {
+
+            function fail(data) {
+                alert("Error de AJAX: " + data);
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "/cambioAdmin",
+                data: {id_user: id},
+                success: function(data) {
+                    if(data == "1") {
+                        var b = "#" + id;
+                        $(b).text("Admin");
+                    }else {
+                        var b = "#" + id;
+                        $(b).text("User");
+                    }
+                },
+                error: fail
+            });
+        }
+    </script>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>CSSLab - Animaciones y Transformaciones con CSS3</title>
+	<style type="text/css">
+		body { font-family: Georgia, serif; }
+		h1, h2 a { color: #666; text-shadow: #ccc -1px -1px 2px; }
+		
+		.prueba1 {
+			margin:10px;
+			width:200px;
+			height:200px;
+			background:#f00;
+			border:1px solid #666;
+               -webkit-transition: all 1s ease; /* Safari-Chrome */	
+		}
+
+			.prueba1:hover{
+				width:400px;
+                -webkit-transition: all 2s ease; /* Safari-Chrome */		
+			}
+		
+	</style>
+	
+</head>
+
+<body>
+	<h1>CSSLab - Animaciones y Transformaciones con CSS3</h1>
+	<h2><a href="http://www.csslab.cl/2011/01/31/animaciones-y-transformaciones-con-css3/" title="Enlace en CSSLab a &quot;Animaciones y Transformaciones con CSS3&quot;">Volver a artículo</a></h2>
+	<div class="prueba1">
+		Hover en esta caja, y verán en Safari/Chrome cómo se anima su cambio en el width. En Firefox el cambio es brusco.
+	</div>
+
+
+<div></div></body></html>

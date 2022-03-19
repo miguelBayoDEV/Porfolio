@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 33: efectos jQuery</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<!-- Enlace a CDN JQueryUI -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<button id="btn">Iniciar</button>
+		<div id="square">
+			HELLO
+		</div>
+		<button id="btn1">Start</button>
+		<button id="btn2">Stop</button>
+		<button id="btn3">Stop All</button>
+		<button id="btn4">Stop but finish</button>
+
+		<script type="text/javascript">
+			
+			// Formato del cuadrado
+			$("div#square").css({
+				"background-color":"green",
+				"position":"absolute",
+				"border":"2px solid black"
+			});
+
+			// Crear un programa, tal que al clickar en un botón se mueva un cuadrado 100 px a la derecha y si dentro del cuadrado pone HELLO aumente el tamaño de la letra.
+			$("button#btn").click(function() {
+				$("div#square").animate({
+					left: "+=100"
+				}, 7000);
+				$("div#square").animate({
+					fontSize: "+=7"
+				}, 7000);
+			});
+
+			// Start - Comienza la animación. Es lo mismo que el anterior botón:
+			$("button#btn1").click(function() {
+				$("div#square").animate({
+					left: "+=100"
+				}, 7000);
+				$("div#square").animate({
+					fontSize: "+=7"
+				}, 7000);
+			});
+
+			// Stop - Para la animación actual pero continúa con el resto:
+			$("button#btn2").click(function() {
+				$("div#square").stop();
+			});
+
+			// Stop All - Detiene todas las animaciones de inmediato:
+			$("button#btn3").click(function() {
+				$("div#square").stop(true, false);
+			});
+
+			// Stop but finish - Detiene las animaciones pero acabando primero la que se encuentra en ejecución:
+			$("button#btn4").click(function() {
+				$("div#square").stop(true, true);
+			});
+
+			// Primer parámetro método stop(): Este parámetro especifica si la cola de funciones del selector debe detenerse por completo. Por defecto es ‘false‘ por lo que solo se detiene la ejecución de la función actual, posteriormente el resto de funciones se siguen ejecutando, y segundo parámetro: Por defecto su valor es ‘false’, especifica si la ejecución actual de la función debe completarse.
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - arrays</title>
+	<meta name="author" content="francesc ricart"/>
+</head>
+<body>
+
+	<script>
+		var fruta  = ["Plátano","naranja","manzana"];
+		
+		// 1.- Muestra el contenido del array por pantalla y después la longitud del array separada por una barra "/"
+	    document.write(fruta + " / " + fruta.length + "<br/>");
+
+	    // 2- Utiliza el método de array correcto para ordenar alfabeticamente el contenido del array y muestra el resultado por pantalla.
+	    document.write(fruta.sort() + "<br/>");
+
+	    // 3- Utiliza el método de array correcto para eliminar el último elemento del array fruta. Muestra el contenido del array por pantalla para confirmar que el elemento ha sido eliminado y después la longitud del array separada por una barra "/" ¿La longitud del array se ha modificado?
+	    fruta.pop();
+	    document.write(fruta + " / " + fruta.length + "<br/>");
+
+		// 4- Utiliza el método correcto para añadir kiwi al array
+		fruta.push("kiwi");
+		document.write(fruta + "<br/>");
+
+	    // 5- Utiliza el método correcto para eliminar manzana y kiwi de fruta.
+	    delete fruta[1];
+	    delete fruta[2];
+	    document.write(fruta + "<br/>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 10.1</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		canvas {
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<h1>Crea una página que consiga mostrar un rectángulo sólido rojo de 150*75 pixeles. El lienzo o canvas tendrá un tamaño de 200 x 100 y un borde agregado mediante un atributo de estilo.</h1>
+
+	<canvas id="lienzo" width="200" height="100"></canvas>
+
+	<script type="text/javascript">
+		const lienzo = document.getElementById("lienzo");
+		const contexto = lienzo.getContext("2d");
+		contexto.fillStyle = "red";
+		contexto.fillRect(22, 12, 150, 75);
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 21</title>
+		<style>
+			#recuadro {
+				position:relative;
+				height:100px;
+				width:300px;
+				text-align:center;
+				font-size:10px;
+				border-width:5px;
+				border-style:solid;
+				border-color:#000;
+			}
+			#recuadro:hover {
+				border-width:5px;
+				border-style:solid;
+				border-color:#000;
+				-webkit-animation-name:animacion;
+				-webkit-animation-duration:3s;
+				-webkit-animation-iteration-count:7;
+				-webkit-animation-direction:alternate;
+				-webkit-animation-timing-function:linear;
+				-webkit-animation-delay:2s;
+				box-shadow:50px 50px 40px #20ff55;
+			}
+			@-webkit-keyframes animacion {
+				from{
+					color:#0f0;
+				}
+				to {
+					color:#ff0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<article id="recuadro">
+			<h2>Animación que cambie de color en una distancia.</h2>
+		</article>
+	</body>
+</html>

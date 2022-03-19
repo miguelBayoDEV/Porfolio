@@ -1,0 +1,425 @@
+@font-face {
+	font-family: "Balsamiq-Sans";
+	src: url('Balsamiq_Sans/BalsamiqSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: "Dancing-Script";
+	src: url('Dancing_Script/DancingScript-VariableFont_wght.ttf');
+}
+
+.container {
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+
+
+.cabecera {
+	border: 2px solid black;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.cabecera img {
+	width: 20vw;
+}
+
+#padre1 {
+	font-size: 40px;
+	font-family: Balsamiq-Sans;
+	padding-right: 10vw;
+}
+
+
+
+.nav {
+	border: 2px solid gray;
+	background-color: #9c0400;
+}
+
+#buscar input[type=text] {
+	width: 20vw;
+	border: 1px solid black;
+	box-shadow: 0px 0px 1px 1px inset;
+}
+
+#buscar input[type=submit] {
+	border-radius: 0px;
+	border: 3px solid black;
+	box-shadow: 5px 5px;
+}
+
+#padre2 {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#enlaces1 {
+	background-color: white;
+	border: 2px solid black;
+	width: 35vw;
+	box-shadow: 0px 0px 5px 0px inset;
+}
+
+#enlaces1 ul {
+	list-style: none;
+}
+
+#enlaces1 ul li {
+	display: inline;
+}
+
+#enlaces1 ul li a {
+	padding-right: 1.5vw;
+	font-family: Balsamiq-Sans;
+	font-weight: lighter;
+	font-size: 0.7vw;
+	text-decoration: none;
+	color: black;
+}
+
+#enlaces1 ul li a:hover {
+	font-family: Arial;
+	font-size: 1vw;
+	color: white;
+	background-color: darkblue;
+}
+
+#enlaces1 ul li a:visited {
+	color: lightgreen;
+}
+
+
+
+.presentacion {
+	border: 2px solid black;
+	padding-top: 0vh;
+	padding-bottom: 5.5vh;
+	padding-right: 2.5vw;
+	padding-left: 2.5vw;
+	overflow-y: auto;
+}
+
+.presentacion h2 {
+	font-size: 2vw;
+	font-family: Balsamiq-Sans;
+	font-weight: lighter;
+	margin-bottom: 1vh;
+}
+
+#padre3 {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#padre3 img {
+	border: 2px solid black;
+	width: 30vw;
+	height: 65vh;
+	margin-top: 0px;
+}
+
+#texto1 {
+	width: 60.5vw;
+}
+
+#texto1 p {
+	padding: 0%;
+	margin: 0%;
+	font-family: Dancing-Script;
+	font-weight: bolder;
+}
+
+
+
+.productos {
+	border: 2px solid black;
+	padding-top: 0vh;
+	padding-bottom: 5.5vh;
+	padding-right: 2.5vw;
+	padding-left: 2.5vw;
+	background-color: #ff6b6b;
+	overflow-y: auto;
+}
+
+.productos h2 {
+	font-size: 2vw;
+	font-family: Balsamiq-Sans;
+	font-weight: lighter;
+	margin-bottom: 1%;
+}
+
+#padre4 {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.producto {
+	width: 30vw;
+	overflow-y: auto;
+	margin: 0%;
+	padding: 0%;
+}
+
+.producto img {
+	width: 30vw;
+	height: 40vh;
+}
+
+.producto figcaption {
+	overflow: visible;
+	width: 30vw;
+	font-weight: bolder;
+	padding-top: 10%;
+	font-family: Dancing-Script;
+}
+
+
+
+.piel {
+	clear: left;
+	border: 2px solid black;
+	padding-top: 0vh;
+	padding-bottom: 5.5vh;
+	padding-right: 2.5vw;
+	padding-left: 2.5vw;
+	overflow-y: auto;
+}
+
+.piel h2 {
+	font-size: 2vw;
+	font-family: Balsamiq-Sans;
+	font-weight: lighter;
+	color: #9c0400;
+}
+
+#padre5 {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#texto2 {
+	width: 55vw;
+	padding: 0px;
+}
+
+#texto2 p {
+	padding: 0%;
+	margin: 0%;
+	font-family: Dancing-Script;
+	font-weight: bolder;
+}
+
+#padre5 img {
+	border: 2px solid black;
+	width: 35vw;
+	height: 60vh;
+}
+
+
+
+.tiendas {
+	border: 2px solid black;
+	padding-top: 0vh;
+	padding-bottom: 5.5vh;
+	padding-right: 2.5vw;
+	padding-left: 2.5vw;
+	background-color: #ff6b6b;
+	overflow-y: auto;
+}
+
+.tiendas h2 {
+	font-size: 2vw;
+	font-family: Balsamiq-Sans;
+	font-weight: lighter;
+}
+
+#padre6 {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#padre6 img {
+	border: 2px solid black;
+	width: 30vw;
+	height: 30vh;
+	margin-top: 0px;
+}
+
+#buscador {
+	width: 58vw;
+	font-family: Balsamiq-Sans;
+	font-weight: lighter;
+}
+
+#buscador h3 {
+	font-size: 2px;
+	font-weight: lighter;
+}
+
+#buscador p {
+	font-family: Dancing-Script;
+	font-weight: bolder;
+}
+
+#formulario {
+	margin-top: -0.5vh;
+}
+
+#formulario label {
+	padding-right: 2vw;
+}
+
+#formulario input[type=text] {
+	width: 7vw;
+	margin-right: 1vw;
+	border-radius: 0px;
+	border: 1px solid black;
+	box-shadow: 0px 0px 1px 1px inset;
+}
+
+#formulario input[type=submit] {
+	border-radius: 0px;
+	border: 3px solid black;
+	box-shadow: 2px 2px;
+}
+
+.pie {
+	border: 2px solid black;
+	padding-top: 0vh;
+	padding-bottom: 5.5vh;
+	padding-right: 2.5vw;
+	padding-left: 2.5vw;
+	overflow-y: auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#padre7, #padre8, #padre9 {
+	width: 30vw;
+	font-family: Balsamiq-Sans;
+	font-size: 2vw;
+	font-weight: lighter;
+	color: #9c0400;
+}
+
+#padre8 img {
+	width: 5vw;
+	height: 10vh;
+}
+
+#padre9 img {
+	width: 5vw;
+	height: 10vh;
+	padding-right: 1vw;
+}
+
+#enlaces2 ul {
+	list-style: none;
+}
+
+#enlaces2 ul li a {
+	display: block;
+	width: 20vw;
+}
+
+#enlaces2 ul li a:hover {
+	background-color: yellow;
+}
+
+#enlaces2 ul li a img {
+	width: 10vw;
+	height: 10vh;
+}
+
+
+
+@media screen and (max-width: 780px) {
+	#logo img {
+		display: none;
+	}
+
+	.cabecera {
+		background-size: 12vw;
+		background-image: url(img/logo_min.png);
+		background-position: left;
+		background-repeat: no-repeat;
+	}
+
+	#padre1 {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-end;
+	}
+
+	#padre1 h1 {
+		font-size: 5vw;
+		padding-right: 10vw;
+	}
+
+	#padre2 {
+		display: flex;
+		flex-flow: column-reverse wrap;
+		padding: 2vw;
+	}
+
+	#enlaces1 {
+		width: 80vw;
+	}
+
+	#enlaces1 ul li a {
+		font-size: 2vw;
+	}
+
+	#padre7, #padre8, #padre9 {
+		font-size: 1.5vw;
+	}
+
+	#copyright img, #redes_sociales img {
+		width: 3vw;
+		height: 3vh;
+	}
+}
+
+
+
+@media screen and (max-width: 480px) {
+	#padre7, #padre8, #padre9, .producto {
+		font-size: 2.5vw;
+		width: 100%;
+		text-align: center;
+	}
+
+	#enlaces2 ul {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+	}
+
+	.producto img, .producto figcaption, #padre3 img, #padre5 img, #padre6 img {
+		width: 100%;
+		padding-bottom: 2vw;
+	}
+
+	.presentacion h2, .productos h2, .piel h2, .tiendas h2 {
+		font-size: 5vw;
+	}
+
+	#texto1, #texto2, #buscador {
+		width: 100%;
+	}
+}

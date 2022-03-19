@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inserciones de fuentes: ejercicio 6</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet"> 
+		<style type="text/css">
+			* {
+				margin: auto;
+				padding: auto;
+			}
+
+			header {
+				background-color: purple;
+				color: white;
+				text-align: center;
+			}
+
+			body {
+				background: url('fondo_celeste.jpg');
+			}
+
+			footer {
+				background-color: purple;
+				color: white;
+			}
+
+			@font-face {
+				font-family: "Skia";
+				src: url(’Skia Regular.ttf’);
+			}
+
+			#regla {
+				font-family: Skia;
+			}
+
+			@font-face {
+				font-family: "Miguel";
+				src: url('Skia Regular/Skia Regular.ttf');
+			}
+
+			#nombre {
+				font-family: 'Miguel';
+			}
+
+			@font-face {
+				font-family: "Sk";
+				src: local("Skia"), url(’Skia.ttf’);
+			}
+
+			#locales {
+				font-family: Sk;
+			}
+
+			@font-face {
+				font-family: "S";
+				src: local('Skia'), url('Skia.ttf')format("truetype"),
+				url('Skia.woff')format("woff");
+			}
+
+			#formatos {
+				font-family: S;
+				font-weight: bolder;
+				font-variant: normal;
+				font-style: italic;
+			}
+
+			#Google {
+				font-family: 'Yellowtail', cursive;
+			}
+
+			img {
+				width: 20px;
+				height: 20px;
+			}
+
+			footer .contacto {
+				text-align: left;
+			}
+
+			footer #C {
+				text-align: center;
+			}
+
+			footer .redes_sociales {
+				text-align: right;
+				margin-top: -20px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Inserción de fuentes</h1>
+		</header>
+
+		<section>
+			<article id="regla">
+				<h2>La regla @font-face.</h2>
+				<p>
+					Una vez se ha hecho la declaración de la regla @font-face, puede indicar el nombre que quiera para la fuente que se ha de incrustar mediante la propiedad font-family. A continuación, con la propiedad src, especificará la ruta
+					de acceso al archivo de la fuente.
+				</p>
+			<br/>
+			</article>
+			<article id="nombre">
+				<h2>El nombre de las fuentes.</h2>
+				<p>
+					Una vez se ha hecho la declaración de la regla @font-face, puede indicar el nombre que quiera para la fuente que se ha de incrustar mediante la propiedad font-family. A continuación, con la propiedad src, especificará la ruta
+					de acceso al archivo de la fuente.
+				</p>
+			</article>
+			<br/>
+			<article id="locales">
+				<h2>Las fuentes incrustadas locales.</h2>
+				<p>
+					Una vez se ha hecho la declaración de la regla @font-face, puede indicar el nombre que quiera para la fuente que se ha de incrustar mediante la propiedad font-family. A continuación, con la propiedad src, especificará la ruta
+					de acceso al archivo de la fuente.
+				</p>
+			</article>
+			<br/>
+			<article id="formatos">
+				<h2>Indicar varios formatos y estilos tipográficos.</h2>
+				<p>
+					Una vez se ha hecho la declaración de la regla @font-face, puede indicar el nombre que quiera para la fuente que se ha de incrustar mediante la propiedad font-family. A continuación, con la propiedad src, especificará la ruta
+					de acceso al archivo de la fuente.
+				</p>
+			</article>
+			<br/>
+			<article id="Google">
+				<h2>Google Fonts.</h2>
+				<p>
+					Una vez se ha hecho la declaración de la regla @font-face, puede indicar el nombre que quiera para la fuente que se ha de incrustar mediante la propiedad font-family. A continuación, con la propiedad src, especificará la ruta
+					de acceso al archivo de la fuente.
+				</p>
+			</article>
+			<br/>
+		</section>
+
+		<footer>
+			<div class="contacto">
+				<h3>Contacto:</h3>
+				<h6>correo@correo.com</h6>
+				<h6>teléfono</h6>
+			</div>
+			<h5 id="C">Copiright 2020 Miguel</h5>
+			<div class="redes_sociales">
+				<img src="facebook.png" id="facebook">
+				<img src="twitter.png" id="twitter">
+				<img src="instagram.jpg" id="instagram">
+			</div>
+		</footer>
+	</body>
+</html>

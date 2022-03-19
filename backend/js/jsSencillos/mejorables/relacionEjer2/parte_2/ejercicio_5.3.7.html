@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 5.3.7</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre el día de la semana por su nombre en pantalla.</h1>
+	<h3 id="date"></h3>
+
+	<script type="text/javascript">
+		// Array de los días de la semana
+		var diasSemana = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+		var dia_semana = new Date();
+		// Empieza desde el domingo
+		document.getElementById("date").innerHTML = "Día de la semana con nombre: " + diasSemana[dia_semana.getDay()];
+	</script>
+</body>
+</html>

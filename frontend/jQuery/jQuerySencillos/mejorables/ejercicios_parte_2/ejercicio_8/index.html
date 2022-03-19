@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 8</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<a href="#" target="_blank">Enlace 1 con target</a>
+		<br/>
+		<a href="#">Enlace 2</a>
+		<br/>
+		<button>Bóton 1 target</button>
+		<button>Botón 2</button>
+
+		<!-- Ejercicio 8 -->
+		<script type="text/javascript">
+
+			// Crea un documento con dos enlaces y dos botones. Uno se tiene que abrir en una nueva ventana (target="_blank") y el otro no. Cada botón debe ocultar uno de los enlaces en función de su atributo target.
+			$("button").eq(0).click(function() {
+				$("a[target]").hide();
+			});
+
+			$("button").eq(1).click(function() {
+				$("a:not('a[target]')").hide();
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 15</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<button>Botón 1</button>
+		<button>Botón 2</button>
+		<button>Botón 3</button>
+		<button>Botón 4</button>
+		<br/>
+		<br/>
+		<form action="" method="post">
+			<label for="texto">Cuadro de texto</label>
+			<input type="text" name="texto"/>
+		</form>
+		<br/>
+		<a href="http://www.thehobbit.com/">Enlace a thehobbit</a>
+		<br/>
+		<p><i>Tres anillos para los Reyes Elfos bajo el cielo. Siete para los <b>Señores Enanos</b> en casas de piedra. Nueve para los Hombres Mortales condenados a morir. Uno para el Señor Oscuro, sobre el trono oscuro. Un Anillo para gobernarlos a todos. Un anillo para encontrarlos, un <b>Anillo</b> para atraerlos a todos y atarlos en las tinieblas en la Tierra de Mordor donde se extienden las Sombras."</i></p>
+
+		<!-- Ejercicio 15 -->
+		<script type="text/javascript">
+
+			// Al clickar en el primer botón se obtenga una alerta con el contenido de texto del párrafo indicado.
+			$("button:first").click(function() {
+				alert($("p").text());
+			});
+
+			// Al clickar en el segundo botón se debe obtener una alerta con el contenido incluyendo las marcas HTML del párrafo.
+			$("button").eq(1).click(function() {
+				alert("<p>" + $("p").html() + "</p>");
+			});
+
+			// Al clickar en el tercer botón, se debe obtener una alerta con el valor del cuadro de texto.
+			$("button").eq(2).click(function() {
+				alert($("form input[name='texto']").val());
+			});
+
+			// Al clickar en el cuarto botón, se debe obtener una alerta con el contenido del enlace.
+			$("button:last").click(function() {
+				alert($("a").text() + " - HREF enlace: " + $("a").attr("href"));
+			});
+			
+		</script>
+	</body>
+</html>

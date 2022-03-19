@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 19</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<div>
+			<h2>Desaparece los párrafos</h2>
+			<p>Párrafo 1</p>
+			<p>Párrafo 2</p>
+			<p>Párrafo 3</p>
+			<p>Párrafo 4</p>
+			<p>Párrafo 5</p>
+			<p>Párrafo 6</p>
+			<p>Párrafo 7</p>
+		</div>
+
+		<!-- Ejercicio 19 -->
+		<script type="text/javascript">
+
+			// Crear un mapa de eventos para unir los eventos click, mouseover y mouseout sobre una división. Con el primero se debe deslizar un párrafo hacia arriba/abajo (función slideToggle()), con mouseover, el fondo de la división será azul y con mouseout roja.
+			$("div").on({
+				'click': function() {
+					$("p").slideToggle("slow");
+				},
+				'mouseover': function() {
+					$("div").css("background-color", "blue");
+				},
+				'mouseout': function() {
+					$("div").css("background-color", "red");
+				}
+			});
+			
+		</script>
+	</body>
+</html>

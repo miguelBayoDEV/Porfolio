@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mi lista de peliculas</title>
+</head>
+<body>
+<h1>Mi lista de peliculas</h1>
+
+<form action="index.php" method="post">
+	<input type="text" name="busca" placeholder="Titulo para la búsqueda">
+	<input type="submit" value="Busca">
+</form>
+
+<ul>
+<?php
+
+foreach ($movies as $movie) {
+	echo '<li>'.$movie->getTitle().' (Estrenado en '.$movie->getYear().')</li>';
+}
+
+?>
+</ul>
+</body>
+</html>

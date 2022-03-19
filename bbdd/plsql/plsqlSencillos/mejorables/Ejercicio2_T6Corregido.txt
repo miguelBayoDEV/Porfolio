@@ -1,0 +1,150 @@
+DROP DATABASE biblioteca;
+
+CREATE DATABASE biblioteca CHARSET utf8;
+
+CREATE TABLE usuarios (
+	idUser INT PRIMARY KEY,
+	nombre VARCHAR(40)
+);
+
+CREATE TABLE autor (
+	idAuthor INT PRIMARY KEY,
+	nombreAut VARCHAR(40),
+	nLibros INT
+);
+
+CREATE TABLE libros (
+	idBook INT PRIMARY KEY,
+	nombre VARCHAR(100),
+	idAut INT,
+	veces_prestado INT,
+	FOREIGN KEY (idAut) REFERENCES autor (idAuthor)
+);
+
+CREATE TABLE prestamos (
+	idUser INT PRIMARY KEY,
+	idBook INT,
+	FOREIGN KEY (idUser) REFERENCES usuarios (idUser),
+	FOREIGN KEY (idBook) REFERENCES libros (idBook) 
+);
+
+INSERT INTO autor VALUES (1, 'J. K. Rowling', 7),
+(2, 'Andrzej Sapkowski', 10),
+(3, 'Michael Crichton', 5),
+(4, 'J. R. R. Tolkien', 6);
+
+INSERT INTO libros VALUES (1, 'El último deseo', 2, 6),
+(2, 'Harry Potter y La Cámara Secreta', 1, 4),
+(3, 'Parque Jurásico', 3, 8),
+(4, 'El Silmarillion', 4, 20);
+
+INSERT INTO usuarios VALUES (1, 'Pepe Molla'),
+(2, 'María de la O'),
+(3, 'Treckie de las Galletas'),
+(4, 'La rana Kermit');
+
+INSERT INTO prestamos VALUES (4, 1),
+(3, 1),
+(2, 3),
+(1, 4);
+
+--1
+DELIMITER //
+
+CREATE FUNCTION estaPrestado(
+	libro INT
+)
+RETURNS VARCHAR(2)
+
+BEGIN
+	DECLARE resp VARCHAR(2);
+	IF libro = '' THEN
+		SET resp = 'No';
+	ELSE
+		SET resp = 'Sí';
+	END IF;
+	RETURN resp;
+END //
+DELIMITER ;
+
+SHOW FUNCTION STATUS 
+WHERE db = 'biblioteca';
+
+DELIMITER //
+CREATE PROCEDURE getPrestado(
+	IN numLibro INT,
+	OUT resp BOOLEAN
+)
+BEGIN
+	DECLARE libro INT DEFAULT 0;
+	SET resp = '';
+	SELECT idBook INTO libro FROM prestamos
+	WHERE idBook = numLibro;
+
+	IF libro > 0 THEN
+		SET resp = TRUE;
+	ELSE
+		SET resp = FALSE;
+	END IF;
+
+END //
+DELIMITER ;
+
+CALL getPrestado(3,@resp);
+SELECT @resp;
+
+--2
+
+CREATE TRIGGER incrementPrestados AFTER INSERT ON prestamos
+FOR EACH ROW 
+	UPDATE libros SET veces_prestado = veces_prestado + 1
+	WHERE idBook = NEW.idBook;
+
+INSERT INTO prestamos VALUES (2,2);
+
+--3
+DELIMITER //
+CREATE FUNCTION vecesPrestado(
+	idB INT,
+	idU INT
+)
+RETURNS INT
+BEGIN
+	DECLARE total INT DEFAULT 0;
+	SELECT COUNT(idBook) INTO total FROM libros
+	WHERE idBook = idB AND idUser = idU;
+RETURN total;
+END //
+DELIMITER ;
+
+SELECT vecesPrestado(1,3);
+
+--4 Esto no se hace así
+DELIMITER //
+CREATE PROCEDURE getBooksOrderedBy(
+	orden VARCHAR(20)
+)
+BEGIN	
+	SELECT * FROM libros ORDER BY orden;
+END //
+DELIMITER ;
+
+--5
+DELIMITER //
+CREATE PROCEDURE getBooksOrderedByUser(
+	idU INT
+)
+BEGIN	
+	SELECT nombre FROM libros l,prestamos p
+	WHERE l.idBook = p.idBook AND p.idUser = idU;
+END //
+DELIMITER ;
+
+--6
+CREATE TRIGGER nuevoLibro AFTER INSERT ON libros 
+FOR EACH ROW 
+	UPDATE autor SET nLibros = nLibros + 1 WHERE idAuthor = NEW.idAut;
+
+--7
+CREATE TRIGGER inicializarPrest BEFORE INSERT ON libros FOR EACH ROW
+	SET NEW.veces_prestado = 0;

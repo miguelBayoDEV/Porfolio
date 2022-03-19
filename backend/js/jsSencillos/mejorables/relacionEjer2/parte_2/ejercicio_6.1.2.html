@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.1.2</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre un botón en la pantalla del navegador con el texto “Abrir Ventana” y que al pulsarlo abra una nueva ventana del navegador de 400 x 200px y además otro botón con el texto “Cerrar Ventana” que al pulsarlo cierre la ventana anterior.</h1>
+	<form>
+	 	<input type="button" value="Open Window" onclick="acciónAlPulsar()"/>
+	 	<br/>
+	 	<input type="button" value="Abrir ventana" onclick="abrir()"/>
+	 	<br/>
+	 	<input type="button" value="Cerrar ventana" onclick="cerrar()"/>
+	 	<br/>
+	</form>
+
+	<script type="text/javascript">
+		var ventana;
+		function acciónAlPulsar(){
+			window.open("", "ventana");
+		}
+		function abrir(){
+			ventana = window.open("", "abrir", "width=400,height=200");
+		}
+		function cerrar(){
+			ventana.close();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.2.1</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre por pantalla el nombre de dominio del servidor que podemos encontrar dentro de la URL de la página que lo contenga.</h1>
+	<h3 id="localizacion"></h3>
+
+	<script type="text/javascript">
+		// Como no tiene dominio la URL no sale.
+		var dominio_servidor = location.hostname;
+		//document.write("Nombre del dominio del servidor de la URL: " + dominio_servidor);
+		document.getElementById("localizacion").innerHTML = "Nombre del dominio del servidor de la URL: " + dominio_servidor;
+	</script>
+</body>
+</html>

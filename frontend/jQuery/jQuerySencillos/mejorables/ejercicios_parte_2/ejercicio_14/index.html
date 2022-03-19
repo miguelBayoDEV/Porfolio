@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 14</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<h3>División 1</h3>
+		<div>
+			<button>Ocultar</button>
+			<h4>Información 1</h4>
+			<h4>Contacto 1</h4>
+			<h4>Teléfono 1</h4>
+		</div>
+
+		<h3>División 2</h3>
+		<div>
+			<button>Ocultar</button>
+			<h4>Información 2</h4>
+			<h4>Contacto 2</h4>
+			<h4>Teléfono 2</h4>
+		</div>
+
+		<!-- Ejercicio 14 -->
+		<script type="text/javascript">
+
+			// Crea un documento con dos divisiones, dentro de cada una de las cuales debe haber un botón para esconderlas.
+			$("div").css({border:"2px solid black"});
+			$("div button").click(function() {
+				//$(this).parent().hide();
+				$(this).parents("div").hide();
+			});
+			
+		</script>
+	</body>
+</html>

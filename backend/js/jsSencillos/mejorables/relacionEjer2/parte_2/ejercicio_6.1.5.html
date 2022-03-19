@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.1.5</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre dos botones: El primero para abrir una ventana con un tamaño de 100*100px con el texto “Abrir ventana”, el segundo redimensionará la ventana creada aumentando en 50px tanto el ancho como el alto, su texto será “Redimensionar”.</h1>
+	<form>
+	 	<input type="button" value="Abrir ventana" onclick="abrir()"/>
+	 	<br/>
+	 	<input type="button" value="Redimensionar ventana" onclick="redimensionar()"/>
+	 	<br/>
+	</form>
+
+	<script type="text/javascript">
+		var ventana;
+		function abrir(){
+			ventana = window.open("", "abrir", "width=100,height=100");
+		}
+		function redimensionar(){
+			ventana.resizeBy(50, 50);
+		}
+	</script>
+</body>
+</html>

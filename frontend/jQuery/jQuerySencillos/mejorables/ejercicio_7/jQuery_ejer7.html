@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>7 - Añadir y eliminar elementos</title>
+		<meta charset="utf-8">
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li>Item 4</li>
+		</ul>
+
+		<script type="text/javascript">
+			
+			// a) Eliminar la lista completa.
+			//$("ul").remove();
+
+			// b) Restaurar lista. (usar detach, en lugar de remove).
+			var recuperar = $("ul").detach();
+			console.log(recuperar);
+			$("body").append(recuperar);
+
+			// c) Añadir un elemento al final de la lista.
+			$("ul").append("<li>Item nuevo final lista</li>");
+
+			// d) Añadir un elemento al principio de la lista.
+			$("ul").prepend("<li>Item nuevo principio lista</li>");
+
+			// e) Eliminar el último elemento.
+			$("ul li:last").remove();
+
+			// f) Eliminar el primer elemento.
+			$("ul li:first").remove();
+
+			// g) Eliminar el primero y segundo elemento.
+			var primero = $("ul li").eq(0);
+			// Otra forma:
+			//$("ul").find("li").eq(0);
+
+			var segundo = $("ul li").eq(1);
+			// Otra forma:
+			//$("ul").find("li").eq(1);
+
+			var tercer = $("ul li").eq(2);
+			// Otra forma:
+			//$("ul").find("li").eq(2);
+
+			var cuarto = $("ul li").eq(3);
+			// Otra forma:
+			//$("ul").find("li").eq(3);
+
+			primero.remove();
+			segundo.remove();
+
+
+			// h) Eliminar los dos últimos.
+			tercer.remove();
+			cuarto.remove();
+
+		</script>
+	</body>
+</html>

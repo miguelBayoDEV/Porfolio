@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ article.text }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ article.author }}</td>
+            </tr>
+            <td>
+                <img src="/img/{{article.img}}"/>
+            </td>
+        </tbody>
+    </table>
+
+    <button><a href="{{ path('comentary_new', {'id': article.id, 'coment': 'null' }) }}">Crear comentario</a></button>
+
+    Comentaries:<br>
+    {% for comentary in article.getComentaries() %}
+        {% if is_granted("ROLE_ADMIN") %}
+            {% if comentary.status == true %}
+                Author: {{comentary.author}} - Text: {{comentary.text}} - Date Publication: {{comentary.datePublication|date("d-m-Y")}}
+                <a href="{{ path('comentary_new', {'id': article.id, 'coment': comentary.id }) }}">Responder</a>
+                <br>
+                <ul>
+                {% for com in comentary.getComentaries() %}
+                    {% if com.status and com.comentary != null %}
+                        <li>Author: {{com.author}} - Text: {{com.text}} - Date Publication: {{com.datePublication|date("d-m-Y")}}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+                <button><a href="/swap/{{comentary.id}}">Ocultar</a></button>
+            {% else %}
+                Author: {{comentary.author}} - Text: {{comentary.text}} - Date Publication: {{comentary.datePublication|date("d-m-Y")}}
+                <button><a href="/swap/{{comentary.id}}">Mostrar</a></button>
+            {% endif %}
+        {% else %}
+            {% if comentary.status == true %}
+                Author: {{comentary.author}} - Text: {{comentary.text}} - Date Publication: {{comentary.datePublication|date("d-m-Y")}}
+                <a href="{{ path('comentary_new', {'id': article.id, 'coment': comentary.id }) }}">Responder</a>
+                <br>
+                <ul>
+                {% for com in comentary.getComentaries() %}
+                    {% if com.status and com.comentary != null %}
+                        <li>Author: {{com.author}} - Text: {{com.text}} - Date Publication: {{com.datePublication|date("d-m-Y")}}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

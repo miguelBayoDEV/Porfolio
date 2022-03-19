@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Práctica 3 Audio</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Crea una aplicación HTML5 que contenga una página con los siguientes elementos:
+
+    1-Una caja de texto
+    2-Un botón de inicio
+    3-Un reproductor de vídeo
+    4-Al introducir una lista de archivos de vídeo en la caja de texto y pulsar el botón, deben empezar a reproducirse esos vídeos, uno detrás de otro. Obviamente los archivos de vídeo deben existir o no serán reproducidos. En el caso de que el archivo de vídeo no se añada o no exista la aplicación debe mostrar un error que diga "El fichero de vídeo no existe".
+    5-Añade métodos de soporte para todos los eventos que se han listado previamente en el API de vídeo y haz que esos eventos se muestren por pantalla.</h1>
+
+	<div class="row justify-content-center align-items-center minh-100">
+        <div class="col-lg-4 col-md-8 col-sm-10 border border-dark bg-warning">
+            <button onclick="playVideo();" class="btn btn-success">Play<i class="glyphicon glyphicon-play"></i></button>
+
+                <button onclick="pauseVideo();" class="btn btn-danger">Pause<i class="glyphicon glyphicon-pause"></i></button>
+            
+            <button onclick="stopVideo();" class="btn btn-success">Stop<i class="glyphicon glyphicon-stop"></i></button>
+
+            <button onclick="rewindVideo();" class="btn btn-danger">Rewind<i class="glyphicon glyphicon-rewind"></i></button>
+            
+            <button onclick="previous();" class="btn btn-success">Previous<i class="glyphicon glyphicon-previous"></i></button>
+
+            <button onclick="next();" class="btn btn-danger">Next<i class="glyphicon glyphicon-next"></i></button>
+            
+            <button onclick="previous();" class="btn btn-success">Previous<i class="glyphicon glyphicon-previous"></i></button>
+
+            <button onclick="next();" class="btn btn-danger">Next<i class="glyphicon glyphicon-next"></i></button>
+            
+            <button onclick="adelantar5seg();" class="btn btn-success">adelantar5seg<i class="glyphicon glyphicon-adelantar5seg"></i></button>
+
+            <button onclick="retrasar5seg();" class="btn btn-danger">retrasar5seg<i class="glyphicon glyphicon-retrasar5seg"></i></button>
+            
+            <button onclick="subirVolumen();" class="btn btn-success">subirVolumen<i class="glyphicon glyphicon-subirVolumen"></i></button>
+
+            <button onclick="bajarVolumen();" class="btn btn-danger">bajarVolumen<i class="glyphicon glyphicon-bajarVolumen"></i></button>
+            
+            <h3 id="tiempo"></h3>
+            
+            <h3 id="nombre"></h3>
+            
+            <video id="video" class="visible" controls width="350" height="240"></video>
+
+            <form action="" method="post" enctype="multipart/form-data" class="visible">
+                <input type="file" name="fichero" id="fichero">
+                <input type="button" onclick="cargar()" value="Cargar">
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        var video = document.querySelector("#video");
+        var videos = [];
+        var carga = 0;
+        var nombre = [];
+        var base = [];
+        var actual = 0;
+        var volumen = video.volumen;
+        var tiempo = video.currentTime;
+        
+        function playVideo() {
+            video.innerHTML = "";
+            video.innerHTML = '<source src="video/'+videos[actual]+'.ogg" type="video/ogg" />';
+            video.innerHTML = '<source src="video/'+videos[actual]+'.mp4" type="video/mp4" />';
+            video.load();
+            video.play();
+        }
+        
+        function pauseVideo() {
+            video.pause();
+        }
+        
+        function stopVideo() {
+            video.currentTime = 0;
+            video.pause();
+        }
+        
+        function rewindVideo() {
+            video.currentTime = 0;
+        }
+        
+        function previous() {
+            if (actual > 0) {
+                actual--;
+            }else {
+                actual = videos.length-1;
+            }
+            playVideo();
+        }
+        
+        function next() {
+            if (actual < videos.length-1) {
+                actual++;
+            }else {
+                actual = 0;
+            }
+            playVideo();
+        }
+        
+        function adelantar5seg() {
+            if(tiempo < (video.duration - 5)) {
+                tiempo += 5;
+            }else {
+                next();
+            }
+        }
+        
+        function retrasar5seg() {
+            if(tiempo > 5) {
+                tiempo -= 5;
+            }else {
+                previous();
+            }
+        }
+        
+        function subirVolumen() {
+            volumen += 1;
+        }
+        
+        function bajarVolumen() {
+            volumen -= 1;
+        }
+        
+        function cargar() {
+            nombre[carga] = document.getElementById("fichero").files[0].name;
+            base = nombre[carga].split('.');
+            videos[carga] = base[0];
+			carga++;
+			alert("Video subido " + base[0]);
+        }
+        
+        // Evento tiempo actualizado
+        video.addEventListener("timeupdate",function(ev){
+            document.getElementById("tiempo").innerHTML = "Tiempo reproducción actual: " + tiempo.toFixed(0) + " seg.";
+            document.getElementById("nombre").innerHTML = "Nombre fichero audio actual: " + nombre[actual];
+         },true);
+        
+        video.addEventListener('error', function(ev) {
+            alert("El fichero de vídeo no existe");
+        }, true);
+    </script>
+</body>
+</html>

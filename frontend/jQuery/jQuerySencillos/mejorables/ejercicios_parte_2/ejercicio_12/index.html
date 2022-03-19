@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 12</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<p>Párrafo hover y no hover</p>
+
+		<!-- Ejercicio 12 -->
+		<script type="text/javascript">
+
+			// Utiliza el evento hover() para lanzar un mensaje cuando nos posicionamos sobre un párrafo y otro cuando salgamos de él.
+			$("p").hover(
+				function() {
+					$(this).text("Hover");
+				},
+				function() {
+					$(this).text("No hover");
+				}
+			);
+
+		</script>
+	</body>
+</html>

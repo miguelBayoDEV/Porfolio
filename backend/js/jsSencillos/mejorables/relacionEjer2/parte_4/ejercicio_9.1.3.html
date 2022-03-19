@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 9.1.3</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p id="codigo"></p>
+	<p id="modelo"></p>
+	<script type="text/javascript">
+		// Investigar y explicar qué son los prototipos de objetos en Javascript.
+		
+		// Los prototipos o prototype de objetos en JavaScript es una palabra clave para heredar propiedades y métodos de clases de JavaScript. En este caso mi objeto heredará del prototipo.
+		function Coche() {
+		  this.marca = "Ford";
+		  this.color = "Rojo";
+		  this.año = 1997;
+		  this.tipo_combustible = "Gasolina";
+		  this.matricula = "1357DCR";
+		}
+
+		Coche.prototype.codigo = function() {
+		  return "Matrícula: " + this.matricula + " - Año: " + this.año
+		};
+
+		var coche = new Coche();
+		document.getElementById("codigo").innerHTML = coche.codigo();
+
+		Coche.prototype.modelo = "Focus";
+
+		Coche.prototype.modeloCoche = function() {
+		  return "Modelo coche: " + this.modelo
+		};
+
+		var coche1 = new Coche();
+		document.getElementById("modelo").innerHTML = coche1.modeloCoche();
+	</script>
+</body>
+</html>

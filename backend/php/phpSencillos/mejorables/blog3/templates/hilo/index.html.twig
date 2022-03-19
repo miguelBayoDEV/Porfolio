@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hilo index{% endblock %}
+
+{% block body %}
+    <h1>Hilo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Fecha</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hilo in hilos %}
+            <tr>
+                <td>{{ hilo.id }}</td>
+                <td>{{ hilo.titulo }}</td>
+                <td>{{ hilo.descripcion }}</td>
+                <td>{{ hilo.fecha ? hilo.fecha|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ hilo.status ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('hilo_show', {'id': hilo.id}) }}">show</a>
+                    <a href="{{ path('hilo_edit', {'id': hilo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('hilo_new') }}">Create new</a>
+{% endblock %}

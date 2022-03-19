@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 22</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<form action="" method="post">
+			<label for="texto">Cuadro de texto</label>
+			<input type="text" name="texto"/>
+			<input type="submit" name="btn" value="Botón"/>
+		</form>
+
+		<!-- Ejercicio 22 -->
+		<script type="text/javascript">
+
+			// Implementar un cuadro de texto que responde a un evento personalizado llamado mostrar que lanza una alerta con su contenido ("alert(this.value)"). Disparar dicho evento al hacer clic en un botón.
+			$("form input:text[name='texto']").on('mostrar', function() {
+				alert(this.value);
+			});
+
+			$("form input:submit").click(function() {
+				$("form input:text[name='texto']").trigger('mostrar');
+			});
+			
+		</script>
+	</body>
+</html>

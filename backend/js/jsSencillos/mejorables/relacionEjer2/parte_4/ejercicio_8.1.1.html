@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 - arrays</title>
+	<meta name="author" content="francesc ricart"/>
+</head>
+<body>
+
+	<script>
+		var amigos  = ["pedro","maria","joan","pili"];
+		
+		// 1- queremos que escriba "mis amigos son maría y joan. rellena los huecos."
+		document.write("mis amigos son "+ "<b>" + amigos[1] + "</b>" + "  y <b>" + amigos[2]+"</b>" + "<br/>");
+
+		// 2- ¿dónde está el fallo?
+		// var enemigos = ["scipion" + "scorpio" + "black"]; No se usa + sino ",".
+		var enemigos = ["scipion", "scorpio", "black"];
+
+		// 3- escribe en el documento web "scorpio es peor que black" de modo que scorpio esté en negrita y la letra sea de color rojo.
+		document.write("<b style='color:red';>" + enemigos[1] + "</b>" + " es peor que " + enemigos[2] + "<br/>");
+
+		// 4- escribe una instrucción que devuelva la longitud del array amigos sea cual sea el número de datos almacenados en su interior.
+		document.write("Longitud del array amigos: " + amigos.length + "<br/>");
+
+		// 5- "aitana" es también tu amiga. Escribe una instrucción que la añada al final de la lista amigos 
+		amigos.push("aitana");
+		document.write(amigos + "<br/>");
+
+		// 6 - "pedro" ha cambiado de nombre. ahora se llama "nacho". actualiza con una instrucción tu lista de amigos
+		// amigos[0] = "nacho";
+		amigos.splice(0, 1, "nacho");
+		document.write(amigos[0] + "<br/>");
+		document.write(amigos + "<br/>");
+
+		// 7 - "tor" es ahora tu enemigo. añádelo con una instrucción al final de tu lista de enemigos.
+		enemigos.push("tor");
+		document.write(enemigos + "<br/>");
+	</script>
+</body>
+</html>

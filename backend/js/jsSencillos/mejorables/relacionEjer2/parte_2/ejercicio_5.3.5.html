@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 5.3.5</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que cree un objeto date con la fecha actual, después ajuste el año a 2018 y muestre el resultado por pantalla.</h1>
+	<h3 id="date"></h3>
+	<h3 id="date1"></h3>
+
+	<script type="text/javascript">
+		var cambio_año = new Date();
+		document.getElementById("date").innerHTML = "Año actual: " + cambio_año;
+		cambio_año.setFullYear(2018);
+		document.getElementById("date1").innerHTML = "Cambiar año actual a 2018: " + cambio_año;
+	</script>
+</body>
+</html>

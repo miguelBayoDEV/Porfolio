@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 28: efectos jQuery</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<!-- Enlace a CDN JQueryUI -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<p>Párrafo</p>
+		<div id="uno">Primer div</div>
+		<div id="dos">Segundo div</div>
+		<div id="tres">Tercer div</div>
+		<button id="a">Botón 1</button>
+		<button id="b">Botón 2</button>
+		<button id="c">Botón 3</button>
+		<button id="d">Botón 4</button>
+		<button id="e">Botón 5</button>
+
+		<script type="text/javascript">
+			
+			// a) Un botón, tal que al clikcarlo oculte un párrafo con velocidad rápida.
+			$("button#a").click(function() {
+				$("p").hide("fast");
+			});
+
+			// b) Otro botón, tal que al clickarlo como gestor de evento, agregue la opacidad de tres elementos div mediante el método fadeIn(). El primer fadeIn() ejecútalo sin parámetros, el segundo de manera lenta y el tercero en trescientos milisegundos.
+			$("button#b").on('click', function() {
+				$("div").hide();
+				$("div#uno").fadeIn();
+				$("div#dos").fadeIn("slow");
+				$("div#tres").fadeIn(300);
+			});
+
+			// c) Otro botón, tal que al clickarlo nos quite la opacidad de esos tres elementos div mediante el método fadeOut(). El primer fadeOut() ejecútalo sin parámetros, el segundo de manera lenta y el tercero en trescientos milisegundos.
+			$("button#c").on('click', function() {
+				$("div#uno").fadeOut();
+				$("div#dos").fadeOut("slow");
+				$("div#tres").fadeOut(300);
+			});
+
+			// d) Un último botón, tal que al hacer clic, agregue o quite la opacidad de tres elementos div mediante el método fadeToggle(). El primer fadeToggle() ejecútalo sin parámetros, el segundo de manera lenta y el tercero en trescientos milisegundos.
+			$("button#d").on('click', function() {
+				$("div#uno").fadeToggle();
+				$("div#dos").fadeToggle("slow");
+				$("div#tres").fadeToggle(300);
+			});
+
+			// e) Un botón, tal que al hacer clic, agregue o quite la opacidad de tres elementos div mediante el método fadeTo(). El primer fadeTo() ejecútalo en modo lento con una opacidad de 0,15, el segundo en modo lento con una opacidad de 0,4 y el tercero, en modo lento con una opacidad de 0,7.
+			$("button#e").on('click', function() {
+				$("div#uno").fadeTo("slow", 0.15);
+				$("div#dos").fadeTo("slow", 0.4);
+				$("div#tres").fadeTo("slow", 0.7);
+			});
+
+		</script>
+	</body>
+</html>

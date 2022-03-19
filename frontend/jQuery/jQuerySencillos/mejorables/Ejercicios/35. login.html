@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Slide in Login Screen</title>
+		<link href="_css/site.css" rel="stylesheet">
+		<style>
+			#login {
+				width: 300px;
+				position: absolute;
+				right: 0;
+				top: -51px;
+				z-index: 100;
+				background-color: rgb(27,45,94);
+				border-radius: 0 0 5px 5px;
+			}
+
+			#login a {
+				text-decoration: none;
+			}
+
+			#open {
+				margin: 0;
+				cursor: pointer;
+				background-image:  url(_images/open.png);
+				background-repeat: no-repeat;
+				background-position:  8px 7px;
+				color: white;
+				padding: 5px 0 5px 30px;
+				border-radius: 0 0 5px 5px;
+			}
+
+			#login .close {
+				background-image: url(_images/close.png);
+			}
+
+			#open:hover {
+				color: rgb(0,0,0);
+				background-color: rgb(200,200,200);	
+			}
+
+			#login form {
+				padding: 10px 10px 0 10px;
+				display: none;	
+			}
+			#login label {
+				font-size: .75em;
+				color: white;
+				font-weight: bold;
+				width: 100px;
+				text-align:right;
+				margin: 0 15px 0 0;
+				display: inline-block;
+			}
+			#login input[type="text"] {
+				font-size: 14px;
+				width: 140px;	
+			}
+			#login .button {
+				text-align: right;	
+				padding-right: 15px;
+			}
+		</style>
+		<script src="_js/jquery.min.js"></script>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<!-- Enlace a CDN JQueryUI -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		
+		<script>
+
+			// Seleccione el párrafo con el mensaje "Login" en él. Coloque un controlador de eventos click a ese párrafo.
+			// $(document).ready(function() {}); no hace falta ponerlo a partir de la versión 3 de jQuery.
+			$(document).ready(function() {
+				// Puede hacer aparecer al instante el formulario (la función show ()), deslizarlo (función slideDown () , o se desvanecerlo ( función fadeIn ()). Modificar el color y el icono del párrafo de login.
+				$("p#open").on('click', function(e) {
+					e.preventDefault();
+					$("div#login form").slideToggle("slow");
+					$("p#open").css("color", "orange");
+					$("p#open").toggleClass("close");
+				});
+
+				// Otra forma:
+				/*$("p#open").on('click', function(e) {
+					e.preventDefault();
+					$("div#login form").animate({
+						display:"block",
+						width:"200px",
+						height:"200px"
+					}, 1000, function() {
+						$("div#login form").fadeIn("slow");
+						$("p#open").css("color", "orange");
+						$("p#open").addClass("close");
+					});
+				});*/
+
+				// Otra forma:
+				/*$("p#open").on('click', function(e) {
+					e.preventDefault();
+					$("div#login form").animate({
+						display:"block",
+						width:"200px",
+						height:"200px"
+					}, 1000, function() {
+						$("div#login form").slideDown("slow");
+						$("p#open").css("color", "orange");
+						$("p#open").addClass("close");
+					});
+				});*/
+
+				// Otra forma:
+				/*$("p#open").on('click', function(e) {
+					e.preventDefault();
+					$("div#login form").animate({
+						display:"block",
+						width:"200px",
+						height:"200px"
+					}, 1000, function() {
+						$("div#login form").show();
+						$("p#open").css("color", "orange");
+						$("p#open").addClass("close");
+					});
+				});*/
+			}); // end ready
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<div id="login">
+					<a href="form.html"><p id="open">Login</p></a>
+					<form action="" method="get">
+						<p>
+							<label for="username">Username:</label>
+							<input type="text" name="username" id="username">
+						</p>
+						<p>
+							<label for="password">Password: </label>
+							<input type="text" name="password" id="password">
+						</p>
+						<p class="button">
+							<input type="submit" name="button" id="button" value="Submit" >
+						</p>
+					</form>
+				</div>
+				<div class="main">
+					<h1>Slide in Login Screen</h1>
+					<p>Click the login button at the top of the page</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

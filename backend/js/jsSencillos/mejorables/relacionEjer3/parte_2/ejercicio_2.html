@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 2 eventos</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Modificación propiedades css</h1>
+	<p>Pulsa el siguiente botón para ocultar o mostrar el Título de la página. <button id="modificar">Ocultar</button></p>
+
+	<script type="text/javascript">
+		
+		function mod() {
+			// alert(document.getElementById("modificar").firstChild.nodeValue);
+			var h1 = document.getElementsByTagName("h1")[0]; 
+			if(document.getElementById("modificar").firstChild.nodeValue == "Ocultar") {
+					h1.setAttribute("style", "visibility:hidden");
+					document.getElementById("modificar").innerHTML = "Mostrar";
+			}else {
+				h1.setAttribute("style", "visibility:visible");
+				document.getElementById("modificar").innerHTML = "Ocultar";
+			}
+		}
+
+		document.getElementById("modificar").addEventListener("click", mod, false);
+
+	</script>
+</body>
+</html>

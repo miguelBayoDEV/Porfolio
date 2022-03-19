@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Ejercicio 4 eventos canvas</title>
+	</head>
+	<body>
+
+		<!-- Diseña una página web que, mediante métodos del DOM, dibuje un tablero de 8 x 8. Las celdas tendrán, por defecto, color blanco. Cuando se haga click sobre una celda, está pasará a tener color negro y viceversa (si tiene color negro pasa a tener color blanco). -->
+		<canvas id="lienzo" width="1500" height="1500"></canvas>
+
+		<script type="text/javascript">
+
+			// Crear tablero
+			const contexto = document.getElementById("lienzo");
+			const lienzo = contexto.getContext("2d");
+
+			// Variable global
+			var celdas = [];
+			var methods = [];
+
+			// Clase celda
+			function C(x,y,w, h) {
+			    this.x = x;
+			    this.y = y;
+			    this.w = w;
+			    this.h = h;
+			}
+
+			// Colorear celdas
+			function iniciar() {
+
+				lienzo.strokeRect(20,20,800,800);
+
+				// Variables de posiciones
+				var x = 20;
+				var y = 20;
+				var w = 100;
+				var h = 100;
+
+				for(var i=0;i<8;i++){
+					x = 20;
+					for(var j=0;j<8;j++) {
+						// Creo el objeto
+						var celda = new C(x,y,w,h);
+						lienzo.strokeRect(x,y,w,h);
+						// Variable para saber si está la celda rellena o vacía
+						var m = "strokeRect";
+						// Añadir a los arrays previos
+						celdas.push(celda);
+						methods.push(m);
+						x += 100;
+					}
+					y += 100;
+				}
+				
+			}
+
+			function colorear(e) {
+				// Recorrer array celdas
+				for(var i=0; i<celdas.length; i++) {
+					// Comprobar las posiciones del objeto celda y la posición del ratón dentro de la página (que es el más usado)
+					if((e.pageX > celdas[i].x && e.pageX < celdas[i].x + 100) && (e.pageY > celdas[i].y && e.pageY < celdas[i].y + 100)) {
+
+						// Saber si está la selda vacía o rellena
+						if(methods[i] == "strokeRect") {
+							methods[i] = "fillRect";
+							lienzo.clearRect(celdas[i].x, celdas[i].y, celdas[i].w, celdas[i].h);
+							lienzo.fillRect(celdas[i].x, celdas[i].y, celdas[i].w, celdas[i].h);
+						}else {
+							methods[i] = "strokeRect";
+							lienzo.clearRect(celdas[i].x, celdas[i].y, celdas[i].w, celdas[i].h);
+							
+							lienzo.strokeRect(celdas[i].x, celdas[i].y, celdas[i].w, celdas[i].h);
+						}
+					}
+				}
+			}
+
+			// Registros de eventos avanzados
+			window.addEventListener("load",iniciar, false);
+
+			document.body.children[0].addEventListener("click", colorear, false);
+
+		</script>
+	</body>
+</html>

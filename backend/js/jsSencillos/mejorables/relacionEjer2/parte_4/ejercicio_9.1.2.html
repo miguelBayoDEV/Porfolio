@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 9.1.2</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// Investigar y explicar cómo podríamos agregar un método a un objeto previamente creado.
+		var coche = {
+			marca: "Ford",
+			color: "Rojo",
+			año: 1997,
+			tipo_combustible: "Gasolina",
+			matricula:"1357DCR",
+			codigo:function() {
+				return "Matrícula: " + this.matricula + " - Año: " + this.año;
+			}
+		}
+		document.write(coche.codigo() + "<br/>");
+
+		// Poner nombre objeto punto nombre nuevo método. Luego realizar la función con this.nombre_propiedad. Finalmente, mostrar nombre objeto punto nombre nuevo método con ().
+		coche.colorCoche = function() {
+			return "Color coche: " + this.color;
+		};
+		document.write(coche.colorCoche());
+	</script>
+</body>
+</html>

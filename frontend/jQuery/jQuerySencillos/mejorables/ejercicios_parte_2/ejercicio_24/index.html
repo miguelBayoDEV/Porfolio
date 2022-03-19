@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 24</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<img src="bombillaOff.png" width="300px" height="500px">
+		<img src="interruptorOff.png" width="150px" height="150px">
+
+		<!-- Ejercicio 24 -->
+		<script type="text/javascript">
+
+			// Crear una página web que muestre la imagen de una bombilla apagada y la imagen de un interruptor, al hacer clic sobre el interruptor se debe “encender la bombilla”, es decir, sustituir la imagen por otra de la bombilla encendida, y al hacer clic de nuevo, “apagarla”. Usar un evento personalizado que signifique encender o apargar la bombilla y dispararlo al hacer clic en el interruptor.
+			$("img:first").on({
+				'encenderApagar': function() {
+					if($(this).attr("src") == "bombillaOff.png") {
+
+						$(this).attr("src", "bombillaOn.png");
+
+						$("img:last").attr("src", "interruptorOn.png");
+
+					}else {
+
+						$(this).attr("src", "bombillaOff.png");
+
+						$("img:last").attr("src", "interruptorOff.png");
+
+					}
+				}
+			});
+
+			$("img:last").click(function() {
+				$("img:first").trigger('encenderApagar');
+			});
+			
+		</script>
+	</body>
+</html>

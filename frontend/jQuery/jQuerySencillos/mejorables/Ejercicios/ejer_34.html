@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 34: efectos jQuery</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+		<!-- Enlace a CDN JQueryUI -->
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<button>Botón</button>
+		<p>Párrafo: animación cambiar color a rojo desplazar arriba y abajo.</p>
+
+		<script type="text/javascript">
+			
+			// Crear un programa con un botón, tal que al hacer clic ponga las letras en rojo de un párrafo, lo oculte con un desplazamiento hacia arriba (slideUp) y lo visualice con un desplazamiento hacia abajo (slideDown):
+			$("button").click(function() {
+				$("p").animate({
+					color:"red"
+				}, "slow", function() {
+					$("p").slideUp("slow");
+					$("p").slideDown("slow");
+				});
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- Agregar a todos los elemento strong de una página el carácter "¡" al principio de su contenido y el carácter "!" al final del contenido utilizando los pseudo-elementos before y after. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio voluntario 8</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		p strong::before {
+			content: "¡";
+		}
+
+		p strong::after {
+			content: "!";
+		}
+	</style>
+</head>
+<body>
+	<p>
+		El trozo de <strong>texto estándar</strong> de Lorem Ipsum usado desde el <strong>año 1500</strong> es reproducido debajo para aquellos interesados. Las secciones <strong>1.10.32 y 1.10.33</strong> de <strong>"de Finibus Bonorum et Malorum"</strong> por Cicero son también reproducidas en su forma original exacta, acompañadas por versiones en <strong>Inglés</strong> de la traducción realizada <strong>en 1914 por H. Rackham</strong>.
+	</p>
+</body>
+</html>

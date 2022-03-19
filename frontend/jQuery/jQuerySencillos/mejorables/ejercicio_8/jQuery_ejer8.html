@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>8 - Selectores básicos</title>
+
+        <!-- Enlace a CDN JQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="vacations-wrapper">
+            <h1>Vacation Packages</h1>
+            <ul id="vacations">
+                <li class="vacation america">
+                    <h2>San Francisco, California</h2>
+                    <span class="details">$700</span>
+                </li>
+
+                <li class="vacation america">
+                    <h2>Washington DC, District of Columbia</h2>
+                    <span class="details">$400</span>
+                </li>
+
+                <li class="vacation europe">
+                    <h2>London, England</h2>
+                    <span class="details">$1,100</span>
+                </li>
+
+                <li class="vacation asia">
+                    <h2>Shanghai, China</h2>
+                    <span class="details">$1,200</span>
+                </li>
+            </ul>
+
+            <ul class="sorting">
+                <li><a href="#">America</a></li>
+                <li><a href="#">Europe</a></li>
+                <li><a href="#">Asia</a></li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+            
+            // a) Selecciona todos los elementos de tipo h2.
+            //$("h2").attr("style", "color:red");
+            console.log($("h2"));
+
+            // b) Modifica el precio del vuelo para que ahora sea $199.99.
+            $("span.details").text("$199.99");
+
+            // c) Asegúrate que este código se ejecuta una vez que el documento está listo.
+            //window.onload = function() { código }; Esto se debe poner si pones el script con jQuery dentro de HEAD para que se ejecute después de cargar la página.
+
+            // d) Modifica todos los títulos de las vacaciones (h2), su nuevo valor será "Sanlúcar de Barrameda".
+            $("li.vacation h2").text("Sanlúcar de Barrameda");
+
+            // e) Selecciona la lista de vacaciones cuyo id es #vacations.
+            console.log($("ul#vacations"));
+
+            // f) Selecciona aquellos ítems que tenga la clase .america.
+            console.log($("li.america"));
+
+        </script>
+    </body>
+</html>

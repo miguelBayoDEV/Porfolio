@@ -1,0 +1,73 @@
+<!-- Confeccionar una página que muestre dos listas ordenadas. En la primera mostrar los elementos pares subrayados y los impares tachados. En la segunda activar color verde para la fuente de los items múltiplos de cuatro. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio voluntario 4</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		#lista1 li, #lista2 li {
+			margin-bottom: 1vh;
+		}
+
+		#lista1 li:nth-child(even) {
+			text-decoration: underline;
+		}
+
+		#lista1 li:nth-child(odd) {
+			text-decoration: line-through;
+		}
+
+		#lista2 li:nth-child(4n) {
+			color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+	<h1>Lista ordenada 1</h1>
+	<ol id="lista1">
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+	</ol>
+
+	<h1>Lista ordenada 2</h1>
+	<ol id="lista2">
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+		<li>Elemento</li>
+	</ol>
+</body>
+</html>

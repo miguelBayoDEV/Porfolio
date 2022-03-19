@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 17</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<button>Cambiar</button>
+		<br/>
+		<br/>
+		<a href="https://www.google.com/">Google</a>
+
+		<!-- Ejercicio 17 -->
+		<script type="text/javascript">
+
+			// Cambia los atributos href y title de un enlace a Google, mediante un evento asociado a un botón. Ahora href=”http://www.google.es/intl/es/earth/index.html” y el título será “Google Earth”.
+			$("button").click(function() {
+				$("a").attr("href", "http://www.google.es/intl/es/earth/index.html");
+				$("a").text("Google Earth");
+			});
+			
+		</script>
+	</body>
+</html>

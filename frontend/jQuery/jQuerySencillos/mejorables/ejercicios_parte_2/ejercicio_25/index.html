@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicios parte 2 eventos jQuery: 25</title>
+		<meta charset="utf-8"/>
+
+		<!-- Enlace a CDN JQuery -->
+	    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		
+		<form action="" method="post">
+			<label for="texto">Cuadro de texto</label>
+			<input type="text" name="texto"/>
+			<input type="submit" name="btn" value="Crear"/>
+		</form>
+		<hr/>
+
+		<!-- Ejercicio 25 -->
+		<script type="text/javascript">
+
+			// Crear una página web que permita crear una lista de tareas pendientes. En principio debe constar de un campo de texto y un botón. Cuando se haga click en el botón o en el campo de texto se debe añadir lo que haya en el campo de texto a una lista desordenada que se encontrará a continuación. Este procedimiento permite crear la lista de tareas pendientes, una vez se realice la tarea si se hace click sobre ella aparecerá en color gris y tachada.
+			$("hr").after("<ul></ul>");
+
+			// Para que no recargue la página al pulsar el botón en el formulario
+			$("form").submit(function(e) {
+				e.preventDefault();
+			});
+
+			$("form input:submit").click(function() {
+				$("ul").append("<li>" + $("form input:text[name='texto']").val() + "</li>");
+				$("form input:text[name='texto']").val("");
+				$("form input:text[name='texto']").focus();
+			});
+
+			$("ul").on('click', 'li', function() {
+				$(this).css({
+					"text-decoration":"line-through",
+					"color":"gray"
+				});
+			});
+			
+		</script>
+	</body>
+</html>

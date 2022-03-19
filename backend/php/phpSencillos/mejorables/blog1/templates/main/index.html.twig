@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    {% if is_granted("ROLE_ADMIN") %}
+        <button><a href="/category/new">Crear categoria</a></button>
+    {% endif %}
+    <br/>
+    Categories:
+    {% for category in categories %}
+         <li><a href="category/{{ category.id }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% endblock %}

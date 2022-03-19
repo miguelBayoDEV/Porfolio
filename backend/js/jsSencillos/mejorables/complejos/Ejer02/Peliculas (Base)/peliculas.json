@@ -1,0 +1,34 @@
+{
+    "movies": [
+        {
+            "title": "El Padrino",
+            "year": "1972",
+            "genre": "Drama",
+            "director": "Francis Ford Copolla"
+        },
+        {
+            "title": "Superbad",
+            "year": "2007",
+            "genre": "Comedia",
+            "director": "Greg Mottola"
+        },
+        {
+            "title": "Los Infiltrados",
+            "year": "2006",
+            "genre": "Drama",
+            "director": "Martin Scorsese"
+        },
+        {
+            "title": "Salvar al Soldado Ryan",
+            "year": "1998",
+            "genre": "Accion",
+            "director": "Steven Spielberg"
+        },
+        {
+            "title": "Los Indestructibles",
+            "year": "2010",
+            "genre": "Accion",
+            "director": "Sylvester Stallone"
+        }
+    ]
+}

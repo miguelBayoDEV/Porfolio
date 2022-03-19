@@ -1,0 +1,41 @@
+<html>  
+  <head>  
+    <meta charset="utf-8"> 
+    <title>Manipular DOM</title> 
+  </head>  
+  <body> 
+   
+    <script type="text/javascript">
+     var nuevaTabla = document.createElement('table');
+     nuevaTabla.style.border="1px solid black";
+     nuevaTabla.style.width="25%";
+     nuevaTabla.style.height="50%";
+     nuevaTabla.style.margin="auto";
+     var fila;
+     var celda;
+     for (var i=0; i<8; i++)
+     {
+         fila = document.createElement('tr'); 
+         fila.style.border="1px solid black";
+         for (var j=0; j<8; j++)
+         {  
+              celda=document.createElement('td');
+              celda.style.border="1px solid black";
+              celda.style.backgroundColor="white";
+              celda.addEventListener("click",cambiarcolor,false);
+              fila.appendChild(celda);
+         }
+         nuevaTabla.appendChild(fila); 
+     }
+    document.body.appendChild(nuevaTabla); 
+    function cambiarcolor()
+    {
+      //alert (this.style.backgroundColor);
+      if (this.style.backgroundColor=="white")
+          this.style.backgroundColor="black";
+      else
+          this.style.backgroundColor="white";
+    }
+    </script> 
+  </body> 
+</html> 

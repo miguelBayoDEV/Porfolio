@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Ejercicio 1 eventos</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div id="elementosTag">
+			<h3>Modificacion tamaño texto</h3>
+			<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting
+			industry
+			Lorem Ipsum has been the industry's standard dummy text ever since
+			the1500s, when an unknown printer íook a galley of type and scrambled
+			it to make a type specimen book
+			</p>
+			<p>
+			It is a long established fact that a reader will be distracted by the
+			readable content of a page when looking at its layout
+			</p>
+			<p>
+			There are many variations of passages of Lorem Ipsum available, but the
+			majority have suffered alteration in some form, by injected humour, or
+			randomised words which don't look even slightly believable
+			</p>
+			<p>
+			Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus
+			Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written
+			in 45 BC
+			</p>
+		</div>
+		<span>Seleccionar Tamaño de la fuente:</span>
+		<!-- Añade mas opciones a la lista desplegable de tamaño de fuente. -->
+		<select id="cboSize">
+			<option value="small">Pequeña</option>
+			<option value="medium">Mediana</option>
+			<option value="larger">Grande</option>
+			<option value="7px">7px</option>
+			<option value="17px">17px</option>
+			<option value="27px">27px</option>
+			<option value="37px">37px</option>
+		</select>
+
+		<!-- Lista desplegable color. -->
+		<select id="color">
+			<option value="green">Verde</option>
+			<option value="red">Rojo</option>
+			<option value="blue">Azul</option>
+			<option value="yellow">Amarillo</option>
+			<option value="orange">Naranja</option>
+			<option value="olive">Oliva</option>
+			<option value="purple">Morado</option>
+		</select>
+
+		<button id="actualizar" onClick="modificarSize();">Cambiar</button>
+
+		<!-- Código JavaScript -->
+		<script type="text/javascript">
+			
+			// Eliminar botón
+			document.body.removeChild(document.getElementById("actualizar"));
+
+			function modificarSize() {
+				// alert(document.getElementById("cboSize").value);
+				var div = document.getElementById("elementosTag");
+
+				// Esta opción resetea los valores
+				//div.setAttribute("style", valor);
+				div.style.fontSize = this.value;
+			}
+
+			// Función color
+			function cambiarColor() {
+				var div = document.getElementById("elementosTag");
+
+				//Color
+				//div.setAttribute("style", "color:" + this.value);
+				div.style.color = this.value;
+			}
+
+			// Registro de eventos avanzado
+			document.getElementById("cboSize").addEventListener("change", modificarSize, false);
+
+			// No ha hecho falta modificar la función modificarSize().
+
+			// Añade en el código HTML una lista desplegable para poder modificar el color de la fuente. Usa el modelo de registro avanzado de eventos según w3c. Trata de usar la palabra reservada this en la función.
+			document.getElementById("color").addEventListener("change", cambiarColor, false);
+
+
+		</script>
+	</body>
+</html>

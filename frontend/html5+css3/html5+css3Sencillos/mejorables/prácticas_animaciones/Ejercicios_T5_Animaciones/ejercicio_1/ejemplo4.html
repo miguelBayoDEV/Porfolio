@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejemplo 2</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#divloco {
+			margin-top: 500px;
+		}
+		#divloco div {
+		   height: 100px;
+		   width: 100px;
+		   border: 1px solid #f00;
+		   margin: 10px auto;
+		   background: #ccc;
+		   text-align: center;
+		   transition: all 2s ease-in-out;
+		}
+		#divloco div:hover, #divloco div.hover_effect {
+			transform: rotate(720deg) scale(2,2);
+		}
+	</style>
+</head>
+<body>
+	<div id="divloco"><div>Mouse over para que este se vuelva loco</div></div>
+</body>
+</html>

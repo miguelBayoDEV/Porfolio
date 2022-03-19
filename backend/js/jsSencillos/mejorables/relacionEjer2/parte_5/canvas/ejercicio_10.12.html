@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 10.12</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Crea una página que tenga el siguiente aspecto.</h1>
+
+	<canvas id="lienzo" width="1500" height="1500"></canvas>
+
+	<script type="text/javascript">
+		const lienzo = document.getElementById("lienzo");
+		const contexto = lienzo.getContext("2d");
+
+		// Texto
+		contexto.font = '25px Sans-Serif';
+		contexto.fillText('Grafico en Canvas con imagen de fondo y usando JavaScript', 20, 20);
+
+		// Gráfico
+		var img = new Image();
+		img.onload = function() {
+		    contexto.drawImage(img, 20, 30);
+		    contexto.beginPath();
+		    contexto.moveTo(50, 126);
+		    contexto.lineTo(90, 96);
+		    contexto.lineTo(123, 106);
+		    contexto.lineTo(190, 45);
+		    contexto.stroke();
+		    contexto.closePath();
+		};
+
+		// Imagen de directorio img
+		img.src = 'img/img.png';
+	</script>
+</body>
+</html>

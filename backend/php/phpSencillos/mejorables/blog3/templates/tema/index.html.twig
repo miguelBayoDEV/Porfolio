@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tema index{% endblock %}
+
+{% block body %}
+    <h1>Tema index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Fecha</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tema in temas %}
+            <tr>
+                <td>{{ tema.id }}</td>
+                <td>{{ tema.titulo }}</td>
+                <td>{{ tema.descripcion }}</td>
+                <td>{{ tema.fecha ? tema.fecha|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ tema.status ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('tema_show', {'id': tema.id}) }}">show</a>
+                    <a href="{{ path('tema_edit', {'id': tema.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

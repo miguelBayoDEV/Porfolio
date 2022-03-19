@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Comentary index{% endblock %}
+
+{% block body %}
+    <h1>Comentary index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Author</th>
+                <th>Text</th>
+                <th>DatePublication</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comentary in comentaries %}
+            <tr>
+                <td>{{ comentary.id }}</td>
+                <td>{{ comentary.author }}</td>
+                <td>{{ comentary.text }}</td>
+                <td>{{ comentary.datePublication ? comentary.datePublication|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ comentary.status ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('comentary_show', {'id': comentary.id}) }}">show</a>
+                    <a href="{{ path('comentary_edit', {'id': comentary.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comentary_new') }}">Create new</a>
+{% endblock %}

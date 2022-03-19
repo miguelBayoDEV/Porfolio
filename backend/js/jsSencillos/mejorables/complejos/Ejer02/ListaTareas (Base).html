@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>Lista de Tareas Pendientes ejercicio 2: Miguel Ángel Puerta Bayo</title>
+        <style>
+            
+            *{box-sizing:border-box;padding:0;margin:0;}
+            #container{
+                width:600px;
+                padding:2%;
+                border:1px solid #000;
+                border-radius:10px;
+                background-color:#f0f0f0;
+                margin:auto;
+            }
+            
+            #container p{
+                font-style:italic;
+                margin:20px auto;
+            }
+            
+            label{
+                display:block;
+                font-weight:bold;
+            }
+            input{
+                display:inline-block;
+                width:49%;
+                margin:20px auto;
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+       <div id="container">
+        <form action="#" method="get">
+            <label for="anadir">Mi lista de Tareas Pendientes:</label>
+            <input type="text" name="anadir" id="anadir">
+            <input type="button" value="Añadir a la lista">
+        </form>    
+        
+        <ul id="listaTareas"></ul>
+        
+        <p>Nota: Puedes eliminar elementos de la lista haciendo doble click sobre ellos</p>
+       </div>
+
+       <!-- El código JavaScript se ejecutará cuando la página esté totalmente cargada. Lo cumple porque el script está al final de la página. -->
+        <script>
+
+            // Al pulsar Intro también se añadirán elementos a la lista. El número 13 del if es el código que tiene la tecla enter en la propiedad keyCode de keypress.
+            function addElementEnter(e) {
+
+                if(e.keyCode == "13") {
+                    addElement(e);
+
+                    // Resetear valor del cuadro de texto:
+                    document.getElementById("anadir").value = "";
+                }
+            }
+            
+            // Función añadir nuevo elemento a la lista:
+            function addElement(e) {
+
+                // No recargar la página al hacer el formulario:
+                e.preventDefault();
+
+                // En caso que el campo de texto esté vacío no se añadirá nada a la lista.
+                if(document.getElementById("anadir").value != "") {
+                     // Crear elemento:
+                    var lista = document.createElement("li");
+                    var texto = document.createTextNode(document.getElementById("anadir").value);
+
+                    // Para eliminar elementos lista se hará con un doble click.
+                    lista.addEventListener("dblclick", removeElement, false);
+
+                    // Asociar al DOM:
+                    lista.appendChild(texto);
+                    document.getElementById("listaTareas").appendChild(lista);
+
+                    // Resetear valor del cuadro de texto:
+                    document.getElementById("anadir").value = "";
+                }
+
+            }
+
+            // Para eliminar elementos lista se hará con un doble click.
+            function removeElement() {
+                this.parentNode.removeChild(this);
+            }
+
+
+            // Modelos de registro de W3C
+            document.getElementsByTagName("input")[1].addEventListener("click", addElement, false);
+            document.getElementsByTagName("input")[0].addEventListener("keypress", addElementEnter, false);
+
+        </script>
+    </body>
+</html>

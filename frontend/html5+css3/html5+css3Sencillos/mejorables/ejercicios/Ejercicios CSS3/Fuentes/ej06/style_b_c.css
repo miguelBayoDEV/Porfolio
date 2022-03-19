@@ -1,0 +1,37 @@
+* {
+	padding: auto;
+}
+
+.h1 {
+	border-bottom: 2px solid #00F;
+	padding: 0px;
+}
+
+.h2 {
+	border: 2px solid #AAA;
+	padding-left: 0px;
+}
+
+#ul1 {
+	border-top: 4px dotted #F00;
+	border-bottom: 4px dotted #F00;
+	padding-left: 50px;
+}
+
+#ul2 {
+	border: 2px dashed #0F0;
+	padding-left: 50px;
+	margin-top: 15px;
+}
+
+.ul li {
+	margin-bottom: 15px;
+}
+
+#ultimo1 {
+	margin-bottom: 0px;
+}
+
+#ultimo2 {
+	margin-bottom: 0px;
+}

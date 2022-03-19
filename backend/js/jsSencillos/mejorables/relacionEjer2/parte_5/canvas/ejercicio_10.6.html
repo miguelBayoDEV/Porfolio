@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 10.6</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Crea una página que consiga mostrar la siguiente figura.</h1>
+
+	<canvas id="lienzo" width="500" height="500"></canvas>
+
+	<script type="text/javascript">
+		const lienzo = document.getElementById("lienzo");
+		const contexto = lienzo.getContext("2d");
+		// Triángulo con relleno
+		contexto.beginPath();
+	    contexto.moveTo(50, 50);
+	    contexto.lineTo(210, 50);
+	    contexto.lineTo(50, 210);
+	    contexto.closePath();
+	    contexto.fill();
+
+		// Triángulo sin relleno
+		contexto.beginPath();
+		contexto.lineWidth = 1.5;
+	    contexto.moveTo(250, 250);
+	    contexto.lineTo(250, 90);
+	    contexto.lineTo(90, 250);
+	    contexto.closePath();
+	    contexto.stroke();
+	</script>
+</body>
+</html>

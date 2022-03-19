@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 20</title>
+		<style>
+			#recuadro {
+				position:relative;
+				height:100px;
+				width:300px;
+				text-align:center;
+				font-size:10px;
+				border-width:5px;
+				border-style:solid;
+				border-color:#000;
+				-webkit-animation-name:animacion;
+				-webkit-animation-duration:10s;
+				-webkit-animation-iteration-count:3;
+				-webkit-animation-direction:alternate;
+				-webkit-animation-timing-function:linear;
+				-webkit-animation-delay:3s;
+			}
+			@-webkit-keyframes animacion {
+				from{bottom:0px;
+					color:#f00;
+				}
+				to {bottom:-200px;
+					color:#00f;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<article id="recuadro">
+			<h2>Animación que cambie de color en una distancia.</h2>
+		</article>
+	</body>
+</html>

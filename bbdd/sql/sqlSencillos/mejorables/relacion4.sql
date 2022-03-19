@@ -1,0 +1,63 @@
+/*DROP DATABASE relacion4;*/
+CREATE DATABASE relacion4;
+
+/*Crear tabla*/
+CREATE TABLE MASCOTAS (
+ID_MASCOTA INT PRIMARY KEY,
+NOMBRE VARCHAR(30),
+ESPECIE VARCHAR(1),
+SEXO VARCHAR(1),
+UBICACION VARCHAR(6),
+ESTADO VARCHAR(1)
+);
+
+/*Insertar datos*/
+INSERT INTO MASCOTAS VALUES
+('1',"Budy","P","M","E05","B"),
+('2',"Pipo","P","M","E02","B"),
+('3',"Nuna","P","H","E02","A"),
+('4',"Bruts","P","M","E03","A"),
+('5',"Americo","G","M","E04","A"),
+('6',"Sombra","P","H","E05","A"),
+('7',"Amaya","G","H","E04","A"),
+('8',"Talia","G","H","E01","B"),
+('9',"Trabis","P","M","E02","A"),
+('10',"Tesa","G","H","E01","A"),
+('11',"Titito","G","M","E04","B"),
+('12',"Truca","P","H","E02","A"),
+('13',"Zulay","P","H","E02","A"),
+('14',"Dandi","G","M","E04","A"),
+('15',"Ras","G","M","E01","A"),
+('16',"Canela","P","H","E02","A");
+
+/*Consultas*/
+SELECT COUNT(ID_MASCOTA) AS CONTADOR_MASCOTA, SEXO
+FROM MASCOTAS
+WHERE ESTADO="A"
+GROUP BY SEXO;
+
+SELECT COUNT(ID_MASCOTA) AS CONTADOR_MASCOTA, UBICACION
+FROM MASCOTAS
+WHERE ESTADO="A"
+GROUP BY UBICACION;
+
+SELECT COUNT(ID_MASCOTA) AS CONTADOR_MASCOTA, ESPECIE, SEXO
+FROM MASCOTAS
+WHERE ESTADO="A"
+GROUP BY ESPECIE, SEXO;
+
+/*Devuelve nº de ejemplares vivientes o actuales que están de alta en el centro agrupados por ubicación, especie y sexo*/
+
+SELECT COUNT(ID_MASCOTA) AS CONTADOR_MASCOTA, ESPECIE
+FROM MASCOTAS
+WHERE ESTADO="B"
+GROUP BY ESPECIE;
+
+SELECT COUNT(ID_MASCOTA) AS CONTADOR_MASCOTA, ESPECIE, UBICACION
+FROM MASCOTAS
+WHERE ESPECIE="P" AND SEXO="M" AND ESTADO="A"
+GROUP BY UBICACION;
+
+SELECT DISTINCT(ESPECIE), UBICACION
+FROM MASCOTAS
+WHERE ESTADO="A";

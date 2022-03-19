@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ejercicio 6.1.3</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h1>Programa que muestre un botón en la pantalla del navegador con el texto “Imprimir” y que al pulsarlo imprima la página actual.</h1>
+	<form>
+	 	<input type="button" value="Imprimir ventana actual" onclick="imprimir()"/>
+	</form>
+
+	<script type="text/javascript">
+		function imprimir(){
+			window.print();
+		}
+	</script>
+</body>
+</html>

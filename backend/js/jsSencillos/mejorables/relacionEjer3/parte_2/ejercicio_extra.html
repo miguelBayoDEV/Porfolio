@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio extra eventos</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		* {
+			margin: 0px;
+		}
+
+		#rojo {
+			background-color: red;
+		}
+
+		#amarillo {
+			background-color: yellow;
+		}
+
+		#azul {
+			background-color: blue;
+		}
+
+		#verde {
+			background-color: green;
+		}
+
+		.zones {
+			width: 50%;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+
+		// Ejercicio Extra: Divide la pantalla en 4 zonas iguales con colores rojo, amarillo, azul y verde. Al pulsar sobre una de ellas, debe aparecer un alert que nos indique el color del área sobre la que se ha hecho clic.
+
+		// Crear div de cada color y 50% ancho y 50% alto:
+		var rojo = document.createElement("div");
+		rojo.setAttribute("class", "zones");
+		rojo.setAttribute("id", "rojo");
+		var amarillo = document.createElement("div");
+		amarillo.setAttribute("class", "zones");
+		amarillo.setAttribute("id", "amarillo");
+		var azul = document.createElement("div");
+		azul.setAttribute("class", "zones");
+		azul.setAttribute("id", "azul");
+		var verde = document.createElement("div");
+		verde.setAttribute("class", "zones");
+		verde.setAttribute("id", "verde");
+
+		// Implementar los div en el padre (body):
+		document.body.appendChild(rojo);
+		document.body.appendChild(amarillo);
+		document.body.appendChild(azul);
+		document.body.appendChild(verde);
+
+		// Recargar página
+		window.onload = function (){
+			var div = document.getElementsByTagName("div");
+
+			for (var i=0; i<div.length; i++) {
+				
+				var h = (window.innerHeight / 2) + "px";
+				console.log(h);
+
+				div[i].style.height = h;
+
+				div[i].addEventListener("click", alerta, false);
+			 }
+		 }
+
+		// Método de alert:
+		function alerta() {
+			alert ("El color de área es: " + this.getAttribute("id"));
+		}
+
+	</script>
+</body>
+</html>
