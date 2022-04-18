@@ -1,3 +1,4 @@
+// Esto siempre se deberá poner
 ///<reference types="Cypress" />
 
 // describe sería el test suite
